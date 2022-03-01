@@ -1,6 +1,23 @@
 import express from 'express';
 import validUrl from 'valid-url';
-import {searchForTrackers} from './searchForTrackers.js';
+import redis from 'redis';
+
+const redisClient = redis.createClient({
+  url: 'redis://redis:6379'
+});
+
+redisClient.on("error", (err) => {
+  console.error("redis error", err)
+});
+redisClient.on("connect", () => {
+  console.log("connect redis");
+});
+
+redisClient.on("ready", () => {
+  console.log("redis ready");
+});
+await redisClient.connect();
+
 
 const app = express();
 const router = express.Router();
@@ -27,10 +44,10 @@ router.post('/site', async (req, res) => {
     return;
   }
   try{
-    let result = await searchForTrackers({url: req.body.url})
-    if (req.body?.filterResult?.length) result = filterResult(result, req.body.filterRequests);
+    await redisClient.rPush('site-queue', [{url: req.body.url}]);
+    //if (req.body?.filterResult?.length) result = filterResult(result, req.body.filterRequests);
     res.status(200);
-    res.send({status: 200, url: req.body.url, result});
+    res.send({status: 200, url: req.body.url});
   }catch (e){
     console.error(e);
     res.status(500);
