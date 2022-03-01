@@ -1,6 +1,6 @@
 # tracker checker
 
-a simple api to search for known trackers for a specific website
+a simple API to search for known trackers for a specific website
 
 ## start server
 ```
@@ -22,7 +22,7 @@ res.body
 
 #### curl example
 ```
-curl 127.0.0.1:3000/api/v1/site -H "Content-Type: application/json" -d '{"url":"https://54gradsoftware.de","filterResult":["trackers"]}';echo 
+curl 127.0.0.1:3000/API/v1/site -H "Content-Type: application/json" -d '{"url":"https://54gradsoftware.de","filterResult":["trackers"]}';echo 
 ```
 
 ### Objects
