@@ -3,7 +3,7 @@ import { io } from "socket.io-client";
 export class API {
   constructor({baseURL = '/socket'}) {
     this._baseUrl = baseURL;
-    this._socket = io(this._baseUrl);
+    this._socket = io(this._baseUrl, { transports: ['websocket', 'polling'] });
   }
 
   site(url, filterResult = ['trackers']){
