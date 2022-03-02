@@ -1,5 +1,5 @@
 {
-  "name": "tracker-checker",
+  "name": "helpers",
   "version": "1.0.0",
   "type": "module",
   "description": "",
@@ -9,11 +9,5 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.17.3",
-    "redis": "^4.0.4",
-    "socket.io": "^4.4.1",
-    "valid-url": "^1.0.9"
-  }
+  "license": "ISC"
 }

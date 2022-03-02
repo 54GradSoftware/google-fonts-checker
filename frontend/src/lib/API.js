@@ -1,14 +1,16 @@
-import axios from 'axios';
+import { io } from "socket.io-client";
 
 export class API {
-  constructor({baseURL = '/api/v1'}) {
+  constructor({baseURL = '/socket'}) {
     this._baseUrl = baseURL;
-    this._endpoint = axios.create({
-      baseURL
-    });
+    this._socket = io(this._baseUrl);
   }
 
-  async site(url){
-    return (await this._endpoint.post('/site', {url}))?.data;
+  site(url, filterResult = ['trackers']){
+    return new Promise(resolve => {
+      const id = Date.now();
+      this._socket.emit('site', {url, id, filterResult});
+      this._socket.once(`site:${id}`, resolve);
+    });
   }
 }

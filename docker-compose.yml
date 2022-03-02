@@ -15,8 +15,9 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./backend/:/home/node/app/
-    working_dir: /home/node/app/
+      - ./backend/:/home/node/app/backend/
+      - ./helpers/:/home/node/app/helpers/
+    working_dir: /home/node/app/backend
     environment:
       - NODE_ENV=production
     command: sh -c 'npm i && nodejs index.js'
@@ -31,8 +32,9 @@ services:
       dockerfile: ./docker/Dockerfile
     restart: always
     volumes:
-      - ./worker/:/app/
-    working_dir: /app/
+      - ./worker/:/app/worker/
+      - ./helpers/:/app/helpers/
+    working_dir: /app/worker
     environment:
       - NODE_ENV=production
     command: sh -c 'npm i && nodejs index.js'

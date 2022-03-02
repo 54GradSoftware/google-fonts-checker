@@ -11,9 +11,10 @@
     "axios": "^0.26.0",
     "core-js": "^3.8.3",
     "register-service-worker": "^1.7.2",
+    "socket.io-client": "^4.4.1",
+    "valid-url": "^1.0.9",
     "vue": "^3.2.13",
-    "vue-router": "^4.0.3",
-    "valid-url": "^1.0.9"
+    "vue-router": "^4.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",

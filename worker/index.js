@@ -1,23 +1,13 @@
-import redis from 'redis';
+import rs, {commandOptions} from 'redis';
 import {PuppeteerHandler} from './PuppeteerHandler.js';
-import {trackerList} from "./trackerList.js";
+import {trackerList} from './trackerList.js';
+import {logRedis} from '../helpers/logRedis.js';
 
-const redisClient = redis.createClient({
+const redis = rs.createClient({
   url: 'redis://redis:6379'
 });
-
-redisClient.on("error", (err) => {
-  console.error("redis error", err)
-});
-redisClient.on("connect", () => {
-  console.log("connect redis");
-});
-
-// wait for redis
-redisClient.on("ready", () => {
-  console.log("redis ready");
-});
-await redisClient.connect();
+logRedis(redis)
+await redis.connect();
 
 
 const tracer = new PuppeteerHandler();
@@ -30,15 +20,17 @@ const getTrackers = requests => {
   })).filter(req => !!req.matches.length);
 }
 
-const taskHandler = async () => {
-  if (!await tracer.isReady()) return;
-  const task = await redisClient.lPop(['site-queue']);
+const execTask = async task => {
   if (!task?.url) return;
-  let { requests } = await tracer.traceUrl(task.url);
-  await redisClient.publish('site-done', {
-    trackers: getTrackers(requests),
-    allRequests: requests,
-  });
+  const { requests } = await tracer.traceUrl(task.url);
+  const trackers = getTrackers(requests);
+  await redis.publish(`site:${task.socket}`, JSON.stringify({
+    trackers, allRequests: requests,
+  }));
 }
 
-setInterval(taskHandler, 500);
+while (true){
+  const { element } = await redis.blPop(commandOptions({ isolated: true }), 'site-queue', 0);
+  const task = JSON.parse(element);
+  await execTask(task);
+}

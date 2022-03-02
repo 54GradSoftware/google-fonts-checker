@@ -13,7 +13,7 @@ import {API} from '@/lib/API';
 import validUrl from 'valid-url';
 
 const url = ref('')
-const api = new API({baseURL: '/api/v1'});
+const api = new API({});
 
 const result = ref({});
 const checkForTrackers = async url => {
