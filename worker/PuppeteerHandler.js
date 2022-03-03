@@ -52,14 +52,15 @@ export class PuppeteerHandler{
           });
         },100);
       }catch (e) {
+        console.log(`failed, restart puppeteer`);
+        await this.close();
+        await this.init();
         if (retry-- < 1){
           reject(e);
           return;
         }
-        console.log(`failed, restart puppeteer`);
         console.error(e);
-        await this.close();
-        await this.init();
+        console.log('retry');
         resolve(this.traceUrl(url, retry));
       }
     });
