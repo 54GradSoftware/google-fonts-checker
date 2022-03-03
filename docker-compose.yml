@@ -12,8 +12,9 @@ services:
   backend:
     image: node:alpine
     restart: always
-    ports:
-      - "3000:3000"
+    expose:
+      - 3000
+      - 3001
     volumes:
       - ./backend/:/home/node/app/backend/
       - ./helpers/:/home/node/app/helpers/
@@ -45,8 +46,6 @@ services:
 
   frontend:
     image: node:alpine
-    expose:
-      - 8000
     volumes:
       - ./frontend/:/home/node/app/frontend/
     working_dir: /home/node/app/frontend
@@ -62,7 +61,5 @@ services:
       - "8080:8080"
     links:
       - backend
-      - frontend
     depends_on:
       - backend
-      - frontend

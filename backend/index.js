@@ -26,6 +26,7 @@ const filterResult = (result, filter) => Object.fromEntries(
 
 const io = new SocketIO(3001);
 io.on('connection', socket => {
+  console.log(`socket: ${socket.id} - connected`);
   socket.on('site', async msg => {
     if (msg?.url === undefined){
       socket.emit('site', {status: 400, message: 'url is undefined'});
@@ -36,12 +37,27 @@ io.on('connection', socket => {
       return;
     }
     try{
-      await redisSub.subscribe(`site:${socket.id}`, result => {
-        result = JSON.parse(result);
-        if (msg?.filterResult?.length) result = filterResult(result, msg.filterResult);
-        socket.emit(`site:${msg.id}`, {status: 200, url: msg.url, result});
+      const taskId = `site:${socket.id}:${msg.id}`;
+      console.log(`socket: ${socket.id} task: ${msg.id} - new task: ${msg.url}`);
+      await redisSub.subscribe(taskId, response => {
+        const res = JSON.parse(response);
+        if (res?.status === 'failed') {
+          redisSub.unsubscribe(taskId);
+          socket.emit(`site:${msg.id}`, {status: 500, url: msg.url});
+          console.log(`socket: ${socket.id} task: ${msg.id} - failed`);
+          return;
+        }
+        if (res?.status === 'done') {
+          redisSub.unsubscribe(taskId);
+          const result = msg?.filterResult?.length ? filterResult(res.result, msg.filterResult) : res.result;
+          socket.emit(`site:${msg.id}`, {status: 200, url: msg.url, result});
+          console.log(`socket: ${socket.id} task: ${msg.id} - done`);
+          return;
+        }
+        console.log(`socket: ${socket.id} task: ${msg.id} - unknown res: ${res}`);
       });
-      await redis.rPush('site-queue', [JSON.stringify({url: msg.url, socket: socket.id})]);
+      await redis.rPush('site-queue', [JSON.stringify({url: msg.url, socket: socket.id, id: msg.id})]);
+      console.log(`socket: ${socket.id} task: ${msg.id} - queued`);
     }catch (e) {
       console.error(e);
       socket.emit('site', {status: 500, message: 'server error'});
