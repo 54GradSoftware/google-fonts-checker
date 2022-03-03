@@ -10,12 +10,10 @@ export class API {
   }
 
   site(url, filterResult = ['trackers']){
-    console.log(url)
     return new Promise((resolve, reject) => {
       const id = Date.now();
       this._socket.emit('site', {url, id, filterResult});
       this._socket.on(`site:${id}`, res => {
-        console.log(res)
         if (res.status === 200) resolve(res.result);
         else reject(res);
       });
