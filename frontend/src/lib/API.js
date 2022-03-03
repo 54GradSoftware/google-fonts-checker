@@ -16,7 +16,7 @@ export class API {
       this._socket.emit('site', {url, id, filterResult});
       this._socket.on(`site:${id}`, res => {
         console.log(res)
-        if (res.status === 200) resolve(res);
+        if (res.status === 200) resolve(res.result);
         else reject(res);
       });
     });
