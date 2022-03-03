@@ -14,6 +14,7 @@ export class PuppeteerHandler{
         "--no-sandbox",
       ]
     });
+    this.page = await this.browser.newPage();
   }
 
   async close(){
@@ -21,34 +22,45 @@ export class PuppeteerHandler{
   }
 
   async isReady(){
-    return (await this.browser.pages())?.length === 1;
+    return new Promise(resolve=>{
+      setTimeout(()=>{
+        resolve(!this.page.tracing._recording);
+      },8);
+    });
   }
 
   async traceUrl(url, retry = 2){
     return new Promise(async (resolve, reject) => {
       try{
-        const page = await this.browser.newPage();
-        await page.tracing.start({categories: ['devtools.timeline']});
-        await page.goto(url);
+        await this.page.goto('about:blank');
+        await this.page.tracing.start({categories: ['devtools.timeline']});
+        await this.page.goto(url);
+        await Promise.any([
+          this.page.mainFrame().waitForNavigation({waitUntil: 'networkidle0'}),
+          new Promise(resolve => setTimeout(resolve,1000))
+        ]);
         //let screenshot = await page.screenshot();
-        let tracing = JSON.parse(await page.tracing.stop() || '{}')?.traceEvents?.filter(te => te.name === 'ResourceSendRequest');
-        await page.close();
-        resolve({
-          requests: [...tracing].map(te => ({
-            method: te?.args?.data.requestMethod,
-            url: te?.args?.data.url
-          })),
-          //screenshot: screenshot.toString('base64url')
-        });
+        let tracing = JSON.parse(await this.page.tracing.stop() || '{}')?.traceEvents?.filter(te => te.name === 'ResourceSendRequest');
+        //await this.page.close({runBeforeUnload: false});
+        setTimeout(()=>{
+          resolve({
+            requests: [...tracing].map(te => ({
+              method: te?.args?.data.requestMethod,
+              url: te?.args?.data.url
+            })),
+            //screenshot: screenshot.toString('base64url')
+          });
+        },100);
       }catch (e) {
         if (retry-- < 1){
           reject(e);
           return;
         }
-        console.log(`failed, retry in 500ms`)
-        setTimeout(() => {
-          resolve(this.traceUrl(url, retry))
-        }, 500);
+        console.log(`failed, restart puppeteer`);
+        console.error(e);
+        await this.close();
+        await this.init();
+        resolve(this.traceUrl(url, retry));
       }
     });
   };

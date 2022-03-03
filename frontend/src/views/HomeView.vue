@@ -12,7 +12,7 @@ import {ref} from 'vue';
 import {API} from '@/lib/API';
 import validUrl from 'valid-url';
 
-const url = ref('')
+const url = ref('https://54gradsoftware.de')
 const api = new API({});
 
 const result = ref({});
