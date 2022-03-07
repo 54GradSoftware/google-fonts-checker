@@ -15,7 +15,7 @@ defineProps({
 <style scoped lang="scss">
   .ThrobberLoading{
     width: max-content;
-    padding: 1.5rem;
+    padding: 1.5rem 2.5rem;
     background-color: #fff;
     border-radius: 1rem;
     box-shadow: #aaaa 2px 2px 4px;

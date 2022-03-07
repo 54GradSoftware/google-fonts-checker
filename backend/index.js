@@ -54,6 +54,7 @@ io.on('connection', socket => {
           console.log(`socket: ${socket.id} task: ${msg.id} - done`);
           return;
         }
+        if (res?.status === 'start') socket.emit(`site:${msg.id}`, {status: 102, message: 'processing'});
         console.log(`socket: ${socket.id} task: ${msg.id} - unknown res: ${res}`);
       });
       await redis.rPush('site-queue', [JSON.stringify({url: msg.url, socket: socket.id, id: msg.id})]);

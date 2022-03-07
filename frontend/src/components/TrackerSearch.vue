@@ -7,17 +7,19 @@
       <input type="text" v-model="url" placeholder="https://your.domain">
       <button type="submit">send</button>
     </form>
-    <TracingResult v-if="result" :result="result"/>
-    <div class="error" v-if="error">{{error}}</div>
   </div>
+  <div class="error" v-if="error">{{error}}</div>
 </template>
 
 <script setup>
-import {ref} from 'vue';
+import {ref, defineEmits} from 'vue';
 import {API} from '@/lib/API';
 import validUrl from 'valid-url';
-import TracingResult from '@/components/TracingResult.vue';
 import ThrobberLoading from '@/components/ThrobberLoading.vue';
+
+const emit = defineEmits({
+  result: null
+});
 
 const url = ref(localStorage.getItem('lastUrl')??'')
 const error = ref(undefined)
@@ -39,6 +41,7 @@ const checkForTrackers = async url => {
       if (res?.status === 102) loading.value = res.message ?? 'loading';
     });
     localStorage.setItem('lastUrl', url);
+    emit('result', result.value);
     loading.value = '';
   }catch (e) {
     error.value = 'failed to resolve';
@@ -50,6 +53,8 @@ const checkForTrackers = async url => {
 <style scoped lang="scss">
   .TrackerSearch{
     width: 100%;
+    display: flex;
+    justify-content: center;
     form{
       display: flex;
       width: 100%;
@@ -75,5 +80,9 @@ const checkForTrackers = async url => {
         cursor: pointer;
       }
     }
+  }
+  .error{
+    text-align: center;
+    color: #be1414;
   }
 </style>

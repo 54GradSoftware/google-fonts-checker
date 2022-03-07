@@ -3,7 +3,7 @@ import { io } from "socket.io-client";
 export class API {
   constructor({baseURL = '/socket.io'}) {
     this._baseUrl = baseURL;
-    this._socket = io('ws://127.0.0.1:8080', { transports: ['websocket', 'pulling'] });
+    this._socket = io({ transports: ['websocket', 'pulling'] });
     this._socket.once('connect', () => {
       console.log('connected')
     });

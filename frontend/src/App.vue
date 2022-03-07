@@ -1,7 +1,7 @@
 <template>
   <div class="top">
-    <div class="header">Tracker Checker</div>
     <router-view/>
+    <div class="header">Google Fonts Checker</div>
   </div>
   <div class="footer">footer</div>
 </template>
@@ -23,6 +23,9 @@ html, body{
       color: #fff;
       font-weight: bold;
       font-size: 1.2rem;
+      position: fixed;
+      top: 0;
+      width: 100%;
     }
   }
   .footer{
