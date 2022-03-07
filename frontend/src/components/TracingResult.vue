@@ -1,13 +1,13 @@
 <template>
   <div class="TracingResult">
-    <h2 class="title">Tracing Result:</h2>
+    <h2 class="title">Ergebniss:</h2>
     <div class="trackerList" v-if="result.trackers?.length">
-      <h3>Found Google Fonts</h3>
+      <h3>Google Fonts wurde erkannt!</h3>
       <div class="tracker" v-for="tracker in result.trackers" :key="tracker">
         <div class="name" @click="tracker.showDetails = !tracker.showDetails">{{tracker.name}}</div>
         <div class="details" v-if="tracker.showDetails">
           <TrackerInfoWrapper :tracker="tracker"/>
-          <b>Found in the following requests:</b>
+          <b>Gefunden in den folgenden Anfragen:</b>
           <div class="requestList">
             <div class="request" v-for="request in tracker.matches" :key="request">
               <div class="method">{{request.method}}</div>
@@ -17,7 +17,7 @@
         </div>
       </div>
     </div>
-    <div v-else>We found on use of externally implemented Google Fonts on your Site :D</div>
+    <div v-else>Wir haben keine externe keine Nutzung von Google Fonts erkannt :D</div>
   </div>
 </template>
 
@@ -58,13 +58,13 @@ defineProps({
           border: 1px #aaa solid;
           border-radius: .5rem;
           overflow: hidden;
-          margin-top: .75rem;
+          margin-top: 1rem;
           .request{
             background-color: #eee;
             padding: 1rem;
             display: flex;
             &:nth-child(even){
-              background-color: #ccc;
+              background-color: #ddd;
             }
             .method{
               font-weight: bold;

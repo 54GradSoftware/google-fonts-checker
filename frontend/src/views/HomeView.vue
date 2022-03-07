@@ -2,13 +2,20 @@
   <div class="home">
     <div class="wrapper">
       <div class="content">
-        <div class="top">
-          <div class="search">
-            <h1>Check your site for Google Fonts:</h1>
-            <TrackerSearch  @result="res=>result=res"/>
+        <div class="topWrapper">
+          <div class="top">
+            <div class="search">
+              <h1>Überprüfe deine Seite nach Google Fonts:</h1>
+              <TrackerSearch  @result="res=>result=res"/>
+              <a v-if="result === undefined" class="linkToWhyNotToUse" href="#WhyNotToUse">
+                <b>Warum kein Google Fonts verwenden?</b>
+                <div class="arrow">&#8675;</div>
+              </a>
+            </div>
           </div>
+          <TracingResult v-if="result" :result="result"/>
         </div>
-        <TracingResult v-if="result" :result="result"/>
+        <WhyNotToUse/>
       </div>
     </div>
   </div>
@@ -18,6 +25,7 @@
 import {ref} from 'vue';
 import TrackerSearch from '@/components/TrackerSearch.vue';
 import TracingResult from '@/components/TracingResult.vue';
+import WhyNotToUse from '@/components/WhyNotToUse.vue';
 
 const result = ref(undefined);
 </script>
@@ -25,7 +33,7 @@ const result = ref(undefined);
 <style scoped lang="scss">
   .home{
     width: 100%;
-    margin-top: 4rem;
+    margin-top: 8rem;
     .wrapper{
       width: 100%;
       display: flex;
@@ -35,17 +43,34 @@ const result = ref(undefined);
         padding: 1rem;
         max-width: 60rem;
         min-height: 100%;
-        .top{
-          position: relative;
-          display: block;
-          height: calc(100vh - 24rem);
-          min-height: 28rem;
-          .search{
-            h1{
-              text-align: center;
+        .topWrapper{
+          min-height: calc(100vh - 4rem);
+          margin-bottom: 4rem;
+          .top{
+            position: relative;
+            display: block;
+            height: calc(100vh - 24rem);
+            min-height: 28rem;
+            .search{
+              h1{
+                text-align: center;
+              }
+              position: sticky;
+              top: calc(50% - 8rem);
             }
-            position: sticky;
-            top: calc(50% - 8rem);
+          }
+        }
+        .linkToWhyNotToUse{
+          margin-top: 4rem;
+          text-align: center;
+          cursor: pointer;
+          color: #000;
+          text-decoration: none;
+          display: block;
+          .arrow{
+            margin-top: 2rem;
+            font-size: 4rem;
+            color: #444;
           }
         }
       }

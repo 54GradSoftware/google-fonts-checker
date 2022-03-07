@@ -3,7 +3,11 @@
     <router-view/>
     <div class="header">Google Fonts Checker</div>
   </div>
-  <div class="footer">footer</div>
+  <div class="footer">
+    Made with &#9829; by
+    <a href="https://54gradsoftware.de">54 Grad Software</a> -
+    <a href="https://54gradsoftware.de/impressum">Impressum</a>
+  </div>
 </template>
 
 <style lang="scss">
@@ -32,6 +36,9 @@ html, body{
     padding: 1rem;
     background-color: #222;
     color: #fff;
+    a{
+      color: #fff;
+    }
   }
 }
 </style>

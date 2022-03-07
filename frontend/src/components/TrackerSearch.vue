@@ -4,7 +4,7 @@
       <ThrobberLoading :info="loading"/>
     </div>
     <form v-else @submit.prevent="checkForTrackers(url)">
-      <input type="text" v-model="url" placeholder="https://your.domain">
+      <input type="text" v-model="url" placeholder="https://deine.domain">
       <button type="submit">send</button>
     </form>
   </div>
@@ -36,6 +36,7 @@ const checkForTrackers = async url => {
   loading.value = 'loading';
   error.value = '';
   result.value = undefined;
+  emit('result', undefined);
   try {
     result.value = await api.site(url, ['trackers'], res => {
       if (res?.status === 102) loading.value = res.message ?? 'loading';
