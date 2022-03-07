@@ -25,7 +25,7 @@ export class PuppeteerHandler{
     return new Promise(resolve=>{
       setTimeout(()=>{
         resolve(!this.page.tracing._recording);
-      },8);
+      },32);
     });
   }
 
@@ -42,15 +42,13 @@ export class PuppeteerHandler{
         //let screenshot = await page.screenshot();
         let tracing = JSON.parse(await this.page.tracing.stop() || '{}')?.traceEvents?.filter(te => te.name === 'ResourceSendRequest');
         //await this.page.close({runBeforeUnload: false});
-        setTimeout(()=>{
-          resolve({
-            requests: [...tracing].map(te => ({
-              method: te?.args?.data.requestMethod,
-              url: te?.args?.data.url
-            })),
-            //screenshot: screenshot.toString('base64url')
-          });
-        },100);
+        resolve({
+          requests: [...tracing].map(te => ({
+            method: te?.args?.data.requestMethod,
+            url: te?.args?.data.url
+          })),
+          //screenshot: screenshot.toString('base64url')
+        });
       }catch (e) {
         console.log(`failed, restart puppeteer`);
         await this.close();

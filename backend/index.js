@@ -43,20 +43,21 @@ io.on('connection', socket => {
         const res = JSON.parse(response);
         if (res?.status === 'failed') {
           redisSub.unsubscribe(taskId);
-          socket.emit(`site:${msg.id}`, {status: 500, url: msg.url});
+          socket.emit(`site:${msg.id}`, {status: 500, url: msg.url, message: 'failed'});
           console.log(`socket: ${socket.id} task: ${msg.id} - failed`);
           return;
         }
         if (res?.status === 'done') {
           redisSub.unsubscribe(taskId);
           const result = msg?.filterResult?.length ? filterResult(res.result, msg.filterResult) : res.result;
-          socket.emit(`site:${msg.id}`, {status: 200, url: msg.url, result});
+          socket.emit(`site:${msg.id}`, {status: 200, url: msg.url, result, message: 'done'});
           console.log(`socket: ${socket.id} task: ${msg.id} - done`);
           return;
         }
         console.log(`socket: ${socket.id} task: ${msg.id} - unknown res: ${res}`);
       });
       await redis.rPush('site-queue', [JSON.stringify({url: msg.url, socket: socket.id, id: msg.id})]);
+      socket.emit(`site:${msg.id}`, {status: 102, message: 'queued'});
       console.log(`socket: ${socket.id} task: ${msg.id} - queued`);
     }catch (e) {
       console.error(e);

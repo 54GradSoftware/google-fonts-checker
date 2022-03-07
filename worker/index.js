@@ -15,8 +15,8 @@ await tracer.init();
 console.log('started puppeteer');
 
 const getTrackers = requests => {
-  return [...trackerList].map(({name, match}) => ({
-    name, matches: requests.filter(req => match(req.url))
+  return [...trackerList].map(({name, match, ...props}) => ({
+    ...props, name, matches: requests.filter(req => match(req.url))
   })).filter(req => !!req.matches.length);
 }
 

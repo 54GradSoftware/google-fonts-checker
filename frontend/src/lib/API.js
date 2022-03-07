@@ -9,13 +9,14 @@ export class API {
     });
   }
 
-  site(url, filterResult = ['trackers']){
+  site(url, filterResult = ['trackers'], callback){
     return new Promise((resolve, reject) => {
       const id = Date.now();
       this._socket.emit('site', {url, id, filterResult});
       this._socket.on(`site:${id}`, res => {
+        callback(res);
         if (res.status === 200) resolve(res.result);
-        else reject(res);
+        else if (res.status >= 400) reject(res);
       });
     });
   }

@@ -1,6 +1,8 @@
 <template>
   <div class="TrackerSearch">
-    <div class="loading" v-if="loading">loading</div>
+    <div class="loading" v-if="loading">
+      <ThrobberLoading :info="loading"/>
+    </div>
     <form v-else @submit.prevent="checkForTrackers(url)">
       <input type="text" v-model="url" placeholder="https://your.domain">
       <button type="submit">send</button>
@@ -15,11 +17,12 @@ import {ref} from 'vue';
 import {API} from '@/lib/API';
 import validUrl from 'valid-url';
 import TracingResult from '@/components/TracingResult.vue';
+import ThrobberLoading from '@/components/ThrobberLoading.vue';
 
 const url = ref(localStorage.getItem('lastUrl')??'')
 const error = ref(undefined)
 const result = ref(undefined);
-const loading = ref(false);
+const loading = ref('');
 
 const api = new API({});
 const checkForTrackers = async url => {
@@ -28,16 +31,18 @@ const checkForTrackers = async url => {
     error.value = 'invalid url';
     return;
   }
-  loading.value = true;
+  loading.value = 'loading';
   error.value = '';
   result.value = undefined;
   try {
-    result.value = await api.site(url);
+    result.value = await api.site(url, ['trackers'], res => {
+      if (res?.status === 102) loading.value = res.message ?? 'loading';
+    });
     localStorage.setItem('lastUrl', url);
-    loading.value = false;
+    loading.value = '';
   }catch (e) {
     error.value = 'failed to resolve';
-    loading.value = false;
+    loading.value = '';
   }
 }
 </script>

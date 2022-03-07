@@ -48,7 +48,7 @@ defineProps({
         font-weight: bold;
         cursor: pointer;
         &:nth-child(even){
-          background-color: #aaa;
+          background-color: #ccc;
         }
       }
       .details{
@@ -61,9 +61,15 @@ defineProps({
             background-color: #eee;
             padding: 1rem;
             display: flex;
+            &:nth-child(even){
+              background-color: #ccc;
+            }
             .method{
               font-weight: bold;
               margin: 0 1rem;
+            }
+            .url{
+              word-break: break-word;
             }
           }
         }
