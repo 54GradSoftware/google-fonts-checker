@@ -28,6 +28,7 @@ const loading = ref('');
 
 const api = new API({});
 const checkForTrackers = async url => {
+  if (!url.match(/^http:\/\/|^https:\/\//)) url = url.replace(/^[a-zA-Z]+:\/\/|^/, 'https://');
   if (!validUrl.isUri(url)) {
     console.error('invalid url');
     error.value = 'invalid url';

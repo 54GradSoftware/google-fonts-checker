@@ -27,6 +27,11 @@
     und in den Webspace hochgeladen werden. Zum Beispiel mit einem FTP-Client. <br>
     Bei der Verwendung von Git müssen die Schriften einfach zum Projekt hinzugefügt werden.
   </p>
+  <h3>Sonstiges</h3>
+  <p>
+    Wenn du deine Website noch auf weitere Schwachstelllen testen möchtest,
+    kannst du folgendes Open Source Tool benutzen: <a href="https://webbkoll.dataskydd.net/en" target="_blank" rel="noreferrer">Webbkoll</a>
+  </p>
 </template>
 
 

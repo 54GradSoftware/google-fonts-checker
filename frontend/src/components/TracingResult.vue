@@ -1,6 +1,7 @@
 <template>
   <div class="TracingResult">
     <h2 class="title" ref="tracingResult">Ergebniss:</h2>
+    <b>{{result.url}}</b>
     <div class="trackerList" v-if="result.trackers?.length">
       <h3>Google Fonts wurde erkannt!</h3>
       <div class="tracker" v-for="tracker in result.trackers" :key="tracker">
@@ -17,7 +18,7 @@
         </div>
       </div>
     </div>
-    <div v-else>Wir haben keine externe keine Nutzung von Google Fonts erkannt :D</div>
+    <p v-else>Wir haben keine externe keine Nutzung von Google Fonts erkannt :D</p>
   </div>
 </template>
 
