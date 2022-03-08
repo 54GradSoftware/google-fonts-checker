@@ -1,6 +1,6 @@
 <template>
   <div class="TracingResult">
-    <h2 class="title">Ergebniss:</h2>
+    <h2 class="title" ref="tracingResult">Ergebniss:</h2>
     <div class="trackerList" v-if="result.trackers?.length">
       <h3>Google Fonts wurde erkannt!</h3>
       <div class="tracker" v-for="tracker in result.trackers" :key="tracker">
@@ -22,18 +22,19 @@
 </template>
 
 <script setup>
-import {defineProps} from 'vue';
+import {defineProps, onMounted, ref} from 'vue';
 import TrackerInfoWrapper from '@/components/TrackerInfoWrapper.vue'
 
 defineProps({
   result: Object
 });
 
+const tracingResult = ref(null);
+onMounted(() => tracingResult.value.scrollIntoView({block: 'center', behavior: 'smooth'}));
 </script>
 
 <style scoped lang="scss">
 .TracingResult{
-  margin: 1rem;
   text-align: center;
   .trackerList{
     .tracker{

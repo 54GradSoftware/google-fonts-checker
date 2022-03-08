@@ -7,10 +7,10 @@
             <div class="search">
               <h1>Überprüfe deine Seite nach Google Fonts:</h1>
               <TrackerSearch  @result="res=>result=res"/>
-              <a v-if="result === undefined" class="linkToWhyNotToUse" href="#WhyNotToUse">
+              <ScrollToAnchor v-if="result === undefined" class="linkToWhyNotToUse" to="WhyNotToUse">
                 <b>Warum kein Google Fonts verwenden?</b>
                 <div class="arrow">&#8675;</div>
-              </a>
+              </ScrollToAnchor>
             </div>
           </div>
           <TracingResult v-if="result" :result="result"/>
@@ -26,6 +26,7 @@ import {ref} from 'vue';
 import TrackerSearch from '@/components/TrackerSearch.vue';
 import TracingResult from '@/components/TracingResult.vue';
 import WhyNotToUse from '@/components/WhyNotToUse.vue';
+import ScrollToAnchor from '@/components/ScrollToAnchor.vue';
 
 const result = ref(undefined);
 </script>
@@ -40,7 +41,7 @@ const result = ref(undefined);
       justify-content: center;
       .content{
         width: 100%;
-        padding: 1rem;
+        padding: 1.5rem;
         max-width: 60rem;
         min-height: 100%;
         .topWrapper{
@@ -49,7 +50,7 @@ const result = ref(undefined);
           .top{
             position: relative;
             display: block;
-            height: calc(100vh - 24rem);
+            height: calc(100vh - 4rem);
             min-height: 28rem;
             .search{
               h1{
