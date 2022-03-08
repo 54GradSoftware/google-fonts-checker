@@ -5,8 +5,9 @@
   </div>
   <div class="footer">
     Made with &#9829; by
-    <a href="https://54gradsoftware.de">54 Grad Software</a> -
-    <a href="https://54gradsoftware.de/impressum">Impressum</a>
+    <a href="https://54gradsoftware.de" target="_blank" rel="noreferrer">54 Grad Software</a> -
+    <a href="https://54gradsoftware.de/impressum" target="_blank" rel="noreferrer">Impressum</a> -
+    <a href="https://54gradsoftware.de/datenschutz" target="_blank" rel="noreferrer">Datenschutz</a>
   </div>
 </template>
 
