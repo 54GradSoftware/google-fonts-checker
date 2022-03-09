@@ -36,7 +36,7 @@ const props = defineProps({
 });
 
 const tracingResult = ref(null);
-const urlToShare = ref(`${window.location.host}?url=${props.result.url}`);
+const urlToShare = ref(`${window.location.protocol}//${window.location.host}?url=${props.result.url}`);
 
 const copy = text => navigator.clipboard.writeText(text);
 
