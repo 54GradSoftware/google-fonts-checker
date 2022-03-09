@@ -31,12 +31,12 @@
 import {defineProps, onMounted, ref} from 'vue';
 import TrackerInfoWrapper from '@/components/TrackerInfoWrapper.vue'
 
-defineProps({
+const props = defineProps({
   result: Object
 });
 
 const tracingResult = ref(null);
-const urlToShare = ref(window.location.toString());
+const urlToShare = ref(`${window.location.host}?url=${props.result.url}`);
 
 const copy = text => navigator.clipboard.writeText(text);
 
