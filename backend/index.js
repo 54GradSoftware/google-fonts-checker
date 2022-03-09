@@ -18,7 +18,7 @@ await redisSub.connect();
 
 
 //helpers
-const validateUrl = url => validUrl.isUri(url);
+const validateUrl = url => validUrl.isWebUri(url);
 const filterResult = (result, filter) => Object.fromEntries(
   Object.entries(result).filter( ([key]) => filter.find(e => e === key) )
 );

@@ -3,7 +3,7 @@
     <router-view/>
     <div class="header">
       <div>Google Fonts Checker</div>
-      <a href="https://github.com/54GradSoftware/tracker-checker/tree/google-fonts-only" target="_blank" rel="noreferrer" class="github">
+      <a href="https://github.com/54GradSoftware/google-fonts-checker/" target="_blank" rel="noreferrer" class="github">
         <img src="./assets/GitHub-Mark-Light-64px.png" alt="GitHub Repository">
       </a>
     </div>
@@ -27,6 +27,7 @@ html, body{
   justify-content: space-between;
   min-height: 100%;
   font-family: system-ui, sans-serif;
+  line-height: 1.4;
   .top{
     .header{
       padding: 1rem;

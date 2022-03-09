@@ -5,14 +5,15 @@
     </div>
     <form v-else @submit.prevent="checkForTrackers(url)">
       <input type="text" v-model="url" placeholder="https://deine.domain">
-      <button type="submit">send</button>
+      <button type="submit">Start</button>
     </form>
   </div>
   <div class="error" v-if="error">{{error}}</div>
 </template>
 
 <script setup>
-import {ref, defineEmits} from 'vue';
+import {ref, defineEmits, onMounted} from 'vue';
+import {useRouter, useRoute} from 'vue-router';
 import {API} from '@/lib/API';
 import validUrl from 'valid-url';
 import ThrobberLoading from '@/components/ThrobberLoading.vue';
@@ -20,6 +21,8 @@ import ThrobberLoading from '@/components/ThrobberLoading.vue';
 const emit = defineEmits({
   result: null
 });
+const router = useRouter();
+const route = useRoute();
 
 const url = ref(localStorage.getItem('lastUrl')??'')
 const error = ref(undefined)
@@ -29,7 +32,7 @@ const loading = ref('');
 const api = new API({});
 const checkForTrackers = async url => {
   if (!url.match(/^http:\/\/|^https:\/\//)) url = url.replace(/^[a-zA-Z]+:\/\/|^/, 'https://');
-  if (!validUrl.isUri(url)) {
+  if (!validUrl.isWebUri(url)) {
     console.error('invalid url');
     error.value = 'invalid url';
     return;
@@ -45,11 +48,16 @@ const checkForTrackers = async url => {
     localStorage.setItem('lastUrl', url);
     emit('result', result.value);
     loading.value = '';
+    router.push(`?url=${result.value.url}`);
   }catch (e) {
     error.value = 'failed to resolve';
     loading.value = '';
   }
 }
+
+onMounted(()=>{
+  if (route.query?.url && validUrl.isWebUri(route.query?.url)) url.value = route.query.url;
+});
 </script>
 
 <style scoped lang="scss">

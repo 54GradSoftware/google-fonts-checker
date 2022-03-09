@@ -18,7 +18,12 @@
         </div>
       </div>
     </div>
-    <p v-else>Wir haben keine externe keine Nutzung von Google Fonts erkannt :D</p>
+    <p v-else>Wir haben keine externe Nutzung von Google Fonts erkannt :D</p>
+    <h3>Ergebniss teilen:</h3>
+    <div class="share">
+      <div class="url">{{urlToShare}}</div>
+      <button @click="copy(urlToShare)">URL&nbsp;kopieren</button>
+    </div>
   </div>
 </template>
 
@@ -31,6 +36,10 @@ defineProps({
 });
 
 const tracingResult = ref(null);
+const urlToShare = ref(window.location.toString());
+
+const copy = text => navigator.clipboard.writeText(text);
+
 onMounted(() => tracingResult.value.scrollIntoView({block: 'center', behavior: 'smooth'}));
 </script>
 
@@ -78,6 +87,26 @@ onMounted(() => tracingResult.value.scrollIntoView({block: 'center', behavior: '
           }
         }
       }
+    }
+  }
+  .share{
+    display: flex;
+    .url{
+      border: #aaa 1px solid;
+      padding: 1rem;
+      flex-grow: 1;
+      border-radius: 0.5rem 0 0 0.5rem;
+
+    }
+    button{
+      padding: 1rem;
+      background-color: #157aec;
+      border: 1px #157aec solid;
+      color: #fff;
+      border-radius: 0 0.5rem 0.5rem 0;
+      flex-grow: 1;
+      max-width: 8rem;
+      cursor: pointer;
     }
   }
 }
