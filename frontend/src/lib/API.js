@@ -15,7 +15,7 @@ export class API {
       this._socket.emit('site', {url, id, filterResult});
       this._socket.on(`site:${id}`, res => {
         callback(res);
-        if (res.status === 200) resolve(res.result);
+        if (res.status === 200) resolve({url:res.url, ...res.result});
         else if (res.status >= 400) reject(res);
       });
     });

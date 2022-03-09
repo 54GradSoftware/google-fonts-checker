@@ -26,7 +26,7 @@ html, body{
   flex-flow: column;
   justify-content: space-between;
   min-height: 100%;
-  font-family: system-ui;
+  font-family: system-ui, sans-serif;
   .top{
     .header{
       padding: 1rem;
