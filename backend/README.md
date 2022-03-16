@@ -7,23 +7,21 @@ a simple API to search for known trackers for a specific website
 node index.js
 ```
 
-## API
+## websocket API
 
-### /site - POST
+### site
 #### params:
 req.body
  - url: String
- - filterResult: Array\<keys>
+ - filterResult: Array\<String>
  
 res.body
- - status: [200, 400]
- - trackers: Array\<_Tracker_>
- - allRequests: Array\<_Request_>
-
-#### curl example
-```
-curl 127.0.0.1:3000/API/v1/site -H "Content-Type: application/json" -d '{"url":"https://54gradsoftware.de","filterResult":["trackers"]}';echo 
-```
+ - status: [200, 400, 500, 102]
+ - message: String
+ - url: String
+ - result: Object
+   - trackers: Array\<_Tracker_>
+   - allRequests: Array\<_Request_>
 
 ### Objects
 
@@ -33,3 +31,6 @@ curl 127.0.0.1:3000/API/v1/site -H "Content-Type: application/json" -d '{"url":"
 #### Tracker
  - name: String
  - matches: Array\<Request>
+ - slug: String
+ - showDetails: Boolean
+ - url: String
