@@ -1,6 +1,6 @@
 <template>
   <div class="TrackerInfoWrapper">
-    <component :is="comp" />
+    <component v-if="comp" :is="comp" />
   </div>
 </template>
 
@@ -11,7 +11,9 @@ const props = defineProps({
 });
 
 const snakeToCamel = string => string.split('-').map(a=>a.charAt(0).toUpperCase()+a.slice(1)).join('');
-const comp = ref(defineAsyncComponent(()=>import(`./TrackerInfo/${snakeToCamel(props.tracker.slug)}.vue`)));
+const comp = ref(defineAsyncComponent(
+  ()=>import(`./TrackerInfo/${snakeToCamel(props.tracker.slug)}.vue`).catch(()=>null)
+));
 </script>
 
 <style scoped>

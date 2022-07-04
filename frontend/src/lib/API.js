@@ -13,11 +13,13 @@ export class API {
     return new Promise((resolve, reject) => {
       const id = Date.now();
       this._socket.emit('site', {url, id, filterResult});
-      this._socket.on(`site:${id}`, res => {
+      let handler = res => {
         callback(res);
-        if (res.status === 200) resolve({url:res.url, ...res.result});
-        else if (res.status >= 400) reject(res);
-      });
+        if (res.status === 200) return resolve({url:res.url, ...res.result});
+        else if (res.status >= 400) return reject(res);
+        this._socket.once(`site:${id}`, handler);
+      }
+      this._socket.once(`site:${id}`, handler);
     });
   }
 }

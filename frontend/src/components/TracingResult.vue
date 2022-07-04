@@ -52,6 +52,7 @@ onMounted(() => tracingResult.value.scrollIntoView({block: 'center', behavior: '
       border: 1px #aaa solid;
       border-radius: .5rem;
       overflow: hidden;
+      margin-top: .5rem;
       .name{
         width: 100%;
         background-color: #eee;
