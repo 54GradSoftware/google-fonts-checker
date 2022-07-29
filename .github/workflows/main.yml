@@ -39,3 +39,6 @@ jobs:
 
       - name: CDK Synth
         run: cdk synth
+
+      - name: AWS Check
+        run: aws s3 ls
