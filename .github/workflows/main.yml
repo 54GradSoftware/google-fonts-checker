@@ -40,5 +40,7 @@ jobs:
       - name: CDK Synth
         run: cdk synth
 
-      - name: AWS Check
-        run: aws s3 ls
+      - name: Get target instances
+        run: aws ec2 describe-instances --query 'Reservations[*].Instances[*].[PublicIpAddress]' --filters Name=instance-state-name,Values=running Name=tag:aws:cloudformation:stack-name,Values=checker-fargate --output text
+
+
