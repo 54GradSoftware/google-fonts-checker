@@ -1,6 +1,7 @@
 import * as cdk from 'aws-cdk-lib'
-import { KeyPair } from 'cdk-ec2-key-pair'
+import {KeyPair} from 'cdk-ec2-key-pair'
 import {readFileSync} from "fs";
+import {AmazonLinuxCpuType} from "aws-cdk-lib/aws-ec2";
 
 class Checker extends cdk.Stack {
   constructor(scope: cdk.App, id: string, props?: cdk.StackProps) {

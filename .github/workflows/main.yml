@@ -60,7 +60,7 @@ jobs:
           script: |
             cd checker
             docker-compose -p google-fonts-checker down
-            rm -rf *
+            sudo rm -rf *
 
       - name: Copy files
         uses: appleboy/scp-action@master
@@ -81,4 +81,7 @@ jobs:
           port: 22
           script: |
             cd checker
+            cd frontend
+            mkdir dist
+            cd ..
             docker-compose -p google-fonts-checker up -d
