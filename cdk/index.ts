@@ -92,7 +92,8 @@ class Checker extends cdk.Stack {
       targets: [asg],
       healthCheck: {
         path: '/',
-        interval: cdk.Duration.minutes(1)
+        interval: cdk.Duration.seconds(30),
+        healthyThresholdCount: 2
       }
     });
     lb.addRedirect({
