@@ -51,6 +51,10 @@ jobs:
         id: ssh-key
         run: aws secretsmanager get-secret-value --secret-id ec2-ssh-key/checker-keypair/private --query SecretString --output text > cdk-key.pem && chmod 400 cdk-key.pem
 
+      - name: List
+        id: list
+        run: ls -l
+
       - name: Copy files
         uses: appleboy/scp-action@master
         with:
