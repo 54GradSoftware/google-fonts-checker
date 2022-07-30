@@ -57,6 +57,18 @@ jobs:
         id: list
         run: ls -l
 
+      - name: Docker compose down
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ steps.target-instance.outputs.instance }}
+          username: ec2-user
+          key_path: cdk-key.pem
+          port: 22
+          script: |
+            cd checker
+            docker-compose -p google-fonts-checker down
+            rm -rf *
+
       - name: Copy files
         uses: appleboy/scp-action@master
         with:
@@ -64,5 +76,17 @@ jobs:
           username: ec2-user
           key_path: cdk-key.pem
           port: 22
-          source: "docker-compose.yml,nginx.conf,backend/*,frontend/*"
+          source: "docker-compose.yml,nginx.conf,backend/*,frontend/*,helpers/*,worker/*"
           target: "checker"
+
+      - name: Docker compose up
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ steps.target-instance.outputs.instance }}
+          username: ec2-user
+          key_path: cdk-key.pem
+          port: 22
+          script: |
+            cd checker
+            docker-compose -p google-fonts-checker up -d
+
