@@ -64,5 +64,5 @@ jobs:
           username: ec2-user
           key_path: cdk-key.pem
           port: 22
-          source: "docker-compose.yml"
-          target: "test.yml"
+          source: "docker-compose.yml,nginx.conf,backend/*,frontend/*"
+          target: "checker"
