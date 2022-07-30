@@ -31,7 +31,7 @@ jobs:
       - name: Install AWS CDK
         run: 'sudo npm install -g aws-cdk'
 
-      - name: Install Requirements
+      - name: Install CDK Requirements
         run: 'yarn install'
 
       - name: CDK Version
@@ -51,10 +51,10 @@ jobs:
         id: ssh-key
         run: aws secretsmanager get-secret-value --secret-id ec2-ssh-key/checker-keypair/private --query SecretString --output text > cdk-key.pem && chmod 400 cdk-key.pem
 
-      - name: copy file via ssh password
+      - name: Copy files
         uses: appleboy/scp-action@master
         with:
-          host: ${{ steps.target-instance.outputs }}
+          host: 3.120.16.158
           key_path: cdk-key.pem
           port: 22
           source: "docker-compose.yml"
