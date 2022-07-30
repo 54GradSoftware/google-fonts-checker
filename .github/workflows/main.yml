@@ -48,7 +48,7 @@ jobs:
 
       - name: Get ssh key
         id: ssh-key
-        run: aws secretsmanager get-secret-value --secret-id ec2-ssh-key/checker-keypair/private --query SecretString --output text > cdk-key.pem && chmod 400 cdk-key.pem
+        run: aws secretsmanager get-secret-value --secret-id ec2-ssh-key/checker-ec2-keypair/private --query SecretString --output text > cdk-key.pem && chmod 400 cdk-key.pem
 
       - name: Docker compose down
         uses: appleboy/ssh-action@master

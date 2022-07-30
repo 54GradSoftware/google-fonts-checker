@@ -1,4 +1,5 @@
 import * as cdk from 'aws-cdk-lib'
+import { KeyPair } from 'cdk-ec2-key-pair'
 import {readFileSync} from "fs";
 
 class Checker extends cdk.Stack {
@@ -48,14 +49,12 @@ class Checker extends cdk.Stack {
     });
     checkerRole.addManagedPolicy(cdk.aws_iam.ManagedPolicy.fromAwsManagedPolicyName('AmazonSSMManagedInstanceCore'))
 
+    let keyName = 'checker-ec2-keypair';
     // Create a Key Pair to be used with this EC2 Instance
-    // Temporarily disabled since not compatible with AWS CDK 2 currently
-    // const key = new cdk.aws_ec2.KeyPair(this, 'KeyPair', {
-    //    name: 'checker-keypair',
-    //    description: 'Key Pair created with CDK Deployment',
-    // });
-    // key.grantReadOnPublicKey
-    // The aws key pair has to be created manually currently
+    const key = new KeyPair(this, 'KeyPair', {
+        name: keyName,
+        description: 'Key Pair created with CDK Deployment',
+    });
 
     const asg = new cdk.aws_autoscaling.AutoScalingGroup(this, 'checker-ec2-asg', {
       vpc,
@@ -69,10 +68,10 @@ class Checker extends cdk.Stack {
           cdk.aws_ec2.InstanceSize.MEDIUM,
       ),
       machineImage: new cdk.aws_ec2.AmazonLinuxImage({
-        generation: cdk.aws_ec2.AmazonLinuxGeneration.AMAZON_LINUX_2,
+        generation: cdk.aws_ec2.AmazonLinuxGeneration.AMAZON_LINUX_2
       }),
       healthCheck: cdk.aws_autoscaling.HealthCheck.ec2(),
-      keyName: 'checker-key-pair',
+      keyName: keyName,
       maxCapacity: 1
     });
     const userDataScript = readFileSync('ec2-startup.sh', 'utf8');
@@ -108,13 +107,13 @@ class Checker extends cdk.Stack {
       recordName: ''
     })
 
-    new cdk.CfnOutput(this, 'Download SSH Key Command', { value: 'aws secretsmanager get-secret-value --secret-id ec2-ssh-key/checker-keypair/private --query SecretString --output text > cdk-key.pem && chmod 400 cdk-key.pem' })
+    new cdk.CfnOutput(this, 'Download SSH Key Command', { value: 'aws secretsmanager get-secret-value --secret-id ec2-ssh-key/checker-ec2-keypair/private --query SecretString --output text > cdk-key.pem && chmod 400 cdk-key.pem' })
 
     let region = 'us-east-1';
     if (props && props.env && props.env.region) {
       region = props.env.region;
     }
-    //
+
     // // The SES setup is done manually
     // fargateAppService.taskDefinition.taskRole.addToPrincipalPolicy(
     //   new iam.PolicyStatement({
