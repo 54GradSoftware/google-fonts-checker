@@ -45,7 +45,9 @@ jobs:
 
       - name: Get target instance
         id: target-instance
-        run: echo "::set-output name=instance::aws ec2 describe-instances --query 'Reservations[*].Instances[*].[PublicIpAddress]' --filters Name=instance-state-name,Values=running Name=tag:aws:cloudformation:stack-name,Values=checker-fargate --output text"
+        run: |
+          instanceIp=$(aws ec2 describe-instances --query 'Reservations[*].Instances[*].[PublicIpAddress]' --filters Name=instance-state-name,Values=running Name=tag:aws:cloudformation:stack-name,Values=checker-fargate --output text)
+          echo "::set-output name=instance::$instanceIp"
 
       - name: Get ssh key
         id: ssh-key
