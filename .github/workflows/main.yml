@@ -40,7 +40,13 @@ jobs:
       - name: CDK Synth
         run: cdk synth
 
-      - name: Get target instances
+      - name: CDK Deploy Infrastructure
+        run: cdk deploy checker-fargate --require-approval never
+
+      - name: Get target instance
+        id: target-instance
         run: aws ec2 describe-instances --query 'Reservations[*].Instances[*].[PublicIpAddress]' --filters Name=instance-state-name,Values=running Name=tag:aws:cloudformation:stack-name,Values=checker-fargate --output text
 
-
+      - name: Get ssh key
+        id: ssh-key
+        run: aws secretsmanager get-secret-value --secret-id ec2-ssh-key/checker-keypair/private --query SecretString --output text > cdk-key.pem && chmod 400 cdk-key.pem

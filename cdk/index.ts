@@ -10,7 +10,6 @@ class Checker extends cdk.Stack {
     // Create VPC
     const vpc = new cdk.aws_ec2.Vpc(this, 'CheckerFargateAppVPC', { maxAzs: 2 });
 
-    // For the basis domain setup consult the Readme.MD (if there is one)
     const route53Zone = new cdk.aws_route53.HostedZone(this, 'checkerBackendRoute53Zone', {
       zoneName: domainName,
     });
@@ -33,19 +32,11 @@ class Checker extends cdk.Stack {
         cdk.aws_ec2.Port.tcp(22),
         'allow SSH access from anywhere',
     );
-
-    checkerSG.addIngressRule(
-        cdk.aws_ec2.Peer.anyIpv4(),
-        cdk.aws_ec2.Port.tcp(80),
-        'allow HTTP traffic from anywhere',
-    );
-
     checkerSG.addIngressRule(
         cdk.aws_ec2.Peer.anyIpv4(),
         cdk.aws_ec2.Port.tcp(8080),
         'allow HTTP traffic from anywhere',
     );
-
     checkerSG.addIngressRule(
         cdk.aws_ec2.Peer.anyIpv4(),
         cdk.aws_ec2.Port.tcp(443),
@@ -56,6 +47,14 @@ class Checker extends cdk.Stack {
       assumedBy: new cdk.aws_iam.ServicePrincipal('ec2.amazonaws.com'),
     });
     checkerRole.addManagedPolicy(cdk.aws_iam.ManagedPolicy.fromAwsManagedPolicyName('AmazonSSMManagedInstanceCore'))
+
+    // Create a Key Pair to be used with this EC2 Instance
+    // Temporarily disabled since not compatible with AWS CDK 2 currently
+    // const key = new cdk.aws_ec2.KeyPair(this, 'KeyPair', {
+    //    name: 'checker-keypair',
+    //    description: 'Key Pair created with CDK Deployment',
+    // });
+    // key.grantReadOnPublicKey
 
     // The aws key pair has to be created manually
     const asg = new cdk.aws_autoscaling.AutoScalingGroup(this, 'checker-ec2-asg', {
@@ -109,14 +108,14 @@ class Checker extends cdk.Stack {
       recordName: ''
     })
 
-    new cdk.CfnOutput(this, 'Download Key Command', { value: 'aws secretsmanager get-secret-value --secret-id ec2-ssh-key/cdk-keypair/private --query SecretString --output text > cdk-key.pem && chmod 400 cdk-key.pem' })
+    new cdk.CfnOutput(this, 'Download SSH Key Command', { value: 'aws secretsmanager get-secret-value --secret-id ec2-ssh-key/checker-keypair/private --query SecretString --output text > cdk-key.pem && chmod 400 cdk-key.pem' })
 
     let region = 'us-east-1';
     if (props && props.env && props.env.region) {
       region = props.env.region;
     }
     //
-    // // The SES configuration is done manually
+    // // The SES setup is done manually
     // fargateAppService.taskDefinition.taskRole.addToPrincipalPolicy(
     //   new iam.PolicyStatement({
     //     effect: iam.Effect.ALLOW,
