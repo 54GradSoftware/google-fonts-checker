@@ -45,7 +45,8 @@ jobs:
 
       - name: Get target instance
         id: target-instance
-        run: aws ec2 describe-instances --query 'Reservations[*].Instances[*].[PublicIpAddress]' --filters Name=instance-state-name,Values=running Name=tag:aws:cloudformation:stack-name,Values=checker-fargate --output text
+        echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
+        run: echo "::set-output name=instance::aws ec2 describe-instances --query 'Reservations[*].Instances[*].[PublicIpAddress]' --filters Name=instance-state-name,Values=running Name=tag:aws:cloudformation:stack-name,Values=checker-fargate --output text"
 
       - name: Get ssh key
         id: ssh-key
@@ -54,7 +55,7 @@ jobs:
       - name: Copy files
         uses: appleboy/scp-action@master
         with:
-          host: 3.120.16.158
+          host: ${{ steps.target-instance.outputs.instance }}
           key_path: cdk-key.pem
           port: 22
           source: "docker-compose.yml"
