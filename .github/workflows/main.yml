@@ -22,9 +22,6 @@ jobs:
       - name: install npm
         run: 'sudo apt update -y && sudo apt install nodejs npm -y'
 
-      - name: install JQ
-        run: 'sudo apt update -y && sudo apt install jq -y'
-
       - name: install AWS CLI
         run: 'sudo apt update -y && sudo apt install awscli -y'
 
@@ -52,10 +49,6 @@ jobs:
       - name: Get ssh key
         id: ssh-key
         run: aws secretsmanager get-secret-value --secret-id ec2-ssh-key/checker-keypair/private --query SecretString --output text > cdk-key.pem && chmod 400 cdk-key.pem
-
-      - name: List
-        id: list
-        run: ls -l
 
       - name: Docker compose down
         uses: appleboy/ssh-action@master
@@ -89,4 +82,3 @@ jobs:
           script: |
             cd checker
             docker-compose -p google-fonts-checker up -d
-

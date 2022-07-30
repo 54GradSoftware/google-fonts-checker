@@ -55,8 +55,8 @@ class Checker extends cdk.Stack {
     //    description: 'Key Pair created with CDK Deployment',
     // });
     // key.grantReadOnPublicKey
+    // The aws key pair has to be created manually currently
 
-    // The aws key pair has to be created manually
     const asg = new cdk.aws_autoscaling.AutoScalingGroup(this, 'checker-ec2-asg', {
       vpc,
       vpcSubnets: {
