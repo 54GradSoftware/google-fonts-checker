@@ -61,6 +61,7 @@ jobs:
         uses: appleboy/scp-action@master
         with:
           host: ${{ steps.target-instance.outputs.instance }}
+          username: ec2-user
           key_path: cdk-key.pem
           port: 22
           source: "docker-compose.yml"
