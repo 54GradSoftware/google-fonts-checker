@@ -65,11 +65,12 @@ class Checker extends cdk.Stack {
       role: checkerRole,
       securityGroup: checkerSG,
       instanceType: cdk.aws_ec2.InstanceType.of(
-          cdk.aws_ec2.InstanceClass.BURSTABLE2,
+          cdk.aws_ec2.InstanceClass.T4G,
           cdk.aws_ec2.InstanceSize.MEDIUM,
       ),
       machineImage: new cdk.aws_ec2.AmazonLinuxImage({
-        generation: cdk.aws_ec2.AmazonLinuxGeneration.AMAZON_LINUX_2
+        generation: cdk.aws_ec2.AmazonLinuxGeneration.AMAZON_LINUX_2,
+        cpuType: AmazonLinuxCpuType.ARM_64
       }),
       healthCheck: cdk.aws_autoscaling.HealthCheck.ec2(),
       keyName: keyName,
