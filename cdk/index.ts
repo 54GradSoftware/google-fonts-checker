@@ -117,22 +117,22 @@ class Checker extends cdk.Stack {
       region = props.env.region;
     }
 
-    // // The SES setup is done manually
-    // fargateAppService.taskDefinition.taskRole.addToPrincipalPolicy(
-    //   new iam.PolicyStatement({
-    //     effect: iam.Effect.ALLOW,
-    //     actions: [
-    //       'ses:SendEmail',
-    //       'ses:SendRawEmail',
-    //       'ses:SendTemplatedEmail',
-    //     ],
-    //     resources: [
-    //       `arn:aws:ses:${region}:${
-    //         cdk.Stack.of(this).account
-    //       }:identity/info@illusion-factory.de`,
-    //     ],
-    //   }),
-    // );
+    // The SES setup is done manually
+    asg.addToRolePolicy(
+      new cdk.aws_iam.PolicyStatement({
+        effect: cdk.aws_iam.Effect.ALLOW,
+        actions: [
+          'ses:SendEmail',
+          'ses:SendRawEmail',
+          'ses:SendTemplatedEmail',
+        ],
+        resources: [
+          `arn:aws:ses:${region}:${
+            cdk.Stack.of(this).account
+          }:identity/info@illusion-factory.de`,
+        ],
+      }),
+    );
 
   }
 }
