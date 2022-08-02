@@ -134,6 +134,8 @@ class Checker extends cdk.Stack {
       }),
     );
 
+    new cdk.CfnOutput(this, "Used Region For SES", { value: String(region) });
+
   }
 }
 
