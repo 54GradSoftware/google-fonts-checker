@@ -12,3 +12,5 @@ docker-compose -p google-fonts-checker down
 
 - `awsume checker-deployer`
 - `cdk deploy checker-fargate --require-approval never`
+
+ToDo: Adopt Documentation
