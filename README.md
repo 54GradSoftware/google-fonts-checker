@@ -7,4 +7,10 @@ Unsere Instanz ist erreichbar unter: https://google-fonts-checker.54gradsoftware
 ```
 cp docker-compose.yml.example docker-compose.yml
 docker-compose -p google-fonts-checker up -d
+docker-compose -p google-fonts-checker down
 ```
+
+- `awsume checker-deployer`
+- `cdk deploy checker-fargate --require-approval never`
+
+ToDo: Adopt Documentation

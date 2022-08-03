@@ -1,1 +1,13 @@
 docker-compose.yml
+package-lock.json
+cdk.out
+.idea
+node_modules
+frontend/package-lock.json
+backend/package-lock.json
+frontend/node_modules
+backend/node_modules
+frontend/dist
+worker/package-lock.json
+worker/node_modules
+yarn.lock

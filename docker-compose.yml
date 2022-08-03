@@ -21,7 +21,7 @@ services:
     working_dir: /home/node/app/backend
     environment:
       - NODE_ENV=production
-    command: sh -c 'npm i && nodejs index.js'
+    command: sh -c 'npm i && node index.js'
     links:
       - redis
     depends_on:
@@ -38,7 +38,7 @@ services:
     working_dir: /app/worker
     environment:
       - NODE_ENV=production
-    command: sh -c 'npm i && nodejs index.js'
+    command: sh -c 'npm i && node index.js'
     links:
       - redis
     depends_on:

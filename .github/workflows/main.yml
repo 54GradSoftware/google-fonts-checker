@@ -1,0 +1,87 @@
+on:
+  push:
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-central-1
+
+      - name: install npm
+        run: 'sudo apt update -y && sudo apt install nodejs npm -y'
+
+      - name: install AWS CLI
+        run: 'sudo apt update -y && sudo apt install awscli -y'
+
+      - name: Install AWS CDK
+        run: 'sudo npm install -g aws-cdk'
+
+      - name: Install CDK Requirements
+        run: 'yarn install'
+
+      - name: CDK Version
+        run: cdk --version
+
+      - name: CDK Synth
+        run: cdk synth
+
+      - name: CDK Deploy Infrastructure
+        run: cdk deploy checker-fargate --require-approval never
+
+      - name: Get target instance
+        id: target-instance
+        run: |
+          instanceIp=$(aws ec2 describe-instances --query 'Reservations[*].Instances[*].[PublicIpAddress]' --filters Name=instance-state-name,Values=running Name=tag:aws:cloudformation:stack-name,Values=checker-fargate --output text)
+          echo "::set-output name=instance::$instanceIp"
+
+      - name: Get ssh key
+        id: ssh-key
+        run: aws secretsmanager get-secret-value --secret-id ec2-ssh-key/checker-ec2-keypair/private --query SecretString --output text > cdk-key.pem && chmod 400 cdk-key.pem
+
+      - name: Docker compose down
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ steps.target-instance.outputs.instance }}
+          username: ec2-user
+          key_path: cdk-key.pem
+          port: 22
+          script: |
+            cd checker
+            docker-compose -p google-fonts-checker down
+            sudo rm -rf *
+
+      - name: Copy files
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ steps.target-instance.outputs.instance }}
+          username: ec2-user
+          key_path: cdk-key.pem
+          port: 22
+          source: "docker-compose.yml,nginx.conf,backend/*,frontend/*,helpers/*,worker/*"
+          target: "checker"
+
+      - name: Docker compose up
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ steps.target-instance.outputs.instance }}
+          username: ec2-user
+          key_path: cdk-key.pem
+          port: 22
+          script: |
+            cd checker
+            cd frontend
+            mkdir dist
+            cd ..
+            docker-compose -p google-fonts-checker up -d
