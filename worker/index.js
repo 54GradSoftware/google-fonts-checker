@@ -34,7 +34,7 @@ while (true){
     if (!(await tracer.isReady())) continue;
     const { element } = await redis.blPop(commandOptions({ isolated: true }), 'site-queue', 0);
     const task = JSON.parse(element);
-    console.log(`socket: ${task.socket} task: ${task.id} - received task: ${task.url}`);
+    console.log(`socket: ${task.socket} task: ${task.id} - received task ${task.url}`);
     await redis.publish(`site:${task.socket}:${task.id}`, '{"status":"start"}');
     await execTask(task).then(async result => {
       await redis.publish(`site:${task.socket}:${task.id}`, JSON.stringify({ status: 'done', result}));

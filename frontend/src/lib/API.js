@@ -9,10 +9,10 @@ export class API {
     });
   }
 
-  site(url, filterResult = ['trackers'], callback){
+  site(url, email, filterResult = ['trackers'], callback){
     return new Promise((resolve, reject) => {
       const id = Date.now();
-      this._socket.emit('site', {url, id, filterResult});
+      this._socket.emit('site', {url, id, filterResult, email});
       let handler = res => {
         callback(res);
         if (res.status === 200) return resolve({url:res.url, ...res.result});

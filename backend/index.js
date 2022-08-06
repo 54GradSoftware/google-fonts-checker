@@ -38,7 +38,7 @@ io.on('connection', socket => {
     }
     try{
       const taskId = `site:${socket.id}:${msg.id}`;
-      console.log(`socket: ${socket.id} task: ${msg.id} - new task: ${msg.url}`);
+      console.log(`socket: ${socket.id} task: ${msg.id} - new task: ${msg.url} for ${msg.email}`);
       await redisSub.subscribe(taskId, response => {
         const res = JSON.parse(response);
         if (res?.status === 'failed') {
