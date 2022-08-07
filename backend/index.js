@@ -2,6 +2,7 @@ import validUrl from 'valid-url';
 import rs from 'redis';
 import { Server as SocketIO } from 'socket.io';
 import {logRedis} from '../helpers/logRedis.js';
+import {sendNotificationMail} from "./email.js";
 
 const redis = rs.createClient({
   url: 'redis://redis:6379'
@@ -39,6 +40,9 @@ io.on('connection', socket => {
     try{
       const taskId = `site:${socket.id}:${msg.id}`;
       console.log(`socket: ${socket.id} task: ${msg.id} - new task: ${msg.url} for ${msg.email}`);
+      sendNotificationMail(msg.email).then(r => {
+        console.log("EMail sent successfully");
+      });
       await redisSub.subscribe(taskId, response => {
         const res = JSON.parse(response);
         if (res?.status === 'failed') {
