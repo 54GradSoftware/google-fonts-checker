@@ -5,7 +5,7 @@
     </div>
     <form v-else @submit.prevent="checkForTrackers(url, email)">
       <div class="EnterEmail">
-        <label>Bitte gebe Deine eMail-Adresse ein:</label><br>
+        <label>Bitte gebe Deine eMail-Adresse ein:</label>
         <input type="email" required v-model="email" class="email-input">
       </div>
       <div class="EnterUrl">
@@ -73,23 +73,36 @@ onMounted(()=>{
 </script>
 
 <style scoped lang="scss">
+    .EnterEmail {
+        label {
+            display:block;
+        }
+        input {
+            padding: 1rem;
+            border: 1px #aaa solid;
+            border-radius: .5rem;
+            box-shadow: #aaaa 2px 2px 4px;
+            width:250px;
+            margin: 0 auto;
+        }
+    }
     .checkbox-dsgvo {
         font-size:11px;
+        margin: 0 auto;
     }
   .TrackerSearch{
-    width: 100%;
+    width: 500px;
     display: flex;
     justify-content: center;
   }
-  .EnterUrl,
-  .EnterEmail {
+  .EnterUrl {
     display: flex;
     width: 100%;
     box-shadow: #aaaa 2px 2px 4px;
     border-radius: .5rem;
     align-items: center;
     max-width: 40rem;
-    margin: 1rem;
+    margin: 0 auto;
     input{
       padding: 1rem;
       border: 1px #aaa solid;

@@ -4,7 +4,7 @@
     <div class="header">
       <div>Google Fonts Checker</div>
       <a href="https://github.com/54GradSoftware/google-fonts-checker/" target="_blank" rel="noreferrer">
-        <img src="./assets/logo.png" alt="IllusionFACTORY" width="332" height="40" style="display:block;max-width:100%;height:auto;">
+        <img src="./assets/logo.png" alt="IllusionFACTORY" width="249" height="30" style="display:block;max-width:100%;height:auto;">
       </a>
     </div>
   </div>
