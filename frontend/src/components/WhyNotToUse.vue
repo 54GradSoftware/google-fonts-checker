@@ -6,13 +6,13 @@
       Dabei werden einige Daten an Google Übermittelt. So zum Beispiel:
     </p>
     <ul>
-      <li>deine IP-Adresse</li>
+      <li>IHre IP-Adresse</li>
       <li>die aufgerufene Webseite</li>
       <li>das verwendete Gerät bzw. Modell</li>
       <li>der verwendete Browser</li>
     </ul>
     <p>
-      Dadurch kann Google ein Nutzerprofil von dir anlegen und zum Beispiel relavante Werbung anzeigen.
+      Dadurch kann Google ein Nutzerprofil von Ihnen anlegen und zum Beispiel relavante Werbung anzeigen.
       Dadurch verstößt die Nutzung von Google Fonts je nach Anwendungsfall meist gegen die DSGVO.
     </p>
   </div>
