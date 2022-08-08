@@ -83,7 +83,7 @@ onMounted(()=>{
             border-radius: .5rem;
             box-shadow: #aaaa 2px 2px 4px;
             width:250px;
-            margin: 0 auto;
+            margin: 1rem;
         }
     }
     .checkbox-dsgvo {
@@ -91,9 +91,11 @@ onMounted(()=>{
         margin: 0 auto;
     }
   .TrackerSearch{
-    width: 500px;
+    max-width: 500px;
     display: flex;
     justify-content: center;
+    margin:0 auto;
+    text-align:center;
   }
   .EnterUrl {
     display: flex;
@@ -102,7 +104,7 @@ onMounted(()=>{
     border-radius: .5rem;
     align-items: center;
     max-width: 40rem;
-    margin: 0 auto;
+    margin: 1rem;
     input{
       padding: 1rem;
       border: 1px #aaa solid;
