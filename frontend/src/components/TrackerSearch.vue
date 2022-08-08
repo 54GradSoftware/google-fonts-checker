@@ -5,7 +5,7 @@
     </div>
     <form v-else @submit.prevent="checkForTrackers(url, email)">
       <div class="EnterEmail">
-        <label>Bitte gebe Deine E-Mail-Adresse ein:</label>
+        <label>Bitte geben Sie Ihre E-Mail-Adresse ein:</label>
         <input type="email" required v-model="email" class="email-input">
       </div>
       <div class="EnterUrl">
