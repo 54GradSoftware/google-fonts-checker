@@ -6,7 +6,7 @@
       Dabei werden einige Daten an Google Übermittelt. So zum Beispiel:
     </p>
     <ul>
-      <li>IHre IP-Adresse</li>
+      <li>Ihre IP-Adresse</li>
       <li>die aufgerufene Webseite</li>
       <li>das verwendete Gerät bzw. Modell</li>
       <li>der verwendete Browser</li>
