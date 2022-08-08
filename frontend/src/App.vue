@@ -4,15 +4,13 @@
     <div class="header">
       <div>Google Fonts Checker</div>
       <a href="https://github.com/54GradSoftware/google-fonts-checker/" target="_blank" rel="noreferrer" class="github">
-        <img src="./assets/GitHub-Mark-Light-64px.png" alt="GitHub Repository">
+        <img src="./assets/logo.png" alt="IllusionFACTORY" width="531" height="64">
       </a>
     </div>
   </div>
   <div class="footer">
-    Made with &#9829; by
-    <a href="https://54gradsoftware.de" target="_blank" rel="noreferrer">54 Grad Software</a> -
-    <a href="https://54gradsoftware.de/impressum" target="_blank" rel="noreferrer">Impressum</a> -
-    <a href="https://54gradsoftware.de/datenschutz" target="_blank" rel="noreferrer">Datenschutz</a>
+    <a href="https://www.illusion-factory.de/impressum.html" target="_blank" rel="noreferrer">Impressum</a> -
+    <a href="https://www.illusion-factory.de/datenschutz.html" target="_blank" rel="noreferrer">Datenschutz</a>
   </div>
 </template>
 
@@ -32,7 +30,7 @@ html, body{
     .header{
       padding: 1rem;
       box-sizing: border-box;
-      background-color: #088aaa;
+      background-color: #3171A6;
       color: #fff;
       font-weight: bold;
       font-size: 1.2rem;
@@ -52,7 +50,7 @@ html, body{
   }
   .footer{
     padding: 1rem;
-    background-color: #222;
+    background-color: #3171A6;
     color: #fff;
     a{
       color: #fff;
