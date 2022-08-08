@@ -4,16 +4,16 @@
       <ThrobberLoading :info="loading"/>
     </div>
     <form v-else @submit.prevent="checkForTrackers(url, email)">
-      <div>
-        <label>Bitte gebe Deine eMail-Adresse ein:</label>
-        <input type="email" required v-model="email" class="email-input"><br>
+      <div class="EnterEmail">
+        <label>Bitte gebe Deine eMail-Adresse ein:</label><br>
+        <input type="email" required v-model="email" class="email-input">
       </div>
       <div class="EnterUrl">
         <input type="text" v-model="url" placeholder="https://deine.domain">
         <button type="submit">Start</button>
       </div>
       <div class="checkbox-dsgvo">
-          <input type="checkbox" required v-model="checked"> Ja, ich möchte gerne das Ergebnis der Überprüfung per Mail erhalten. Wir nutzen verschlüsselte E-Mail-Kommunikation, um Ihre Privatsphäre zu gewährleisten. Ein Service der IllusionFACTORY KG, Max-Planck-Straße 15, 53819 Neunkirchen-Seelscheid. Wir speichern Ihre Mailadresse und dürfen Sie als Gegenleistung für diesen Service mit Angeboten zu Websites und Online-Marketing kontaktieren. Ihre Rechte gemäß DSGVO sind unbenommen. Unsere Datenschutzerklärung finden Sie unter <a href="https://www.illusion-factory.de/datenschutz.html" target="_blank">https://www.illusion-factory.de/datenschutz.html</a>.
+          <input type="checkbox" required v-model="checked" id="checkbox-dsgvo-input"> <label for="checkbox-dsgvo-input">Ja, ich möchte gerne das Ergebnis der Überprüfung per Mail erhalten. Wir nutzen verschlüsselte E-Mail-Kommunikation, um Ihre Privatsphäre zu gewährleisten. Ein Service der IllusionFACTORY KG, Max-Planck-Straße 15, 53819 Neunkirchen-Seelscheid. Wir speichern Ihre Mailadresse und dürfen Sie als Gegenleistung für diesen Service mit Angeboten zu Websites und Online-Marketing kontaktieren. Ihre Rechte gemäß DSGVO sind unbenommen. Unsere Datenschutzerklärung finden Sie unter <a href="https://www.illusion-factory.de/datenschutz.html" target="_blank">https://www.illusion-factory.de/datenschutz.html</a>.</label>
       </div>
     </form>
   </div>
@@ -76,22 +76,13 @@ onMounted(()=>{
     .checkbox-dsgvo {
         font-size:11px;
     }
-    label {
-        display:block;
-        font-weight:bold;
-    }
-    .email-input {
-        padding: 1rem;
-        border: 1px #aaa solid;
-        border-radius: .5rem;
-        width:250px;
-    }
   .TrackerSearch{
     width: 100%;
     display: flex;
     justify-content: center;
   }
-  .EnterUrl {
+  .EnterUrl,
+  .EnterEmail {
     display: flex;
     width: 100%;
     box-shadow: #aaaa 2px 2px 4px;
