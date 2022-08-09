@@ -1,14 +1,14 @@
 <template>
   <div class="TracingResult">
-    <h2 class="title" ref="tracingResult">Ergebniss:</h2>
+    <h2 class="title" ref="tracingResult">{{ $t('result.headline') }}</h2>
     <b>{{result.url}}</b>
     <div class="trackerList" v-if="result.trackers?.length">
-      <h3>Google Fonts wurde erkannt!</h3>
+      <h3>{{ $t('result.noticeTrue') }}</h3>
       <div class="tracker" v-for="tracker in result.trackers" :key="tracker">
         <div class="name" @click="tracker.showDetails = !tracker.showDetails">{{tracker.name}}</div>
         <div class="details" v-if="tracker.showDetails">
           <TrackerInfoWrapper :tracker="tracker"/>
-          <b>Gefunden in den folgenden Anfragen:</b>
+          <b>{{ $t('result.list.headline') }}</b>
           <div class="requestList">
             <div class="request" v-for="request in tracker.matches" :key="request">
               <div class="method">{{request.method}}</div>
@@ -18,11 +18,11 @@
         </div>
       </div>
     </div>
-    <p v-else>Wir haben keine externe Nutzung von Google Fonts erkannt :D</p>
-    <h3>Ergebniss teilen:</h3>
+    <p v-else>{{ $t('result.noticeFalse') }}</p>
+    <h3>{{ $t('result.copy.button') }}</h3>
     <div class="share">
       <div class="url">{{urlToShare}}</div>
-      <button @click="copy(urlToShare)">URL&nbsp;kopieren</button>
+      <button @click="copy(urlToShare)">{{ $t('result.copy.button') }}</button>
     </div>
   </div>
 </template>
@@ -97,7 +97,6 @@ onMounted(() => tracingResult.value.scrollIntoView({block: 'center', behavior: '
       padding: 1rem;
       flex-grow: 1;
       border-radius: 0.5rem 0 0 0.5rem;
-
     }
     button{
       padding: 1rem;

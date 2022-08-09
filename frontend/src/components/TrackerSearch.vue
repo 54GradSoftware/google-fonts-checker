@@ -4,7 +4,7 @@
       <ThrobberLoading :info="loading"/>
     </div>
     <form v-else @submit.prevent="checkForTrackers(url)">
-      <input type="text" v-model="url" placeholder="https://deine.domain">
+      <input type="text" v-model="url" :placeholder="$t('search.placeholder')">
       <button type="submit">Start</button>
     </form>
   </div>

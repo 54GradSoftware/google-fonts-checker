@@ -1,0 +1,11 @@
+{
+  "name": "Google Fonts Checker - 54 Grad Software",
+  "short_name": "Google Fonts Checker",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0082CC",
+  "orientation": "portrait-primary",
+  "default_locale": "de_DE",
+  "icons": ["/favicon.ico"]
+}

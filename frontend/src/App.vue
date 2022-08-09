@@ -9,12 +9,26 @@
     </div>
   </div>
   <div class="footer">
-    Made with &#9829; by
+    {{ $t('footer.madeWithLove', {icon: '&#9829;'}) }}
     <a href="https://54gradsoftware.de" target="_blank" rel="noreferrer">54 Grad Software</a> -
-    <a href="https://54gradsoftware.de/impressum" target="_blank" rel="noreferrer">Impressum</a> -
-    <a href="https://54gradsoftware.de/datenschutz" target="_blank" rel="noreferrer">Datenschutz</a>
+    <a href="https://54gradsoftware.de/impressum" target="_blank" rel="noreferrer">{{ $t('footer.imprint') }}</a> -
+    <a href="https://54gradsoftware.de/datenschutz" target="_blank" rel="noreferrer">{{ $t('footer.privacyNotice') }}</a>
   </div>
 </template>
+
+<script setup>
+import { watch } from 'vue';
+import { useRoute } from 'vue-router';
+import { useI18n } from 'vue-i18n';
+
+const route = useRoute();
+const i18n = useI18n();
+
+watch(() => route.params.locale, locale => {
+  i18n.locale._setter(locale.toString());
+});
+
+</script>
 
 <style lang="scss">
 html, body{
@@ -57,6 +71,18 @@ html, body{
     a{
       color: #fff;
     }
+  }
+  .button{
+    padding: 1rem;
+    background-color: #157aec;
+    border: 1px #157aec solid;
+    color: #fff;
+    border-radius: 0.5rem;
+    width: fit-content;
+    cursor: pointer;
+    display: block;
+    text-decoration: none;
+    margin: auto;
   }
 }
 </style>
