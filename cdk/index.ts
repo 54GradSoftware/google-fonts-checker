@@ -66,7 +66,7 @@ class Checker extends cdk.Stack {
       securityGroup: checkerSG,
       instanceType: cdk.aws_ec2.InstanceType.of(
           cdk.aws_ec2.InstanceClass.T4G,
-          cdk.aws_ec2.InstanceSize.MEDIUM,
+          cdk.aws_ec2.InstanceSize.SMALL,
       ),
       machineImage: new cdk.aws_ec2.AmazonLinuxImage({
         generation: cdk.aws_ec2.AmazonLinuxGeneration.AMAZON_LINUX_2,
@@ -83,6 +83,7 @@ class Checker extends cdk.Stack {
       vpc,
       internetFacing: true
     });
+
     const sslListener = lb.addListener('SSLCheckerListener', {
       protocol: cdk.aws_elasticloadbalancingv2.ApplicationProtocol.HTTPS,
       port: 443,
