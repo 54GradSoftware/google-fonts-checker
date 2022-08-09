@@ -1,6 +1,6 @@
 <template>
   <div class="TracingResult">
-    <h2 class="title" ref="tracingResult">Ergebniss:</h2>
+    <h2 class="title" ref="tracingResult">Ergebnis:</h2>
     <b>{{result.url}}</b>
     <div class="trackerList" v-if="result.trackers?.length">
       <h3>Google Fonts wurde erkannt!</h3>
@@ -19,7 +19,7 @@
       </div>
     </div>
     <p v-else>Wir haben keine externe Nutzung von Google Fonts erkannt :D</p>
-    <h3>Ergebniss teilen:</h3>
+    <h3>Ergebnis teilen:</h3>
     <div class="share">
       <div class="url">{{urlToShare}}</div>
       <button @click="copy(urlToShare)">URL&nbsp;kopieren</button>
