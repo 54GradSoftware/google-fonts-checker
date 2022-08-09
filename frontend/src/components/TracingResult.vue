@@ -19,7 +19,7 @@
       </div>
     </div>
     <p v-else>Wir haben keine externe Nutzung von Google Fonts erkannt :D</p>
-    <h3>Ergebniss teilen:</h3>
+    <h3>Ergebnis teilen:</h3>
     <div class="share">
       <div class="url">{{urlToShare}}</div>
       <button @click="copy(urlToShare)">URL&nbsp;kopieren</button>

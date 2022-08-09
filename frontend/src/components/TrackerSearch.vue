@@ -13,7 +13,7 @@
         <button type="submit">Start</button>
       </div>
       <div class="checkbox-dsgvo">
-          <input type="checkbox" required v-model="checked" id="checkbox-dsgvo-input"> <label for="checkbox-dsgvo-input">Ja, ich möchte gerne das Ergebnis der Überprüfung per Mail erhalten. Wir nutzen verschlüsselte E-Mail-Kommunikation, um Ihre Privatsphäre zu gewährleisten. Ein Service der IllusionFACTORY KG, Max-Planck-Straße 15, 53819 Neunkirchen-Seelscheid. Wir speichern Ihre Mailadresse und dürfen Sie als Gegenleistung für diesen Service mit Angeboten zu Websites und Online-Marketing kontaktieren. Ihre Rechte gemäß DSGVO sind unbenommen. Unsere Datenschutzerklärung finden Sie unter <a href="https://www.illusion-factory.de/datenschutz.html" target="_blank">https://www.illusion-factory.de/datenschutz.html</a>.</label>
+          <input type="checkbox" required v-model="checked" id="checkbox-dsgvo-input"> <label for="checkbox-dsgvo-input">Ja, ich möchte gerne das Ergebnis der Überprüfung per Mail erhalten. Wir nutzen verschlüsselte E-Mail-Kommunikation, um Ihre Privatsphäre zu gewährleisten. Ein Service der IllusionFACTORY KG, Max-Planck-Straße 15, 53819 Neunkirchen-Seelscheid. Wir speichern Ihre Mailadresse und dürfen Sie als Gegenleistung für diesen Service mit Angeboten zu Websites und Online-Marketing kontaktieren. Ihre Rechte gemäß DSGVO sind unbenommen. Für das Prüfungsergebnis übernehmen wir keine Haftung. Unsere Datenschutzerklärung finden Sie unter <a href="https://www.illusion-factory.de/datenschutz.html" target="_blank">https://www.illusion-factory.de/datenschutz.html</a>.</label>
       </div>
     </form>
   </div>
