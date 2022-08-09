@@ -1,5 +1,5 @@
 export const messages = {
-  en: {
+  'en-US': {
     search: {
       headline: 'Check your site for Google Fonts',
       whyNotToUse: 'Why not to use Google Fonts?',
@@ -89,7 +89,7 @@ export const messages = {
       privacyNotice: 'privacy notice',
     },
   },
-  de: {
+  'de-DE': {
     search: {
       headline: 'Überprüfe deine Seite nach Google Fonts',
       whyNotToUse: 'Warum kein Google Fonts verwenden?',

@@ -1,11 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '../views/HomeView.vue';
-import { i18n } from "@/main";
 
 const routes = [
   {
     path: '/',
-    redirect: () => ({ path: `/${ i18n.global.locale }` })
+    redirect: () => ({ path: `/${ navigator.language || navigator.userLanguage || 'de-DE' }` })
   },
   {
     path: '/:locale/',
@@ -16,7 +15,7 @@ const routes = [
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
+  routes,
 });
 
 export default router;

@@ -9,5 +9,12 @@ module.exports = defineConfig({
       maskIcon: "/favicon.ico",
       msTileImage: "/favicon.ico"
     }
+  },
+  terser: {
+    terserOptions: {
+      compress: {
+        drop_console: true
+      }
+    }
   }
 })
