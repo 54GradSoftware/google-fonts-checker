@@ -145,7 +145,7 @@ export const messages = {
     professionalAnalysis: {
       headline: 'Professionelle Analyse deiner Webseite erhalten:',
       section1:
-        'Wir bieten dir an, eine genaue Analyse Ihrer Webseite durchzuführen.\n' +
+        'Wir bieten dir an, eine genaue Analyse Deiner Webseite durchzuführen.\n' +
         'Dabei erhältst du einen umfassenden Report zu den technischen Aspekten deiner Suchmaschinenoptimierung,\n' +
         'deiner Webseiten-Performance und Infos darüber,\n' +
         'ob deine Webseite oder dein Onlineshop aus technischer Sicht DSGVO-konform betrieben wird.\n',
