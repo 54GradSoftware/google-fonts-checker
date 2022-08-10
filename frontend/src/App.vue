@@ -3,9 +3,12 @@
     <router-view/>
     <div class="header">
       <div>Google Fonts Checker</div>
-      <a href="https://github.com/54GradSoftware/google-fonts-checker/" target="_blank" rel="noreferrer" class="github">
-        <img src="./assets/GitHub-Mark-Light-64px.png" alt="GitHub Repository">
-      </a>
+      <div class="right">
+        <SwitchLanguage/>
+        <a href="https://github.com/54GradSoftware/google-fonts-checker/" target="_blank" rel="noreferrer" class="github">
+          <img src="./assets/GitHub-Mark-Light-64px.png" alt="GitHub Repository">
+        </a>
+      </div>
     </div>
   </div>
   <div class="footer">
@@ -17,6 +20,7 @@
 </template>
 
 <script setup>
+import SwitchLanguage from '@/components/SwitchLanguage.vue';
 import { watch } from 'vue';
 import { useRoute } from 'vue-router';
 import { useI18n } from 'vue-i18n';
@@ -57,10 +61,16 @@ html, body{
       align-items: center;
       justify-content: space-between;
       min-height: 4rem;
-      .github{
-        width: 2rem;
-        height: 2rem;
+      .right{
         display: flex;
+        flex-flow: row;
+        align-items: center;
+        .github{
+          width: 2rem;
+          height: 2rem;
+          display: flex;
+          margin-left: 1rem;
+        }
       }
     }
   }

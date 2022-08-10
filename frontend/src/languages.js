@@ -1,5 +1,6 @@
 export const messages = {
   'en-US': {
+    localeName: 'en',
     search: {
       headline: 'Check your site for Google Fonts',
       whyNotToUse: 'Why not to use Google Fonts?',
@@ -90,6 +91,7 @@ export const messages = {
     },
   },
   'de-DE': {
+    localeName: 'de',
     search: {
       headline: 'Überprüfe deine Seite nach Google Fonts',
       whyNotToUse: 'Warum kein Google Fonts verwenden?',
