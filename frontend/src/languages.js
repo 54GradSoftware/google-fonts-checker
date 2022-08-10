@@ -24,7 +24,7 @@ export const messages = {
             'Google Fonts loads the fonts from the Google CDN by default.' +
             'Some information - like your IP and the visited website - will be transmitted to Google.\n' +
             'Therefore the use of Google Fonts mostly conflicts with the DSGVO.\n',
-          learnMore: 'mehr erfahren',
+          learnMore: 'learn more',
         },
         GoogleRecaptcha: {
           headline: 'Why not to use Google reCAPTCHA?',
@@ -32,8 +32,16 @@ export const messages = {
             'Google reCAPTCHA tracks the user interaction with the site and also loads fonts from the Google CDN.\n' +
             'Some information - like your IP and the visited website - will be transmitted to Google.\n' +
             'Therefore the use of Google reCAPTCHA/Google Fonts mostly conflicts with the DSGVO.',
-          learnMore: 'mehr erfahren',
-        }
+          learnMore: 'learn more',
+        },
+        GoogleMaps: {
+          headline: 'Why not to use Google Maps?',
+          section1:
+            'Google Maps tracks the user interaction with the site and also loads fonts from the Google CDN.\n' +
+            'Some information - like your IP and the visited website - will be transmitted to Google.\n' +
+            'Therefore the use of Google Maps/Google Fonts mostly conflicts with the DSGVO.',
+          learnMore: 'learn more',
+        },
       },
     },
     professionalAnalysis: {
@@ -124,7 +132,14 @@ export const messages = {
             'Einige Daten - wie z.B. deine IP-Adresse und die aufgerufene Website - werden dabei an Google übermittelt.' +
             'Dadurch verstößt die Nutzung von Google reCAPTCHA/Google Fonts je nach Anwendungsfall meist gegen die DSGVO.',
           learnMore: 'mehr erfahren',
-        }
+        },
+        GoogleMaps: {
+          headline: 'Warum kein Google Maps verwenden?',
+          section1:
+            'Google Maps trackt das Nutzungsverhalten des Users auf der Webseite und lädt standardmäßig die Schriftarten von der Google CDN.' +
+            'Einige Daten - wie z.B. deine IP-Adresse und die aufgerufene Website - werden dabei an Google übermittelt.' +
+            'Dadurch verstößt die Nutzung von Google Maps/Google Fonts je nach Anwendungsfall meist gegen die DSGVO.',
+        },
       },
     },
     professionalAnalysis: {
