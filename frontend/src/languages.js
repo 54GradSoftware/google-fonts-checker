@@ -92,12 +92,12 @@ export const messages = {
   'de-DE': {
     search: {
       headline: 'Überprüfe deine Seite nach Google Fonts',
-      whyNotToUse: 'Warum kein Google Fonts verwenden?',
+      whyNotToUse: 'Warum keine Google Fonts verwenden?',
       placeholder: 'https://deine.domain',
     },
     result: {
       headline: 'Ergebnis:',
-      noticeTrue: 'Google Fonts wurde erkannt!',
+      noticeTrue: 'Google Fonts wurden erkannt!',
       noticeFalse: 'Wir haben keine externe Nutzung von Google Fonts erkannt :D',
       list: {
         headline: 'Gefunden in den folgenden Anfragen:',
@@ -108,10 +108,10 @@ export const messages = {
       },
       tracker: {
         GoogleFonts: {
-          headline: 'Warum kein Google Fonts verwenden?',
+          headline: 'Warum keine Google Fonts verwenden?',
           section1:
             'Google Fonts lädt standardmäßig die Schriftarten von der Google CDN.' +
-            'Einige Daten - wie z.B. deine IP-Adresse und die aufgerufene Website - werden dabei an Google Übermittelt.\n' +
+            'Einige Daten - wie z.B. deine IP-Adresse und die aufgerufene Website - werden dabei an Google übermittelt.\n' +
             'Dadurch verstößt die Nutzung von Google Fonts je nach Anwendungsfall meist gegen die DSGVO.\n',
           learnMore: 'mehr erfahren',
         },
@@ -119,7 +119,7 @@ export const messages = {
           headline: 'Warum kein Google reCAPTCHA verwenden?',
           section1:
             'Google reCAPTCHA trackt das Nutzungsverhalten des Users auf der Webseite und lädt standardmäßig die Schriftarten von der Google CDN.' +
-            'Einige Daten - wie z.B. deine IP-Adresse und die aufgerufene Website - werden dabei an Google Übermittelt.' +
+            'Einige Daten - wie z.B. deine IP-Adresse und die aufgerufene Website - werden dabei an Google übermittelt.' +
             'Dadurch verstößt die Nutzung von Google reCAPTCHA/Google Fonts je nach Anwendungsfall meist gegen die DSGVO.',
           learnMore: 'mehr erfahren',
         }
@@ -128,14 +128,14 @@ export const messages = {
     professionalAnalysis: {
       headline: 'Professionelle Analyse deiner Webseite erhalten:',
       section1:
-        'Wir bieten dir an eine genaue Analyse Ihrer Webseite durchzuführen.\n' +
-        'Dabei erhälst du einen umfassenden Report zu den technischen Aspekten deiner Suchmaschinenoptimierung,\n' +
+        'Wir bieten dir an, eine genaue Analyse Ihrer Webseite durchzuführen.\n' +
+        'Dabei erhältst du einen umfassenden Report zu den technischen Aspekten deiner Suchmaschinenoptimierung,\n' +
         'deiner Webseiten-Performance und Infos darüber,\n' +
         'ob deine Webseite oder dein Onlineshop aus technischer Sicht DSGVO-konform betrieben wird.\n',
       button: 'Analyse anfragen',
     },
     whyNotToUse: {
-      headline: 'Warum kein Google Fonts verwenden?',
+      headline: 'Warum keine Google Fonts verwenden?',
       box1: {
         section1:
           'Google Fonts lädt standardmäßig die Schriftarten von der Google CDN.\n' +
@@ -155,13 +155,13 @@ export const messages = {
         section1: {
           1:
             'Die Google Schriftarten können mit wenig Aufwand auch selbständig gehostet werden.\n' +
-            'Dadauch kann sich zusätzlich sogar die Performance der Webseite verbessern.\n' +
-            'Um die Google Schriftarten einzubinden gibt es ein Online-Tool, welches diesen Prozess erleichtert:\n',
+            'Dadurch kann sich zusätzlich sogar die Performance der Webseite verbessern.\n' +
+            'Um die Google Schriftarten einzubinden, gibt es ein Online-Tool, welches diesen Prozess erleichtert:\n',
           2:
             'Hier müssen zunächst alle Typen ausgewählt werden, die benötigt werden.\n' +
             'Darauf wird ein CSS-File generiert, welches auf der eigenen Seite eingebunden werden muss. -\n' +
-            'Dabei lässt sich der Order-Prefix festlegen, wo die Schriftarten später gespeichert werden sollen.\n' +
-            'Jetzt muss nur noch die Zip-Datei mit den Schriftarten runtergeladen\n' +
+            'Dabei lässt sich der Ordner-Präfix festlegen, wo die Schriftarten später gespeichert werden sollen.\n' +
+            'Jetzt muss nur noch die Zip-Datei mit den Schriftarten heruntergeladen\n' +
             'und in den Webspace hochgeladen werden. Zum Beispiel mit einem FTP-Client.\n' +
             'Bei der Verwendung von Git müssen die Schriften einfach zum Projekt hinzugefügt werden.',
         },
