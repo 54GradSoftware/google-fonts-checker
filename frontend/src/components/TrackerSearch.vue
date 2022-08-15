@@ -4,13 +4,13 @@
       <ThrobberLoading :info="loading"/>
     </div>
     <form v-else @submit.prevent="checkForTrackers(url, email)">
-      <div class="EnterEmail">
-        <label>Bitte geben Sie Ihre E-Mail-Adresse ein:</label>
-        <input type="email" required v-model="email" class="email-input">
-      </div>
       <div class="EnterUrl">
         <input type="text" v-model="url" placeholder="https://deine.domain">
         <button type="submit">Start</button>
+      </div>
+      <div class="EnterEmail">
+        <label>Bitte geben Sie Ihre E-Mail-Adresse ein:</label>
+        <input type="email" required v-model="email" class="email-input">
       </div>
       <div class="checkbox-dsgvo">
           <input type="checkbox" required v-model="checked" id="checkbox-dsgvo-input"> <label for="checkbox-dsgvo-input">Ja, ich möchte gerne das Ergebnis der Überprüfung per Mail erhalten. Wir nutzen verschlüsselte E-Mail-Kommunikation, um Ihre Privatsphäre zu gewährleisten. Ein Service der IllusionFACTORY KG, Max-Planck-Straße 15, 53819 Neunkirchen-Seelscheid. Wir speichern Ihre Mailadresse und dürfen Sie als Gegenleistung für diesen Service mit Angeboten zu Websites und Online-Marketing kontaktieren. Ihre Rechte gemäß DSGVO sind unbenommen. Für das Prüfungsergebnis übernehmen wir keine Haftung. Unsere Datenschutzerklärung finden Sie unter <a href="https://www.illusion-factory.de/datenschutz.html" target="_blank">https://www.illusion-factory.de/datenschutz.html</a>.</label>

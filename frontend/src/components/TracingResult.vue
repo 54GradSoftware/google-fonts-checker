@@ -1,6 +1,6 @@
 <template>
   <div class="TracingResult">
-    <h2 class="title" ref="tracingResult">Ergebniss:</h2>
+    <h2 class="title" ref="tracingResult">Ergebnis:</h2>
     <b>{{result.url}}</b>
     <div class="trackerList" v-if="result.trackers?.length">
       <h3>Google Fonts wurde erkannt!</h3>
