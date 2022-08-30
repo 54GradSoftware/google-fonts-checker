@@ -18,7 +18,8 @@ import { messages } from '@/languages';
 
 <style scoped lang="scss">
   .SwitchLanguage{
-    display: flex;
+    /*display: flex;*/
+    display:none;
     flex-flow: row;
     margin-right:20px;
     .languageOption{
