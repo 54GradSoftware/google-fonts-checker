@@ -24,7 +24,7 @@ createApp(App)
   .use(
     (vue, options) => VuePlausible({ prototype: {}, ...vue }, options), // getter to compensate https://github.com/moritzsternemann/vue-plausible/issues/16
     {
-      domain: 'google-fonts-checker.54gradsoftware.de',
+      domain: 'checker.illusion-factory.de',
       enableAutoPageviews: true,
       trackLocalhost: false,
       apiHost: 'https://plausible.io',
