@@ -20,6 +20,7 @@ import { messages } from '@/languages';
   .SwitchLanguage{
     display: flex;
     flex-flow: row;
+    margin-right:20px;
     .languageOption{
       font-size: 1rem;
       margin: 0 .25rem;
