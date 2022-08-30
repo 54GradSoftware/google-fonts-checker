@@ -15,7 +15,3 @@ const comp = ref(defineAsyncComponent(
   ()=>import(`./TrackerInfo/${snakeToCamel(props.tracker.slug)}.vue`).catch(()=>null)
 ));
 </script>
-
-<style scoped>
-
-</style>

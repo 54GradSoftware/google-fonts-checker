@@ -29,16 +29,12 @@ export class PuppeteerHandler{
     });
   }
 
-  async traceUrl(url, retry = 2){
+  async traceUrl(url, retry = 1){
     return new Promise(async (resolve, reject) => {
       try{
         await this.page.goto('about:blank');
         await this.page.tracing.start({categories: ['devtools.timeline']});
-        await this.page.goto(url);
-        await Promise.any([
-          this.page.mainFrame().waitForNavigation({waitUntil: 'networkidle0'}),
-          new Promise(resolve => setTimeout(resolve,1000))
-        ]);
+        await this.page.goto(url, { waitUntil: 'networkidle0', timeout: 5000 });
         //let screenshot = await page.screenshot();
         let tracing = JSON.parse(await this.page.tracing.stop() || '{}')?.traceEvents?.filter(te => te.name === 'ResourceSendRequest');
         //await this.page.close({runBeforeUnload: false});

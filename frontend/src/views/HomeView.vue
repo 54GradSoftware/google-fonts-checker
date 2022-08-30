@@ -5,10 +5,10 @@
         <div class="topWrapper">
           <div class="top">
             <div class="search">
-              <h1>Überprüfen Sie Ihre Seite nach Google Fonts:</h1>
+              <h1>{{ $t('search.headline') }}</h1>
               <TrackerSearch  @result="res=>result=res"/>
               <ScrollToAnchor v-if="result === undefined" class="linkToWhyNotToUse" to="WhyNotToUse">
-                <b>Warum kein Google Fonts verwenden?</b>
+                <b>{{ $t('search.whyNotToUse') }}</b>
                 <div class="arrow">&#8675;</div>
               </ScrollToAnchor>
             </div>

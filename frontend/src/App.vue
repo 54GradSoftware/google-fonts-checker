@@ -3,9 +3,12 @@
     <router-view/>
     <div class="header">
       <div>Google Fonts Checker</div>
-      <a href="https://www.illusion-factory.de" target="_blank" rel="noreferrer">
-        <img src="./assets/logo.png" alt="IllusionFACTORY" width="249" height="30" style="display:block;max-width:100%;height:auto;">
-      </a>
+      <div class="right">
+        <SwitchLanguage/>
+        <a href="https://www.illusion-factory.de" target="_blank" rel="noreferrer">
+          <img src="./assets/logo.png" alt="IllusionFACTORY" width="249" height="30" style="display:block;max-width:100%;height:auto;">
+        </a>
+      </div>
     </div>
   </div>
   <div class="footer">
@@ -13,6 +16,18 @@
     <a href="https://www.illusion-factory.de/datenschutz.html" target="_blank" rel="noreferrer">Datenschutz</a>
   </div>
 </template>
+
+<script setup>
+import SwitchLanguage from '@/components/SwitchLanguage.vue';
+import { watch } from 'vue';
+import { useRoute } from 'vue-router';
+import { useI18n } from 'vue-i18n';
+const route = useRoute();
+const i18n = useI18n();
+watch(() => route.params.locale, locale => {
+  i18n.locale._setter(locale.toString());
+});
+</script>
 
 <style lang="scss">
 html, body{
@@ -41,10 +56,16 @@ html, body{
       align-items: center;
       justify-content: space-between;
       min-height: 4rem;
-      .github{
-        width: 2rem;
-        height: 2rem;
+      .right{
         display: flex;
+        flex-flow: row;
+        align-items: center;
+        .github{
+          width: 2rem;
+          height: 2rem;
+          display: flex;
+          margin-left: 1rem;
+        }
       }
     }
   }

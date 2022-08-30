@@ -5,7 +5,7 @@
     </div>
     <form v-else @submit.prevent="checkForTrackers(url, email)">
       <div class="EnterUrl">
-        <input type="text" v-model="url" placeholder="https://deine.domain">
+        <input type="text" v-model="url" :placeholder="$t('search.placeholder')">
         <button type="submit">Start</button>
       </div>
       <div class="EnterEmail">

@@ -1,40 +1,40 @@
 <template>
-  <h2 id="WhyNotToUse">Warum kein Google Fonts verwenden?</h2>
+  <h2 id="ProfessionalAnalysis">{{ $t('professionalAnalysis.headline') }}</h2>
+  <div class="box">
+    <p>{{ $t('professionalAnalysis.section1') }}</p>
+    <a class="button" href="https://shop.54gradsoftware.de/products/54-grad-analyse" target="_blank" rel="noreferrer">
+      {{ $t('professionalAnalysis.button') }}
+    </a>
+  </div>
+  <h2 id="WhyNotToUse">{{ $t('whyNotToUse.headline') }}</h2>
+  <div class="box">
+    <p>{{ $t('whyNotToUse.box1.section1') }}</p>
+    <ul>
+      <li>{{ $t('whyNotToUse.box1.section2.1') }}</li>
+      <li>{{ $t('whyNotToUse.box1.section2.2') }}</li>
+      <li>{{ $t('whyNotToUse.box1.section2.3') }}</li>
+      <li>{{ $t('whyNotToUse.box1.section2.4') }}</li>
+    </ul>
+    <p>{{ $t('whyNotToUse.box1.section3') }}</p>
+  </div>
+  <h3>{{ $t('whyNotToUse.box2.headline') }}</h3>
   <div class="box">
     <p>
-      Google Fonts lädt standartmäßig die Schriftarten von der Google CDN. <br>
-      Dabei werden einige Daten an Google Übermittelt. So zum Beispiel:
-    </p>
-    <ul>
-      <li>Ihre IP-Adresse</li>
-      <li>die aufgerufene Webseite</li>
-      <li>das verwendete Gerät bzw. Modell</li>
-      <li>der verwendete Browser</li>
-    </ul>
-    <p>
-      Dadurch kann Google ein Nutzerprofil von Ihnen anlegen und zum Beispiel relavante Werbung anzeigen.
-      Dadurch verstößt die Nutzung von Google Fonts je nach Anwendungsfall meist gegen die DSGVO.
+      {{ $t('whyNotToUse.box2.section1.1') }}<a
+        href="https://google-webfonts-helper.herokuapp.com/fonts/roboto?subsets=latin" target="_blank" rel="noreferrer">Google Webfonts Helper</a><br>{{ $t('whyNotToUse.box2.section1.2') }}
     </p>
   </div>
-    <h3>Wie kann ich Google Schriftarten ohne Tracking und DSGVO-Konform benutzen?</h3>
+  <h3>{{ $t('whyNotToUse.box3.headline') }}</h3>
   <div class="box">
     <p>
-      Die Google Schriftarten können mit wenig Aufwand auch selbständig gehostet werden.
-      Dadauch kann sich zusätzlich sogar die Performance der Webseite verbessern. <br>
-      Um die Google Schriftarten einzubinden gibt es ein Online-Tool, welches diesen Prozess erleichtert:
-      <a href="https://google-webfonts-helper.herokuapp.com/fonts/roboto?subsets=latin" target="_blank" rel="noreferrer">Google Webfonts Helper</a><br>
-      Hier müssen zunächst alle Typen ausgewählt werden, die benötigt werden. <br>
-      Darauf wird ein CSS-File generiert, welches auf der eigenen Seite eingebunden werden muss. -
-      Dabei lässt sich der Order-Prefix festlegen, wo die Schriftarten später gespeichert werden sollen. <br>
-      Jetzt muss nur noch die Zip-Datei mit den Schriftarten runtergeladen
-      und in den Webspace hochgeladen werden. Zum Beispiel mit einem FTP-Client. <br>
-      Bei der Verwendung von Git müssen die Schriften einfach zum Projekt hinzugefügt werden.
+      {{ $t('whyNotToUse.box3.section1') }}
+      <a href="https://webbkoll.dataskydd.net/en" target="_blank" rel="noreferrer">Webbkoll</a>
     </p>
   </div>
 </template>
 
 
-<style scoped>
+<style scoped lang="scss">
 .box{
   border: 1px #aaa solid;
   border-radius: .5rem;
