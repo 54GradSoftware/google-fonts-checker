@@ -16,6 +16,7 @@
     "socket.io-client": "^4.4.1",
     "valid-url": "^1.0.9",
     "vue": "^3.2.13",
+    "vue-i18n": "^9.2.2",
     "vue-router": "^4.0.3"
   },
   "devDependencies": {
