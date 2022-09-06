@@ -11,6 +11,7 @@ module.exports = defineConfig({
       appleTouchIcon: "favicons/apple-touch-icon.png",
       msTileImage: "favicons/mstile-150x150.png",
       manifestPath: 'favicons/site.webmanifest',
+      faviconSVG: 'favicons/favicon.svg',
     },
   },
   terser: {
