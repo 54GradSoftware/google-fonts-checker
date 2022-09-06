@@ -5,11 +5,12 @@ module.exports = defineConfig({
   transpileDependencies: true,
   pwa: {
     iconPaths: {
-      favicon32: "/favicon.ico",
-      favicon16: "/favicon.ico",
-      appleTouchIcon: "/favicon.ico",
-      maskIcon: "/favicon.ico",
-      msTileImage: "/favicon.ico",
+      favicon: "favicons/favicon.ico",
+      favicon32: "favicons/favicon-32x32.png",
+      favicon16: "favicons/favicon-16x16png",
+      appleTouchIcon: "favicon/apple-touch-icon.png",
+      msTileImage: "favicon/mstile-150x150.png",
+      manifestPath: 'favicon/site.webmanifest',
     },
   },
   terser: {
