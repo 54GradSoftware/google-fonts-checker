@@ -8,9 +8,9 @@ module.exports = defineConfig({
       favicon: "favicons/favicon.ico",
       favicon32: "favicons/favicon-32x32.png",
       favicon16: "favicons/favicon-16x16png",
-      appleTouchIcon: "favicon/apple-touch-icon.png",
-      msTileImage: "favicon/mstile-150x150.png",
-      manifestPath: 'favicon/site.webmanifest',
+      appleTouchIcon: "favicons/apple-touch-icon.png",
+      msTileImage: "favicons/mstile-150x150.png",
+      manifestPath: 'favicons/site.webmanifest',
     },
   },
   terser: {
