@@ -38,17 +38,17 @@ jobs:
         run: cdk synth
 
       - name: CDK Deploy Infrastructure
-        run: cdk deploy checker-fargate --require-approval never
+        run: cdk deploy gf-checker-ec2 --require-approval never
 
       - name: Get target instance
         id: target-instance
         run: |
-          instanceIp=$(aws ec2 describe-instances --query 'Reservations[*].Instances[*].[PublicIpAddress]' --filters Name=instance-state-name,Values=running Name=tag:aws:cloudformation:stack-name,Values=checker-fargate --output text)
+          instanceIp=$(aws ec2 describe-instances --query 'Reservations[*].Instances[*].[PublicIpAddress]' --filters Name=instance-state-name,Values=running Name=tag:aws:cloudformation:stack-name,Values=gf-checker-ec2 --output text)
           echo "::set-output name=instance::$instanceIp"
 
       - name: Get ssh key
         id: ssh-key
-        run: aws secretsmanager get-secret-value --secret-id ec2-ssh-key/checker-ec2-keypair/private --query SecretString --output text > cdk-key.pem && chmod 400 cdk-key.pem
+        run: aws secretsmanager get-secret-value --secret-id ec2-ssh-key/gf-checker-ec2-keypair/private --query SecretString --output text > cdk-key.pem && chmod 400 cdk-key.pem
 
       - name: Docker compose down
         uses: appleboy/ssh-action@master

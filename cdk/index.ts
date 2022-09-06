@@ -7,63 +7,63 @@ class Checker extends cdk.Stack {
   constructor(scope: cdk.App, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    let domainName = 'checker.illusion-factory.de';
+    let domainName = 'j862b35p6sbw.illusion-factory.de';
 
-    // Create VPC
-    const vpc = new cdk.aws_ec2.Vpc(this, 'CheckerFargateAppVPC', { maxAzs: 2 });
-
-    const route53Zone = new cdk.aws_route53.HostedZone(this, 'checkerBackendRoute53Zone', {
+    const route53Zone = new cdk.aws_route53.HostedZone(this, 'gf-checkerBackendRoute53Zone', {
       zoneName: domainName,
     });
     const ns = cdk.Fn.join(',', route53Zone.hostedZoneNameServers!!);
     new cdk.CfnOutput(this, 'Used NameServers', { value: ns });
 
-    const certificate = new cdk.aws_certificatemanager.DnsValidatedCertificate(this, 'checkerSiteCertificateWildcard', {
+    const certificate = new cdk.aws_certificatemanager.DnsValidatedCertificate(this, 'gf-checkerSiteCertificateWildcard', {
       domainName: '*.' + domainName,
       hostedZone: route53Zone,
       subjectAlternativeNames: [domainName],
     });
 
-    const checkerSG = new cdk.aws_ec2.SecurityGroup(this, 'checker-sg', {
+    // Create VPC
+    const vpc = new cdk.aws_ec2.Vpc(this, 'gf-checkerEC2AppVPC', { maxAzs: 2 });
+
+    const gfCheckerSG = new cdk.aws_ec2.SecurityGroup(this, 'gf-checker-sg', {
       vpc,
       allowAllOutbound: true,
     });
 
-    checkerSG.addIngressRule(
+    gfCheckerSG.addIngressRule(
         cdk.aws_ec2.Peer.anyIpv4(),
         cdk.aws_ec2.Port.tcp(22),
         'allow SSH access from anywhere',
     );
-    checkerSG.addIngressRule(
+    gfCheckerSG.addIngressRule(
         cdk.aws_ec2.Peer.anyIpv4(),
         cdk.aws_ec2.Port.tcp(8080),
         'allow HTTP traffic from anywhere',
     );
-    checkerSG.addIngressRule(
+    gfCheckerSG.addIngressRule(
         cdk.aws_ec2.Peer.anyIpv4(),
         cdk.aws_ec2.Port.tcp(443),
         'allow HTTPS traffic from anywhere',
     );
 
-    const checkerRole = new cdk.aws_iam.Role(this, 'checker-role', {
+    const gfCheckerRole = new cdk.aws_iam.Role(this, 'gf-checker-role', {
       assumedBy: new cdk.aws_iam.ServicePrincipal('ec2.amazonaws.com'),
     });
-    checkerRole.addManagedPolicy(cdk.aws_iam.ManagedPolicy.fromAwsManagedPolicyName('AmazonSSMManagedInstanceCore'))
+    gfCheckerRole.addManagedPolicy(cdk.aws_iam.ManagedPolicy.fromAwsManagedPolicyName('AmazonSSMManagedInstanceCore'))
 
-    let keyName = 'checker-ec2-keypair';
+    let keyName = 'gf-checker-ec2-keypair';
     // Create a Key Pair to be used with this EC2 Instance
     const key = new KeyPair(this, 'KeyPair', {
         name: keyName,
         description: 'Key Pair created with CDK Deployment',
     });
 
-    const asg = new cdk.aws_autoscaling.AutoScalingGroup(this, 'checker-ec2-asg', {
+    const asg = new cdk.aws_autoscaling.AutoScalingGroup(this, 'gf-checker-ec2-asg', {
       vpc,
       vpcSubnets: {
         subnetType: cdk.aws_ec2.SubnetType.PUBLIC,
       },
-      role: checkerRole,
-      securityGroup: checkerSG,
+      role: gfCheckerRole,
+      securityGroup: gfCheckerSG,
       instanceType: cdk.aws_ec2.InstanceType.of(
           cdk.aws_ec2.InstanceClass.T4G,
           cdk.aws_ec2.InstanceSize.SMALL,
@@ -79,17 +79,17 @@ class Checker extends cdk.Stack {
     const userDataScript = readFileSync('ec2-startup.sh', 'utf8');
     asg.addUserData(userDataScript);
 
-    const lb = new cdk.aws_elasticloadbalancingv2.ApplicationLoadBalancer(this, 'checkerLb', {
+    const lb = new cdk.aws_elasticloadbalancingv2.ApplicationLoadBalancer(this, 'gf-checkerLb', {
       vpc,
       internetFacing: true
     });
 
-    const sslListener = lb.addListener('SSLCheckerListener', {
+    const sslListener = lb.addListener('SSLGFCheckerListener', {
       protocol: cdk.aws_elasticloadbalancingv2.ApplicationProtocol.HTTPS,
       port: 443,
       certificates: [certificate]
     });
-    sslListener.addTargets('SSLCheckerTargets', {
+    sslListener.addTargets('SSLGFCheckerTargets', {
       port: 8080,
       targets: [asg],
       healthCheck: {
@@ -111,7 +111,7 @@ class Checker extends cdk.Stack {
       recordName: ''
     })
 
-    new cdk.CfnOutput(this, 'Download SSH Key Command', { value: 'aws secretsmanager get-secret-value --secret-id ec2-ssh-key/checker-ec2-keypair/private --query SecretString --output text > cdk-key.pem && chmod 400 cdk-key.pem' })
+    new cdk.CfnOutput(this, 'Download SSH Key Command', { value: 'aws secretsmanager get-secret-value --secret-id ec2-ssh-key/gf-checker-ec2-keypair/private --query SecretString --output text > cdk-key.pem && chmod 400 cdk-key.pem' })
 
     let region = 'us-east-1';
     if (props && props.env && props.env.region) {
@@ -142,7 +142,7 @@ class Checker extends cdk.Stack {
 
 const app = new cdk.App();
 
-new Checker(app, 'checker-fargate', {
+new Checker(app, 'gf-checker-ec2', {
   env: {
     'account': '517050446332',
     'region': 'eu-central-1',

@@ -66,7 +66,7 @@ The AWS Simple Email Service (SES) is done **manually**. The script expects an e
 #### Deployment
 
 - `awsume checker-deployer`
-- `cdk deploy checker-fargate --require-approval never`
+- `cdk deploy gf-checker-ec2 --require-approval never`
 
 ## Automatic Deployment using GitHub Actions
 
