@@ -1,6 +1,9 @@
 # Google Fonts Checker
 Mit dem Google Fonts Checker kann über das Einfache eingeben einer URL technisch getestet werden, ob eine Website Google Fonts, Google Maps oder Recaptcha benutzt. Es wird nur die eingebende URL getestet.
+
 Unsere Instanz ist erreichbar unter: https://google-fonts-checker.54gradsoftware.de
+
+Mehr Informationen zu unserem Projekt erfährst du in unserem [Show Case](https://www.54gradsoftware.de/blog/google-fonts-checker)
 
 ## Lizens
 Wir benutzen die Business Source License 1.1. [Die Lizens findest du hier](/LICENSE.md)
