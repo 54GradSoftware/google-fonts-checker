@@ -5,8 +5,8 @@ Unsere Instanz ist erreichbar unter: https://google-fonts-checker.54gradsoftware
 
 Mehr Informationen zu unserem Projekt erfährst du in unserem [Show Case](https://www.54gradsoftware.de/blog/google-fonts-checker)
 
-## Lizens
-Wir benutzen die Business Source License 1.1. [Die Lizens findest du hier](/LICENSE.md)
+## Lizenz
+Wir benutzen die Business Source License 1.1. [Die Lizenz findest du hier](/LICENSE.md)
 
 ## 54 Grad Software GmbH
 Der Google Fonts Checker ist ein kleines Project von uns. Wir freuen uns immer über neue Kontakte und Projekt(ideen). Mehr Infos zu findest du auf unserer [Website](https://www.54gradsoftware.de/) oder schreib uns direkt an kontakt@54gradsoftware.de.
