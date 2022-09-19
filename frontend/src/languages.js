@@ -44,14 +44,6 @@ export const messages = {
         },
       },
     },
-    professionalAnalysis: {
-      headline: 'Request a professional analysis of your site:',
-      section1:
-        'We offer to proceed a detailed analysis of your site.\n' +
-        'You will receive a comprehensive report about the technical aspects regarding to the search engine optimization,\n' +
-        'your website performance and if your website is DSGVO compliant from a technical point of view.',
-      button: 'Request analysis',
-    },
     whyNotToUse: {
       headline: 'Why not to use Google Fonts?',
       box1: {
@@ -141,15 +133,6 @@ export const messages = {
             'Dadurch verstößt die Nutzung von Google Maps/Google Fonts je nach Anwendungsfall meist gegen die DSGVO.',
         },
       },
-    },
-    professionalAnalysis: {
-      headline: 'Professionelle Analyse deiner Webseite erhalten:',
-      section1:
-        'Wir bieten dir an, eine genaue Analyse Deiner Webseite durchzuführen.\n' +
-        'Dabei erhältst du einen umfassenden Report zu den technischen Aspekten deiner Suchmaschinenoptimierung,\n' +
-        'deiner Webseiten-Performance und Infos darüber,\n' +
-        'ob deine Webseite oder dein Onlineshop aus technischer Sicht DSGVO-konform betrieben wird.\n',
-      button: 'Analyse anfragen',
     },
     whyNotToUse: {
       headline: 'Warum keine Google Fonts verwenden?',
