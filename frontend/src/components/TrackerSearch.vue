@@ -4,7 +4,8 @@
       <ThrobberLoading :info="loading"/>
     </div>
     <form v-else @submit.prevent="checkForTrackers(url)">
-      <input type="text" v-model="url" :placeholder="$t('search.placeholder')">
+      <label class="visually-hidden" for="urlInput">{{$t('search.label')}}</label>
+      <input type="text" v-model="url" :placeholder="$t('search.placeholder')" id="urlInput">
       <button type="submit">Start</button>
     </form>
   </div>
@@ -75,18 +76,20 @@ onMounted(()=>{
       margin: 1rem;
       input{
         padding: 1rem;
-        border: 1px #aaa solid;
+        border: 2px #aaa solid;
         border-radius: .5rem 0 0 .5rem;
         flex-grow: 1;
       }
       button{
         padding: 1rem;
-        background-color: #157aec;
-        border: 1px #157aec solid;
+        background-color: #0E57AA;
+        border: 1px #0E57AA solid;
         color: #fff;
         border-radius: 0 .5rem .5rem 0;
         flex-grow: 1;
         max-width: 8rem;
+        font-size: 16px;
+        font-weight: bold;
         cursor: pointer;
       }
     }

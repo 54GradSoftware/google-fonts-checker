@@ -5,6 +5,7 @@ export const messages = {
       headline: 'Check your site for Google Fonts',
       whyNotToUse: 'Why not to use Google Fonts?',
       placeholder: 'https://your.domain',
+      label: 'URL to the website',
     },
     result: {
       headline: 'Result:',
@@ -89,6 +90,13 @@ export const messages = {
       imprint: 'imprint',
       privacyNotice: 'privacy notice',
     },
+    header: {
+      linkToGithubAlt: 'Link to github.com repository',
+      langTo:{
+        de: 'Change language to German',
+        en: 'Change language to English',
+      },
+    },
   },
   'de-DE': {
     localeName: 'de',
@@ -96,6 +104,7 @@ export const messages = {
       headline: 'Überprüfe deine Seite nach Google Fonts',
       whyNotToUse: 'Warum keine Google Fonts verwenden?',
       placeholder: 'https://deine.domain',
+      label: 'URL der Website',
     },
     result: {
       headline: 'Ergebnis:',
@@ -177,6 +186,13 @@ export const messages = {
       madeWithLove: 'Made with {icon} by',
       imprint: 'Impressum',
       privacyNotice: 'Datenschutz',
-    }
+    },
+    header: {
+      linkToGithubAlt: 'Link zum github.com Repository',
+      langTo:{
+        de: 'Wechsel Sprache zu Deutsch',
+        en: 'Wechsel Sprache zu Englisch',
+      },
+    },
   },
 };
