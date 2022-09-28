@@ -27,4 +27,11 @@ export const trackerList = [
       url.match(/^https:\/\/maps\.gstatic\.com\/maps-api-v3\/embed/)||
       url.match(/^https:\/\/maps\.gstatic\.com\/mapfiles/)
   },
+  {
+    name: 'Adobe Fonts',
+    slug: 'adobe-fonts',
+    url: 'https://use.typekit.com',
+    showDetails: true,
+    match: url => url.match(/^https:\/\/use\.typekit\.net/)
+  }
 ];
