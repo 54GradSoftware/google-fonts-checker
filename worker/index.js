@@ -2,6 +2,9 @@ import rs, {commandOptions} from 'redis';
 import {PuppeteerHandler} from './PuppeteerHandler.js';
 import {trackerList} from './trackerList.js';
 import {logRedis} from '../helpers/logRedis.js';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const redis = rs.createClient({
   url: 'redis://redis:6379'
@@ -22,7 +25,7 @@ const getTrackers = requests => {
 
 const execTask = async task => {
   if (!task?.url) return;
-  const { requests } = await tracer.traceUrl(task.url);
+  const { requests } = await tracer.traceUrl(task.url, process.env.GFC_WORKER_RETRY);
   return {
     trackers: getTrackers(requests),
     allRequests: requests
