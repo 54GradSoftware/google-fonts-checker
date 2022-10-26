@@ -1,22 +1,23 @@
 <template>
-  <div class="top">
+
+<div class="top">
     <router-view/>
-    <div class="header">
+    <header role="navigation">
       <div>Google Fonts Checker</div>
       <div class="right">
         <SwitchLanguage/>
-        <a href="https://github.com/54GradSoftware/google-fonts-checker/" target="_blank" rel="noreferrer" class="github">
-          <img src="./assets/GitHub-Mark-Light-64px.png" alt="GitHub Repository">
+        <a href="https://github.com/54GradSoftware/google-fonts-checker/" target="_blank" rel="noreferrer" class="github" :aria-label="$t('header.linkToGithubAlt')">
+          <img src="./assets/GitHub-Mark-Light-64px.png" alt="Logo GitHub">
         </a>
       </div>
-    </div>
+    </header>
   </div>
-  <div class="footer">
+  <footer>
     {{ $t('footer.madeWithLove', {icon: '&#9829;'}) }}
     <a href="https://54gradsoftware.de" target="_blank" rel="noreferrer">54 Grad Software</a> -
     <a href="https://54gradsoftware.de/impressum" target="_blank" rel="noreferrer">{{ $t('footer.imprint') }}</a> -
     <a href="https://54gradsoftware.de/datenschutz" target="_blank" rel="noreferrer">{{ $t('footer.privacyNotice') }}</a>
-  </div>
+  </footer>
 </template>
 
 <script setup>
@@ -47,10 +48,10 @@ html, body{
   font-family: system-ui, sans-serif;
   line-height: 1.4;
   .top{
-    .header{
+    header{
       padding: 1rem;
       box-sizing: border-box;
-      background-color: #088aaa;
+      background-color: #0E57AA;
       color: #fff;
       font-weight: bold;
       font-size: 1.2rem;
@@ -74,7 +75,7 @@ html, body{
       }
     }
   }
-  .footer{
+  footer{
     padding: 1rem;
     background-color: #222;
     color: #fff;
@@ -84,8 +85,8 @@ html, body{
   }
   .button{
     padding: 1rem;
-    background-color: #157aec;
-    border: 1px #157aec solid;
+    background-color: #0E57AA;
+    border: 1px #0E57AA solid;
     color: #fff;
     border-radius: 0.5rem;
     width: fit-content;
@@ -94,5 +95,16 @@ html, body{
     text-decoration: none;
     margin: auto;
   }
+}
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important; // Fix for https://github.com/twbs/bootstrap/issues/25686
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
 }
 </style>

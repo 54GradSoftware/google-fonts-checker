@@ -1,14 +1,16 @@
 <template>
   <div class="SwitchLanguage">
-    <div
+    <a
       v-for="(lang, index) of messages"
       :key="lang"
       :class="{ active: index === $route.params.locale }"
       class="languageOption"
-      @click="$router.push(`/${index}`)"
+      @click.prevent="$router.push(`/${index}`)"
+      :aria-label="$t(`header.langTo.${lang.localeName}`)"
+      :href="lang.localeName"
     >
       {{ lang.localeName }}
-    </div>
+  </a>
   </div>
 </template>
 
@@ -24,6 +26,11 @@ import { messages } from '@/languages';
       font-size: 1rem;
       margin: 0 .25rem;
       cursor: pointer;
+      color: white;
+      text-decoration: none;
+      &.focus{
+        border: 1px solid white;
+      }
       &.active{
         text-decoration: underline;
       }

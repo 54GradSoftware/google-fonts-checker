@@ -5,6 +5,7 @@ export const messages = {
       headline: 'Check your site for Google Fonts',
       whyNotToUse: 'Why not to use Google Fonts?',
       placeholder: 'https://your.domain',
+      label: 'URL to the website',
     },
     result: {
       headline: 'Result:',
@@ -43,14 +44,6 @@ export const messages = {
           learnMore: 'learn more',
         },
       },
-    },
-    professionalAnalysis: {
-      headline: 'Request a professional analysis of your site:',
-      section1:
-        'We offer to proceed a detailed analysis of your site.\n' +
-        'You will receive a comprehensive report about the technical aspects regarding to the search engine optimization,\n' +
-        'your website performance and if your website is DSGVO compliant from a technical point of view.',
-      button: 'Request analysis',
     },
     whyNotToUse: {
       headline: 'Why not to use Google Fonts?',
@@ -97,6 +90,13 @@ export const messages = {
       imprint: 'imprint',
       privacyNotice: 'privacy notice',
     },
+    header: {
+      linkToGithubAlt: 'Link to github.com repository',
+      langTo:{
+        de: 'Change language to German',
+        en: 'Change language to English',
+      },
+    },
   },
   'de-DE': {
     localeName: 'de',
@@ -104,6 +104,7 @@ export const messages = {
       headline: 'Überprüfe deine Seite nach Google Fonts',
       whyNotToUse: 'Warum keine Google Fonts verwenden?',
       placeholder: 'https://deine.domain',
+      label: 'URL der Website',
     },
     result: {
       headline: 'Ergebnis:',
@@ -141,15 +142,6 @@ export const messages = {
             'Dadurch verstößt die Nutzung von Google Maps/Google Fonts je nach Anwendungsfall meist gegen die DSGVO.',
         },
       },
-    },
-    professionalAnalysis: {
-      headline: 'Professionelle Analyse deiner Webseite erhalten:',
-      section1:
-        'Wir bieten dir an, eine genaue Analyse Deiner Webseite durchzuführen.\n' +
-        'Dabei erhältst du einen umfassenden Report zu den technischen Aspekten deiner Suchmaschinenoptimierung,\n' +
-        'deiner Webseiten-Performance und Infos darüber,\n' +
-        'ob deine Webseite oder dein Onlineshop aus technischer Sicht DSGVO-konform betrieben wird.\n',
-      button: 'Analyse anfragen',
     },
     whyNotToUse: {
       headline: 'Warum keine Google Fonts verwenden?',
@@ -194,6 +186,13 @@ export const messages = {
       madeWithLove: 'Made with {icon} by',
       imprint: 'Impressum',
       privacyNotice: 'Datenschutz',
-    }
+    },
+    header: {
+      linkToGithubAlt: 'Link zum github.com Repository',
+      langTo:{
+        de: 'Wechsel Sprache zu Deutsch',
+        en: 'Wechsel Sprache zu Englisch',
+      },
+    },
   },
 };

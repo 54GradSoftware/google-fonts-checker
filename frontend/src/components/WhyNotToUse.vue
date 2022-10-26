@@ -1,11 +1,4 @@
 <template>
-  <h2 id="ProfessionalAnalysis">{{ $t('professionalAnalysis.headline') }}</h2>
-  <div class="box">
-    <p>{{ $t('professionalAnalysis.section1') }}</p>
-    <a class="button" href="https://shop.54gradsoftware.de/products/54-grad-analyse" target="_blank" rel="noreferrer">
-      {{ $t('professionalAnalysis.button') }}
-    </a>
-  </div>
   <h2 id="WhyNotToUse">{{ $t('whyNotToUse.headline') }}</h2>
   <div class="box">
     <p>{{ $t('whyNotToUse.box1.section1') }}</p>
