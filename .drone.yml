@@ -1,0 +1,67 @@
+---
+kind: pipeline
+type: docker
+name: build
+
+steps:
+  - name: backend
+    image: plugins/docker
+    settings:
+      registry: docker.dev.54gradsoftware.dev
+      repo: docker.dev.54gradsoftware.dev/54gradsoftware/gfc-backend
+      context: ./backend
+      dockerfile: ./docker/Dockerfile
+      tags: latest
+      username:
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
+
+  - name: worker
+    image: plugins/docker
+    settings:
+      registry: docker.dev.54gradsoftware.dev
+      repo: docker.dev.54gradsoftware.dev/54gradsoftware/gfc-worker
+      context: ./worker
+      dockerfile: ./docker/Dockerfile
+      tags: latest
+      username:
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
+
+  - name: frontend
+    image: plugins/docker
+    settings:
+      registry: docker.dev.54gradsoftware.dev
+      repo: docker.dev.54gradsoftware.dev/54gradsoftware/gfc-frontend
+      context: ./frontend
+      dockerfile: ./docker/Dockerfile
+      tags: latest
+      username:
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
+
+---
+kind: pipeline
+type: docker
+name: deploy
+
+depends_on:
+  - build
+
+steps:
+  - name: pull and deploy
+    image: appleboy/drone-ssh
+    settings:
+      host:
+        from_secret: SSH_HOST
+      username:
+        from_secret: SSH_USER_NAME
+      key:
+        from_secret: SSH_PRIVATE_KEY
+      script: |
+        cd /media/docker/google-fonts-checker
+        docker-compose -p gfc -f docker-compose.prod.yml pull -q
+        docker-compose -p gfc -f docker-compose.prod.yml up -d --scale worker=6
