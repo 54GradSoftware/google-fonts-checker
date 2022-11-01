@@ -9,8 +9,8 @@ steps:
     settings:
       registry: docker.dev.54gradsoftware.dev
       repo: docker.dev.54gradsoftware.dev/54gradsoftware/gfc-backend
-      context: ./backend
-      dockerfile: ./docker/Dockerfile
+      context: ./
+      dockerfile: ./backend/docker/Dockerfile
       tags: latest
       username:
         from_secret: docker_username
@@ -22,8 +22,8 @@ steps:
     settings:
       registry: docker.dev.54gradsoftware.dev
       repo: docker.dev.54gradsoftware.dev/54gradsoftware/gfc-worker
-      context: ./worker
-      dockerfile: ./docker/Dockerfile
+      context: ./
+      dockerfile: ./worker/docker/Dockerfile
       tags: latest
       username:
         from_secret: docker_username
@@ -35,8 +35,8 @@ steps:
     settings:
       registry: docker.dev.54gradsoftware.dev
       repo: docker.dev.54gradsoftware.dev/54gradsoftware/gfc-frontend
-      context: ./frontend
-      dockerfile: ./docker/Dockerfile
+      context: ./
+      dockerfile: ./frontend/docker/Dockerfile
       tags: latest
       username:
         from_secret: docker_username
