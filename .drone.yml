@@ -5,10 +5,10 @@ name: test
 
 steps:
   - name: backend
-    image: node
+    image: cypress/base:12.19.0
     commands:
       - npm ci
-      - cypress run
+      - yarn run cypress run
 
 ---
 kind: pipeline
