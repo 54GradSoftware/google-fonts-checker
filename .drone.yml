@@ -1,6 +1,18 @@
 ---
 kind: pipeline
 type: docker
+name: test
+
+steps:
+  - name: backend
+    image: node
+    commands:
+      - npm ci
+      - cypress run
+
+---
+kind: pipeline
+type: docker
 name: build
 
 steps:
@@ -42,6 +54,9 @@ steps:
         from_secret: docker_username
       password:
         from_secret: docker_password
+
+depends_on:
+  - test
 
 ---
 kind: pipeline
