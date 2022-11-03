@@ -15,6 +15,7 @@
           </div>
           <TracingResult v-if="result" :result="result"/>
         </div>
+        <AboutTheProject/>
         <WhyNotToUse/>
       </div>
     </div>
@@ -26,6 +27,7 @@ import {ref} from 'vue';
 import TrackerSearch from '@/components/TrackerSearch.vue';
 import TracingResult from '@/components/TracingResult.vue';
 import WhyNotToUse from '@/components/WhyNotToUse.vue';
+import AboutTheProject from '@/components/AboutTheProject.vue';
 import ScrollToAnchor from '@/components/ScrollToAnchor.vue';
 
 const result = ref(undefined);

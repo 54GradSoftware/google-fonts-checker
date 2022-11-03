@@ -7,6 +7,10 @@ export const messages = {
       placeholder: 'https://your.domain',
       label: 'URL to the website',
     },
+  about: {
+    headline: 'About the service',
+    text: 'Mit dem Google Fonts Checker wird die URL der eingebende Domain nach einer Einbindung von Google Fonts kontrolliert. Wir kontrollieren dabei nur die URL, keine Unterseiten. Für diese Kontrolle benutzen wir einen Google-Chrome Browser. In anderen Browsern kann es basierend auf der Konfiguration möglicherweise zu anderen Ergebnissen kommen. Wir übernehmen keine Haftung für das Ergebnis und sind keine Juristen. Der komplette Quellcode und Funktionsweise kann im Git Repository nachvollzogen werden.'
+  },
     result: {
       headline: 'Result:',
       noticeTrue: 'Google Fonts detected!',
@@ -105,6 +109,10 @@ export const messages = {
       whyNotToUse: 'Warum keine Google Fonts verwenden?',
       placeholder: 'https://deine.domain',
       label: 'URL der Website',
+    },
+    about: {
+      headline: 'Über den Dienst',
+      text: 'Mit dem Google Fonts Checker wird die URL der eingebende Domain nach einer Einbindung von Google Fonts kontrolliert. Wir kontrollieren dabei nur die URL, keine Unterseiten. Für diese Kontrolle benutzen wir einen Google-Chrome Browser. In anderen Browsern kann es basierend auf der Konfiguration möglicherweise zu anderen Ergebnissen kommen. Wir übernehmen keine Haftung für das Ergebnis und sind keine Juristen. Der komplette Quellcode und Funktionsweise kann im Git Repository nachvollzogen werden.'
     },
     result: {
       headline: 'Ergebnis:',
