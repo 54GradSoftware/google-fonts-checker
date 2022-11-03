@@ -14,7 +14,7 @@ describe('Live Google Fonts Checker', () => {
     cy.get('.TracingResult p').should('have.text', messages['de-DE'].result.noticeFalse)
   })
   it('Check positive google fonts result', () => {
-    cy.get('.TrackerSearch form input').type('https://fonts.google.com')
+    cy.get('.TrackerSearch form input').type('https://fonts.google.com/specimen/Roboto')
     cy.get('button[type="submit"]').click()
     cy.get('.trackerList h3').should('have.text', messages['de-DE'].result.noticeTrue)
   })
