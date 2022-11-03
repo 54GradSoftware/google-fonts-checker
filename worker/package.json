@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "dotenv": "^16.0.3",
     "puppeteer": "^13.4.1",
     "redis": "^4.0.4"
   }
