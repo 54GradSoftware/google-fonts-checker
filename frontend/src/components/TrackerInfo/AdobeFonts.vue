@@ -6,6 +6,3 @@
     </p>
   </div>
 </template>
-<script setup>
-import ScrollToAnchor from '@/components/ScrollToAnchor.vue';
-</script>
