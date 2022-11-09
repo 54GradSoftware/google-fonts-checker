@@ -47,6 +47,14 @@ export const messages = {
             'Therefore the use of Google Maps/Google Fonts mostly conflicts with the DSGVO.',
           learnMore: 'learn more',
         },
+        AdobeFonts: {
+          headline: 'Why not to use Adobe Fonts?',
+          section1:
+            'Adobe Fonts tracks the user interaction with the site and also loads fonts from the Adobe CDN.\n' +
+            'Some information - like your IP and the visited website - will be transmitted to Adobe.\n' +
+            'Therefore the use of Adobe Fonts mostly conflicts with the DSGVO.',
+          learnMore: 'learn more',
+        },
       },
     },
     whyNotToUse: {
@@ -148,6 +156,13 @@ export const messages = {
             'Google Maps trackt das Nutzungsverhalten des Users auf der Webseite und lädt standardmäßig die Schriftarten von der Google CDN.' +
             'Einige Daten - wie z.B. deine IP-Adresse und die aufgerufene Website - werden dabei an Google übermittelt.' +
             'Dadurch verstößt die Nutzung von Google Maps/Google Fonts je nach Anwendungsfall meist gegen die DSGVO.',
+        },
+        AdobeFonts: {
+          headline: 'Warum kein Adobe Fonts verwenden?',
+          section1:
+            'Adobe Fonts trackt das Nutzungsverhalten des Users auf der Webseite und lädt standardmäßig die Schriftarten von der Adobe CDN.' +
+            'Einige Daten - wie z.B. deine IP-Adresse und die aufgerufene Website - werden dabei an Adobe übermittelt.' +
+            'Dadurch verstößt die Nutzung von Adobe Fonts je nach Anwendungsfall meist gegen die DSGVO.',
         },
       },
     },
