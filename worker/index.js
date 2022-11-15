@@ -25,10 +25,11 @@ const getTrackers = requests => {
 
 const execTask = async task => {
   if (!task?.url) return;
-  const { requests } = await tracer.traceUrl(task.url, process.env.GFC_WORKER_RETRY);
+  const { requests, styleSheetsNotLoaded } = await tracer.traceUrl(task.url, process.env.GFC_WORKER_RETRY);
   return {
     trackers: getTrackers(requests),
-    allRequests: requests
+    trackersNotLoaded: getTrackers(styleSheetsNotLoaded),
+    allRequests: requests,
   };
 }
 

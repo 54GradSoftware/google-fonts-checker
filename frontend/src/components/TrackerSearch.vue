@@ -43,7 +43,7 @@ const checkForTrackers = async url => {
   result.value = undefined;
   emit('result', undefined);
   try {
-    result.value = await api.site(url, ['trackers'], res => {
+    result.value = await api.site(url, ['trackers', 'trackersNotLoaded'], res => {
       if (res?.status === 102) loading.value = res.message ?? 'loading';
     });
     localStorage.setItem('lastUrl', url);

@@ -14,6 +14,8 @@ export const messages = {
     result: {
       headline: 'Result:',
       noticeTrue: 'Google Fonts detected!',
+      noticeTrueNotLoaded: 'Google Fonts detected, which were not loaded:',
+      noticeTrueNotLoadedInfo: 'Some fonts were detected but not loaded by the browser. This mostly happens, when a request is considered as "mixed content".',
       noticeFalse: 'We have not detected any external use of Google Fonts :D',
       list: {
         headline: 'Found in the following Requests:',
@@ -125,6 +127,8 @@ export const messages = {
     result: {
       headline: 'Ergebnis:',
       noticeTrue: 'Google Fonts wurden erkannt!',
+      noticeTrueNotLoaded: 'Google Fonts erkannt, welche nicht geladen worden:',
+      noticeTrueNotLoadedInfo: 'Es wurden Google Fonts erkannt, welche jedoch nicht geladen worden. Das passiert meistens, wenn Anfragen vom Browser als "mixed content" eingestuft werden',
       noticeFalse: 'Wir haben keine externe Nutzung von Google Fonts erkannt :D',
       list: {
         headline: 'Gefunden in den folgenden Anfragen:',

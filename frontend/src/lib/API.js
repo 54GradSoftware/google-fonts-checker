@@ -9,7 +9,7 @@ export class API {
     });
   }
 
-  site(url, filterResult = ['trackers'], callback){
+  site(url, filterResult = ['trackers', 'trackersNotLoaded'], callback){
     return new Promise((resolve, reject) => {
       const id = Date.now();
       this._socket.emit('site', {url, id, filterResult});

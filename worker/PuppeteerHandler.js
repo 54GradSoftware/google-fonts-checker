@@ -33,15 +33,21 @@ export class PuppeteerHandler{
     return new Promise(async (resolve, reject) => {
       try{
         await this.page.goto('about:blank');
-        await this.page.tracing.start({categories: ['devtools.timeline']});
+        await this.page.tracing.start({path: './tracing.json'});
         await this.page.goto(url, { waitUntil: 'networkidle0', timeout: 5000 });
         //let screenshot = await page.screenshot();
-        let tracing = JSON.parse(await this.page.tracing.stop() || '{}')?.traceEvents?.filter(te => te.name === 'ResourceSendRequest');
+        const tracing = JSON.parse(await this.page.tracing.stop() || '{}');
+        const requests = tracing.traceEvents?.filter(te => te.name === 'ResourceSendRequest');
+        const styleSheets = tracing.traceEvents?.filter(te => te.name === 'ParseAuthorStyleSheet');
+        const styleSheetsNotLoaded = styleSheets.filter(item => !requests.some(req => req?.args?.data.url === item?.args?.data.styleSheetUrl));
         //await this.page.close({runBeforeUnload: false});
         resolve({
-          requests: [...tracing].map(te => ({
+          requests: [...requests].map(te => ({
             method: te?.args?.data.requestMethod,
-            url: te?.args?.data.url
+            url: te?.args?.data.url,
+          })),
+          styleSheetsNotLoaded: [...styleSheetsNotLoaded].map(item => ({
+            url: item?.args?.data.styleSheetUrl,
           })),
           //screenshot: screenshot.toString('base64url')
         });

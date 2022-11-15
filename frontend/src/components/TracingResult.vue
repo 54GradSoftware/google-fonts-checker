@@ -18,7 +18,23 @@
         </div>
       </div>
     </div>
-    <p v-else>{{ $t('result.noticeFalse') }}</p>
+    <div class="trackerList" v-if="result.trackersNotLoaded?.length">
+      <h3>{{ $t('result.noticeTrueNotLoaded') }}</h3>
+      <p>{{ $t('result.noticeTrueNotLoadedInfo') }}</p>
+      <div class="tracker" v-for="tracker in result.trackersNotLoaded" :key="tracker">
+        <div class="name" @click="tracker.showDetails = !tracker.showDetails">{{tracker.name}}</div>
+        <div class="details" v-if="tracker.showDetails">
+          <TrackerInfoWrapper :tracker="tracker"/>
+          <b>{{ $t('result.list.headline') }}</b>
+          <div class="requestList">
+            <div class="request" v-for="request in tracker.matches" :key="request">
+              <div class="url">{{request.url}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p v-if="!(result.trackers?.length || result.trackersNotLoaded?.length)">{{ $t('result.noticeFalse') }}</p>
     <h3>{{ $t('result.copy.button') }}</h3>
     <div class="share">
       <div class="url">{{urlToShare}}</div>
