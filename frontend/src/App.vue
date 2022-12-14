@@ -1,9 +1,13 @@
 <template>
 
 <div class="top">
-    <router-view/>
+  <router-view/>
+  <img src="./assets/logo512-outline.svg" alt="logo" class="back">
     <header role="navigation">
-      <div>Google Fonts Checker</div>
+      <div class="left">
+        <img src="./assets/logo512.svg" alt="logo" class="logo onlyDesktop">
+        <div>Google Fonts Checker <span class="branding onlyDesktop">von 54 Grad Software</span></div>
+      </div>
       <div class="right">
         <SwitchLanguage/>
         <a href="https://github.com/54GradSoftware/google-fonts-checker/" target="_blank" rel="noreferrer" class="github" :aria-label="$t('header.linkToGithubAlt')">
@@ -13,7 +17,7 @@
     </header>
   </div>
   <footer>
-    {{ $t('footer.madeWithLove', {icon: '&#9829;'}) }}
+    {{ $t('footer.madeWithLove', { icon: '&#9829;' }) }}
     <a href="https://54gradsoftware.de" target="_blank" rel="noreferrer">54 Grad Software</a> -
     <a href="https://54gradsoftware.de/impressum" target="_blank" rel="noreferrer">{{ $t('footer.imprint') }}</a> -
     <a href="https://54gradsoftware.de/datenschutz" target="_blank" rel="noreferrer">{{ $t('footer.privacyNotice') }}</a>
@@ -49,7 +53,7 @@ html, body{
   line-height: 1.4;
   .top{
     header{
-      padding: 1rem;
+      padding: 0 1rem;
       box-sizing: border-box;
       background-color: #0E57AA;
       color: #fff;
@@ -62,6 +66,26 @@ html, body{
       align-items: center;
       justify-content: space-between;
       min-height: 4rem;
+      .branding{
+        font-size: .7em;
+        font-weight: normal;
+      }
+      .left{
+        display: flex;
+        align-items: center;
+        font-size: 1.4rem;
+        font-weight: bold;
+        text-decoration: none;
+        color: #fff;
+        opacity: 1;
+        transition: all .5s ease;
+        .logo{
+          height: 3rem;
+          width: 6rem;
+          object-fit: cover;
+          padding: 0 1rem;
+        }
+      }
       .right{
         display: flex;
         flex-flow: row;
@@ -106,5 +130,23 @@ html, body{
   clip: rect(0, 0, 0, 0) !important;
   white-space: nowrap !important;
   border: 0 !important;
+}
+.back{
+  position: fixed;
+  opacity: .05;
+  height: 65rem;
+  right: -20rem;
+  top: -20rem;
+  transform: scaleX(-1);
+  user-select: none;
+  z-index: -1;
+}
+@media screen and (max-width: 50rem) {
+  .onlyDesktop{
+    display: none;
+  }
+  .back{
+    right: -40rem;
+  }
 }
 </style>
