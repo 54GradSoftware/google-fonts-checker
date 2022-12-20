@@ -13,7 +13,7 @@ logRedis(redis)
 await redis.connect();
 
 
-const tracer = new PuppeteerHandler();
+const tracer = new PuppeteerHandler({ timeout: process.env.PUPPETEER_TIMEOUT });
 await tracer.init();
 console.log('started puppeteer');
 

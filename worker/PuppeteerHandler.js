@@ -1,7 +1,8 @@
 import puppeteer from 'puppeteer';
 
 export class PuppeteerHandler{
-  constructor() {
+  constructor({ timeout = 10_000 } = {}) {
+    this.timout = timeout;
   }
 
   async init() {
@@ -34,7 +35,7 @@ export class PuppeteerHandler{
       try{
         await this.page.goto('about:blank');
         await this.page.tracing.start({path: './tracing.json'});
-        await this.page.goto(url, { waitUntil: 'networkidle0', timeout: 5000 });
+        await this.page.goto(url, { waitUntil: 'networkidle0', timeout: this.timout });
         //let screenshot = await page.screenshot();
         const tracing = JSON.parse(await this.page.tracing.stop() || '{}');
         const requests = tracing.traceEvents?.filter(te => te.name === 'ResourceSendRequest');
