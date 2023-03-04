@@ -17,6 +17,7 @@
         </div>
         <AboutTheProject/>
         <WhyNotToUse/>
+        <DisplayTimeline/>
       </div>
     </div>
   </div>
@@ -29,6 +30,7 @@ import TracingResult from '@/components/TracingResult.vue';
 import WhyNotToUse from '@/components/WhyNotToUse.vue';
 import AboutTheProject from '@/components/AboutTheProject.vue';
 import ScrollToAnchor from '@/components/ScrollToAnchor.vue';
+import DisplayTimeline from '@/components/DisplayTimeline.vue';
 
 const result = ref(undefined);
 </script>
