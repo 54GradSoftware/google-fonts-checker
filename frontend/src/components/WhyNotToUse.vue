@@ -14,7 +14,7 @@
   <div class="box">
     <p>
       {{ $t('whyNotToUse.box2.section1.1') }}<a
-        href="https://google-webfonts-helper.herokuapp.com/fonts/roboto?subsets=latin" target="_blank" rel="noreferrer">Google Webfonts Helper</a><br>{{ $t('whyNotToUse.box2.section1.2') }}
+        href="https://gwfh.mranftl.com/fonts" target="_blank" rel="noreferrer">Google Webfonts Helper</a><br>{{ $t('whyNotToUse.box2.section1.2') }}
     </p>
   </div>
   <h3>{{ $t('whyNotToUse.box3.headline') }}</h3>
