@@ -13,7 +13,7 @@ steps:
       dockerfile: ./backend/docker/Dockerfile
       tags:
         - latest
-        - $DRONE_COMMIT_SHA
+        - ${DRONE_COMMIT_SHA:0:8}
       username:
         from_secret: docker_username
       password:
@@ -28,7 +28,7 @@ steps:
       dockerfile: ./worker/docker/Dockerfile
       tags:
         - latest
-        - $DRONE_COMMIT_SHA
+        - ${DRONE_COMMIT_SHA:0:8}
       username:
         from_secret: docker_username
       password:
@@ -43,7 +43,7 @@ steps:
       dockerfile: ./frontend/docker/Dockerfile
       tags:
         - latest
-        - $DRONE_COMMIT_SHA
+        - ${DRONE_COMMIT_SHA:0:8}
       username:
         from_secret: docker_username
       password:
