@@ -1,18 +1,6 @@
 ---
 kind: pipeline
 type: docker
-name: test
-
-steps:
-  - name: backend
-    image: cypress/base:12.19.0
-    commands:
-      - npm ci
-      - yarn run cypress run
-
----
-kind: pipeline
-type: docker
 name: build
 
 steps:
@@ -61,9 +49,6 @@ steps:
       password:
         from_secret: docker_password
 
-depends_on:
-  - test
-
 ---
 kind: pipeline
 type: docker
@@ -90,3 +75,18 @@ steps:
         cd /media/docker/google-fonts-checker
         docker-compose -p gfc -f docker-compose.prod.yml pull -q
         docker-compose -p gfc -f docker-compose.prod.yml up -d --scale worker=6
+
+---
+kind: pipeline
+type: docker
+name: test-deployment
+
+depends_on:
+  - deploy
+
+steps:
+  - name: backend
+    image: cypress/base:12.19.0
+    commands:
+      - npm ci
+      - yarn run cypress run
