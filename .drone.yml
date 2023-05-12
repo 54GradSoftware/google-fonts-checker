@@ -23,7 +23,9 @@ steps:
       repo: docker.dev.54gradsoftware.dev/54gradsoftware/gfc-backend
       context: ./
       dockerfile: ./backend/docker/Dockerfile
-      tags: latest
+      tags:
+        - latest
+        - $DRONE_COMMIT_SHA
       username:
         from_secret: docker_username
       password:
@@ -36,7 +38,9 @@ steps:
       repo: docker.dev.54gradsoftware.dev/54gradsoftware/gfc-worker
       context: ./
       dockerfile: ./worker/docker/Dockerfile
-      tags: latest
+      tags:
+        - latest
+        - $DRONE_COMMIT_SHA
       username:
         from_secret: docker_username
       password:
@@ -49,7 +53,9 @@ steps:
       repo: docker.dev.54gradsoftware.dev/54gradsoftware/gfc-frontend
       context: ./
       dockerfile: ./frontend/docker/Dockerfile
-      tags: latest
+      tags:
+        - latest
+        - $DRONE_COMMIT_SHA
       username:
         from_secret: docker_username
       password:
@@ -62,6 +68,10 @@ depends_on:
 kind: pipeline
 type: docker
 name: deploy
+
+trigger:
+  branch:
+    - google-fonts-only
 
 depends_on:
   - build
