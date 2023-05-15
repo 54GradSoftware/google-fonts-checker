@@ -36,6 +36,11 @@ steps:
 
   - name: frontend
     image: plugins/docker
+    environment:
+      SUPABASE_URL:
+        from_secret: supabase_url
+      SUPABASE_ANON_KEY:
+        from_secret: supabase_anon_key
     settings:
       registry: docker.dev.54gradsoftware.dev
       repo: docker.dev.54gradsoftware.dev/54gradsoftware/gfc-frontend
@@ -48,6 +53,9 @@ steps:
         from_secret: docker_username
       password:
         from_secret: docker_password
+      build_args_from_env:
+        - SUPABASE_URL
+        - SUPABASE_ANON_KEY
 
 ---
 kind: pipeline
