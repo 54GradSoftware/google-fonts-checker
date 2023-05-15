@@ -38,7 +38,7 @@ const supabaseSignUp = async () => {
       Browser. In anderen Browsern kann es basierend auf der Konfiguration möglicherweise zu anderen Ergebnissen kommen.
       Wir übernehmen keine Haftung für das Ergebnis und sind keine Juristen. Der komplette Quellcode und Funktionsweise
       kann im Git Repository nachvollzogen werden.
-      <section id="MoreInformation">
+      <section v-if="supabase" id="MoreInformation">
       <h3>Du willst mehr testen? Jetzt kostenlos auf dem laufenden bleiben</h3>
       Wir arbeiten an einer neuen Version des Google Fonts Checkers und wollen noch mehr testen. Melde dich jetzt an, um auf dem Laufenden zu bleiben.
       <div v-if="showSuccessMessage" class="alert success" role="alert">
