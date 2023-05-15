@@ -1,5 +1,11 @@
 FROM node:16-alpine AS builder
 
+ARG SUPABASE_URL
+ARG SUPABASE_ANON_KEY
+
+ENV VUE_APP_SUPABASE_URL=SUPABASE_URL
+ENV VUE_APP_SUPABASE_ANON_KEY=SUPABASE_ANON_KEY
+
 COPY ./frontend /home/node/app/frontend
 COPY ./helpers /home/node/app/helpers
 
