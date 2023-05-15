@@ -1,18 +1,6 @@
 ---
 kind: pipeline
 type: docker
-name: test
-
-steps:
-  - name: backend
-    image: cypress/base:12.19.0
-    commands:
-      - npm ci
-      - yarn run cypress run
-
----
-kind: pipeline
-type: docker
 name: build
 
 steps:
@@ -23,7 +11,9 @@ steps:
       repo: docker.dev.54gradsoftware.dev/54gradsoftware/gfc-backend
       context: ./
       dockerfile: ./backend/docker/Dockerfile
-      tags: latest
+      tags:
+        - latest
+        - ${DRONE_COMMIT_SHA:0:8}
       username:
         from_secret: docker_username
       password:
@@ -36,7 +26,9 @@ steps:
       repo: docker.dev.54gradsoftware.dev/54gradsoftware/gfc-worker
       context: ./
       dockerfile: ./worker/docker/Dockerfile
-      tags: latest
+      tags:
+        - latest
+        - ${DRONE_COMMIT_SHA:0:8}
       username:
         from_secret: docker_username
       password:
@@ -54,7 +46,9 @@ steps:
       repo: docker.dev.54gradsoftware.dev/54gradsoftware/gfc-frontend
       context: ./
       dockerfile: ./frontend/docker/Dockerfile
-      tags: latest
+      tags:
+        - latest
+        - ${DRONE_COMMIT_SHA:0:8}
       username:
         from_secret: docker_username
       password:
@@ -63,13 +57,14 @@ steps:
         - SUPABASE_URL
         - SUPABASE_ANON_KEY
 
-depends_on:
-  - test
-
 ---
 kind: pipeline
 type: docker
 name: deploy
+
+trigger:
+  branch:
+    - google-fonts-only
 
 depends_on:
   - build
@@ -88,3 +83,18 @@ steps:
         cd /media/docker/google-fonts-checker
         docker-compose -p gfc -f docker-compose.prod.yml pull -q
         docker-compose -p gfc -f docker-compose.prod.yml up -d --scale worker=6
+
+---
+kind: pipeline
+type: docker
+name: test-deployment
+
+depends_on:
+  - deploy
+
+steps:
+  - name: backend
+    image: cypress/base:12.19.0
+    commands:
+      - npm ci
+      - yarn run cypress run
