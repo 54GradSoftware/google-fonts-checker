@@ -6,8 +6,6 @@ ARG SUPABASE_ANON_KEY
 ENV VUE_APP_SUPABASE_URL=SUPABASE_URL
 ENV VUE_APP_SUPABASE_ANON_KEY=SUPABASE_ANON_KEY
 
-RUN echo "The ARG variable SUPABASE_URL is $SUPABASE_URL"
-
 COPY ./frontend /home/node/app/frontend
 COPY ./helpers /home/node/app/helpers
 
