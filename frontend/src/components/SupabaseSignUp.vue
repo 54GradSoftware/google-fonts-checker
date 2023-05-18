@@ -55,12 +55,6 @@ const supabaseSignUp = async () => {
 
 
 <style scoped lang="scss">
-.box {
-  border: 1px #aaa solid;
-  border-radius: .5rem;
-  padding: 1rem;
-}
-
 input {
   padding: 1rem;
   border: 2px #aaa solid;
@@ -68,7 +62,6 @@ input {
   flex-grow: 1;
   min-width: 300px;
 }
-
 button {
   padding: 1rem;
   background-color: #0E57AA;

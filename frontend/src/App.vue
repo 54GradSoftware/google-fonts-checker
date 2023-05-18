@@ -149,4 +149,9 @@ html, body{
     right: -40rem;
   }
 }
+.box {
+  border: 1px #aaa solid;
+  border-radius: .5rem;
+  padding: 1rem;
+}
 </style>

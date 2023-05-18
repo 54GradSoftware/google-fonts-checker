@@ -23,12 +23,3 @@ const timeline = [
     </div>
   </template>
 </template>
-
-
-<style scoped lang="scss">
-.box{
-  border: 1px #aaa solid;
-  border-radius: .5rem;
-  padding: 1rem;
-}
-</style>
