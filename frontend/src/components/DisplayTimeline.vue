@@ -1,5 +1,7 @@
 <script setup>
 const timeline = [
+  {date: '22.05.2023', description: 'Wir haben ein FAQ für alle Fragen, die du haben könntest', link: '#faq'},
+  {date: '01.05.2023', description: 'Golem.de: "Abmahnwelle wegen Google Fonts ist rechtsmissbräuchlich"', link: 'https://www.golem.de/news/landgericht-muenchen-abmahnwelle-wegen-google-fonts-ist-rechtsmissbraeuchlich-2305-173866.html'},
   {date: '21.11.2022', description: 'Blogpost: 300.000 Analysen', link: 'https://www.54gradsoftware.de/blog/unser-google-fonts-checker-uber-300k-analysen'},
   {date: '09.08.2022', description: 'Erweiterung um die englische Sprache', link: false},
   {date: '04.05.2022', description: 'Erweiterung um die Prüfung nach Google ReCaptcha und Google Maps', link: false},

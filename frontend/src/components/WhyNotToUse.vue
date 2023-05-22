@@ -10,7 +10,7 @@
     </ul>
     <p>{{ $t('whyNotToUse.box1.section3') }}</p>
   </div>
-  <h3>{{ $t('whyNotToUse.box2.headline') }}</h3>
+  <h3 id="HowToNotUse">{{ $t('whyNotToUse.box2.headline') }}</h3>
   <div class="box">
     <p>
       {{ $t('whyNotToUse.box2.section1.1') }}<a

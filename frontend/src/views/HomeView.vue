@@ -18,6 +18,7 @@
         <AboutTheProject/>
         <WhyNotToUse/>
         <DisplayTimeline/>
+        <FAQ/>
       </div>
     </div>
   </div>
@@ -31,6 +32,7 @@ import WhyNotToUse from '@/components/WhyNotToUse.vue';
 import AboutTheProject from '@/components/AboutTheProject.vue';
 import ScrollToAnchor from '@/components/ScrollToAnchor.vue';
 import DisplayTimeline from '@/components/DisplayTimeline.vue';
+import FAQ from '@/components/FAQ.vue';
 
 const result = ref(undefined);
 </script>

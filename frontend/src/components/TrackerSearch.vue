@@ -1,5 +1,5 @@
 <template>
-  <div class="TrackerSearch">
+  <div class="TrackerSearch" id="GoogleFontsCheck">
     <div class="loading" v-if="loading">
       <ThrobberLoading :info="loading"/>
     </div>
