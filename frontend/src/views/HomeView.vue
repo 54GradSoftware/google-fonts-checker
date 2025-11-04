@@ -12,9 +12,11 @@
           </p>
         </div>
         <TracingResult v-if="result" :result="result"/>
+        <WebradarCTA/>
         <AboutTheProject/>
         <WhyNotToUse/>
-        <DisplayTimeline/>
+        <HowToUseGoogleFonts/>
+        <MoreRulesForWebsites/>
         <FAQ/>
       </div>
     </div>
@@ -27,8 +29,10 @@ import TrackerSearch from '@/components/TrackerSearch.vue';
 import TracingResult from '@/components/TracingResult.vue';
 import WhyNotToUse from '@/components/WhyNotToUse.vue';
 import AboutTheProject from '@/components/AboutTheProject.vue';
-import DisplayTimeline from '@/components/DisplayTimeline.vue';
 import FAQ from '@/components/FAQ.vue';
+import WebradarCTA from '@/components/WebradarCTA.vue';
+import HowToUseGoogleFonts from '@/components/HowToUseGoogleFonts.vue';
+import MoreRulesForWebsites from '@/components/MoreRulesForWebsites.vue';
 
 const result = ref(undefined);
 const trackerSearchComponent = ref(null);
@@ -48,7 +52,7 @@ const loading = computed(() => trackerSearchComponent.value?.loading ?? false);
       .content {
         width: 100%;
         padding: 1.5rem;
-        max-width: 60rem;
+        max-width: 90vw;
         min-height: 100%;
 
         .search {
@@ -85,6 +89,18 @@ const loading = computed(() => trackerSearchComponent.value?.loading ?? false);
           }
         }
       }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .home {
+      margin-top: 4rem;
+    }
+
+    .wrapper .content {
+      padding: 1rem;
+      max-width: 100vw;
+      margin: 0;
     }
   }
 </style>

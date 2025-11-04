@@ -79,6 +79,7 @@ h1 {
 }
 
 h2 {
+  text-align: center;
   font-size: 40px;
 }
 
@@ -299,6 +300,46 @@ body {
   }
   .back {
     right: -40rem;
+  }
+}
+.box {
+  border: 1px #aaa solid;
+  border-radius: .5rem;
+  padding: 1rem;
+}
+
+.card {
+  padding: 1.5rem 7rem;
+  border-radius: 23px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  margin-bottom: 2rem;
+  font-size: 20px;
+}
+
+.subheading {
+  font-size: 32px;
+  margin-top: 6rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: normal;
+}
+
+@media (max-width: 768px) {
+  .card {
+    padding: 1rem 1.5rem;
+    font-size: 16px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+
+  .subheading {
+    font-size: 24px;
+    margin-top: 3rem;
   }
 }
 </style>
