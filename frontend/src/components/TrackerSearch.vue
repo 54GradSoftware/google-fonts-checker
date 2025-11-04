@@ -15,7 +15,7 @@
 <script setup>
 import {ref, defineEmits, onMounted, defineExpose} from 'vue';
 import {useRouter, useRoute} from 'vue-router';
-import {API} from '@/lib/API';
+//import {API} from '@/lib/API';
 import validUrl from 'valid-url';
 import ThrobberLoading from '@/components/ThrobberLoading.vue';
 
@@ -30,7 +30,7 @@ const error = ref(undefined)
 const result = ref(undefined);
 const loading = ref(false);
 
-const api = new API({});
+//const api = new API({});
 
 const checkForTrackers = async url => {
   if (!url.match(/^http:\/\/|^https:\/\//)) url = url.replace(/^[a-zA-Z]+:\/\/|^/, 'https://');
@@ -44,9 +44,39 @@ const checkForTrackers = async url => {
   result.value = undefined;
   emit('result', undefined);
   try {
-    result.value = await api.site(url, ['trackers', 'trackersNotLoaded'], res => {
+    result.value = {
+      "url":"https://fonts.google.com/icons",
+      "trackers": [
+          {
+            "slug": "google-fonts",
+            "url": "https://fonts.google.com/",
+            "showDetails": true,
+            "name": "Google Fonts",
+            "matches": [
+                {
+                  "method": "GET",
+                  "url": "https://fonts.gstatic.com/s/googlesansflex/v5/t5s6IQcYNIWbFgDgAAzZ34auoVyXkJCOvp3SFWJbN5hF8Ju1x5tKByN2l9sI40swNJwakXdYAZzz0jbnJ4qFQO5tGjLvDSkV4DyKMo6qQzwliVdHySgxyRg2.woff2"
+                },
+              {
+                "method": "GET",
+                "url": "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&v=1762272563174"
+              },
+              {
+                "method": "GET",
+                "url": "https://fonts.gstatic.com/s/materialsymbolsoutlined/v292/kJEhBvYX7BgnkSrUwT8OhrdQw4oELdPIeeII9v6oFsI.woff2"
+              }
+            ]
+          }
+      ],
+      "trackersNotLoaded": []
+    }
+
+
+    /*await api.site(url, ['trackers', 'trackersNotLoaded'], res => {
       if (res?.status === 102) loading.value = res.message ?? 'loading';
-    });
+    });*/
+
+    console.log(JSON.stringify(result.value));
     localStorage.setItem('lastUrl', url);
     emit('result', result.value);
     router.push(`?url=${result.value.url}`);
@@ -78,7 +108,7 @@ defineExpose({
       display: flex;
       align-items: center;
       width: 100%;
-      border-radius: .5rem;
+      border-radius: 5px;
       max-width: 40rem;
       margin: 1rem;
 
@@ -86,7 +116,7 @@ defineExpose({
         font-size: 16px;
         padding: .825rem;
         border: 2px #DADADA solid;
-        border-radius: .5rem 0 0 .5rem;
+        border-radius: 5px 0 0 5px;
         flex-grow: 1;
       }
 
@@ -95,18 +125,19 @@ defineExpose({
         background-color: #377FCC;
         border: 1px #377FCC solid;
         color: #fff;
-        border-radius: 0 .5rem .5rem 0;
+        border-radius: 0 5px 5px 0;
         flex-grow: 1;
         width: max-content;
         font-size: 20px;
-        max-width: 14rem;
+        min-width: max-content;
+        max-width: max-content;
         font-weight: bold;
         cursor: pointer;
       }
     }
   }
 
-  .error{
+  .error {
     text-align: center;
     color: #be1414;
   }

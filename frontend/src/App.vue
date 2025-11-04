@@ -21,11 +21,6 @@
         </button>
       </a>
       <SwitchLanguage/>
-      <!--
-      <a href="https://github.com/54GradSoftware/google-fonts-checker/" target="_blank" rel="noreferrer" class="github" :aria-label="$t('header.linkToGithubAlt')">
-        <img src="./assets/GitHub-Mark-Light-64px.png" alt="Logo GitHub">
-      </a>
-      -->
     </div>
   </header>
   <footer>
@@ -48,12 +43,6 @@
     <a class="github" href="https://github.com/54GradSoftware/google-fonts-checker" target="_blank" rel="noreferrer">
       <img src="./assets/GitHub-Mark-Light-64px.png" alt="Logo GitHub" height="56">
     </a>
-    <!--
-    {{ $t('footer.madeWithLove', { icon: '&#9829;' }) }}
-    <a href="https://54gradsoftware.de" target="_blank" rel="noreferrer">54 Grad Software GmbH</a> -
-    <a href="https://54gradsoftware.de/impressum" target="_blank" rel="noreferrer">{{ $t('footer.imprint') }}</a> -
-    <a href="https://54gradsoftware.de/datenschutz" target="_blank" rel="noreferrer">{{ $t('footer.privacyNotice') }}</a>
-    -->
   </footer>
 </template>
 
