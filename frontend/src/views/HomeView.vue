@@ -15,9 +15,11 @@
           </div>
           <TracingResult v-if="result" :result="result"/>
         </div>
+        <WebradarCTA/>
         <AboutTheProject/>
         <WhyNotToUse/>
-        <DisplayTimeline/>
+        <HowToUseGoogleFonts/>
+        <MoreRulesForWebsites/>
         <FAQ/>
       </div>
     </div>
@@ -31,8 +33,10 @@ import TracingResult from '@/components/TracingResult.vue';
 import WhyNotToUse from '@/components/WhyNotToUse.vue';
 import AboutTheProject from '@/components/AboutTheProject.vue';
 import ScrollToAnchor from '@/components/ScrollToAnchor.vue';
-import DisplayTimeline from '@/components/DisplayTimeline.vue';
 import FAQ from '@/components/FAQ.vue';
+import WebradarCTA from '@/components/WebradarCTA.vue';
+import HowToUseGoogleFonts from '@/components/HowToUseGoogleFonts.vue';
+import MoreRulesForWebsites from '@/components/MoreRulesForWebsites.vue';
 
 const result = ref(undefined);
 </script>
@@ -48,7 +52,7 @@ const result = ref(undefined);
       .content{
         width: 100%;
         padding: 1.5rem;
-        max-width: 60rem;
+        max-width: 90vw;
         min-height: 100%;
         .topWrapper{
           min-height: calc(100vh - 4rem);
@@ -81,6 +85,18 @@ const result = ref(undefined);
           }
         }
       }
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .home {
+      margin-top: 4rem;
+    }
+    
+    .wrapper .content {
+      padding: 1rem;
+      max-width: 100vw;
+      margin: 0;
     }
   }
 </style>
