@@ -1,26 +1,59 @@
 <template>
-
-<div class="top">
   <router-view/>
-  <img src="./assets/logo512-outline.svg" alt="logo" class="back">
-    <header role="navigation">
-      <div class="left">
-        <img src="./assets/logo512.svg" alt="logo" class="logo onlyDesktop">
-        <div>Google Fonts Checker <span class="branding onlyDesktop">von 54 Grad Software</span></div>
+  <header role="navigation">
+    <div class="left">
+      <img src="./assets/logo-figma.png" alt="logo" class="logo onlyDesktop" height="81">
+
+      <div class="branding">
+        <h4>Google Fonts Checker</h4>
+        <p>von 54 Grad Software</p>
       </div>
-      <div class="right">
-        <SwitchLanguage/>
-        <a href="https://github.com/54GradSoftware/google-fonts-checker/" target="_blank" rel="noreferrer" class="github" :aria-label="$t('header.linkToGithubAlt')">
-          <img src="./assets/GitHub-Mark-Light-64px.png" alt="Logo GitHub">
-        </a>
+    </div>
+    <div class="right">
+      <div class="branding onlyDesktop">
+        <p>Entdecke alle unsere</p>
+        <p><b>Webseiten-Prüfungen</b></p>
       </div>
-    </header>
-  </div>
+      <a>
+        <button>
+          Zu webrad.ar
+          <img src="./assets/icons/double_arrow_right.svg" alt=""/>
+        </button>
+      </a>
+      <SwitchLanguage/>
+      <!--
+      <a href="https://github.com/54GradSoftware/google-fonts-checker/" target="_blank" rel="noreferrer" class="github" :aria-label="$t('header.linkToGithubAlt')">
+        <img src="./assets/GitHub-Mark-Light-64px.png" alt="Logo GitHub">
+      </a>
+      -->
+    </div>
+  </header>
   <footer>
+    <div class="branding">
+      <img src="./assets/logo-figma.png" alt="logo" class="logo" height="81">
+      <h4>Google Fonts Checker</h4>
+      <p>von 54 Grad Software</p>
+    </div>
+    <div class="content">
+      <p>
+        Der Google Fonts Checker ist ein kostenloses Online-Prüftool der
+        <a href="https://54gradsoftware.de">54 Grad Software GmbH.</a>
+      </p>
+
+      <div class="links">
+        <a href="https://54gradsoftware.de/impressum" target="_blank" rel="noreferrer">{{ $t('footer.imprint') }}</a> -
+        <a href="https://54gradsoftware.de/datenschutz" target="_blank" rel="noreferrer">{{ $t('footer.privacyNotice') }}</a>
+      </div>
+    </div>
+    <a class="github" href="https://github.com/54GradSoftware/google-fonts-checker" target="_blank" rel="noreferrer">
+      <img src="./assets/GitHub-Mark-Light-64px.png" alt="Logo GitHub" height="56">
+    </a>
+    <!--
     {{ $t('footer.madeWithLove', { icon: '&#9829;' }) }}
     <a href="https://54gradsoftware.de" target="_blank" rel="noreferrer">54 Grad Software GmbH</a> -
     <a href="https://54gradsoftware.de/impressum" target="_blank" rel="noreferrer">{{ $t('footer.imprint') }}</a> -
     <a href="https://54gradsoftware.de/datenschutz" target="_blank" rel="noreferrer">{{ $t('footer.privacyNotice') }}</a>
+    -->
   </footer>
 </template>
 
@@ -40,10 +73,52 @@ watch(() => route.params.locale, locale => {
 </script>
 
 <style lang="scss">
-html, body{
+
+h1 {
+  font-size: 72px;
+}
+
+h2 {
+  font-size: 40px;
+}
+
+h3 {
+  font-size: 32px;
+}
+h4 {
+  font-size: 24px;
+}
+h5 {
+  font-size: 20px;
+}
+
+html, body {
   height: 100%;
   margin: 0;
+  color: #393A4A;
 }
+
+body {
+  position: relative;
+  z-index: 0;
+
+  &::before {
+    content: "";
+    position: fixed;
+    top: -320px;
+    right: -320px;
+    width: 1040px;
+    height: 1040px;
+    background-image: url('./assets/logo512-outline.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0.05;
+    transform: scaleX(-1);
+    z-index: -1;
+    pointer-events: none;
+  }
+}
+
 #app {
   display: flex;
   flex-flow: column;
@@ -51,75 +126,144 @@ html, body{
   min-height: 100%;
   font-family: system-ui, sans-serif;
   line-height: 1.4;
-  .top{
-    header{
-      padding: 0 1rem;
-      box-sizing: border-box;
-      background-color: #0E57AA;
-      color: #fff;
-      font-weight: bold;
-      font-size: 1.2rem;
-      position: fixed;
-      top: 0;
-      width: 100%;
+
+  header {
+    padding: 1.25rem 5rem;
+    box-sizing: border-box;
+    background-color: #377FCC;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 4rem;
+
+    p, h1, h2, h3, h4 {
+      margin: 0;
+    }
+
+    .left {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      min-height: 4rem;
-      .branding{
-        font-size: .7em;
-        font-weight: normal;
+      text-decoration: none;
+      color: #fff;
+      opacity: 1;
+      transition: all .5s ease;
+
+      .logo {
+        object-fit: cover;
+        margin-top: .5rem;
+        margin-right: 1rem;
       }
-      .left{
+    }
+
+    .right {
+      display: flex;
+      gap: 3rem;
+      align-items: center;
+
+      .branding {
+        text-align: right;
+      }
+
+      button {
         display: flex;
         align-items: center;
-        font-size: 1.4rem;
-        font-weight: bold;
-        text-decoration: none;
+        background-color: transparent;
         color: #fff;
-        opacity: 1;
-        transition: all .5s ease;
-        .logo{
-          height: 3rem;
-          width: 6rem;
-          object-fit: cover;
-          padding: 0 1rem;
-        }
-      }
-      .right{
-        display: flex;
-        flex-flow: row;
-        align-items: center;
-        .github{
-          width: 2rem;
-          height: 2rem;
-          display: flex;
-          margin-left: 1rem;
+        text-decoration: underline;
+        font-size: 1.25rem;
+        font-weight: 700;
+        border: 2px #fff solid;
+        border-radius: 0.5rem;
+        padding: 0.625rem 1rem;
+
+        img {
+          height: 1.5rem;
+          filter: invert(1);
+          width: auto;
+          margin-left: 0.5rem;
         }
       }
     }
   }
-  footer{
-    padding: 1rem;
-    background-color: #222;
+
+  footer {
+    display: flex;
+    gap: 4rem;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5rem 5rem 3rem 5rem;
+
+    background-color: #377FCC;
     color: #fff;
-    a{
+
+    p, h1, h2, h3, h4 {
+      margin: 0;
+    }
+
+
+    a {
       color: #fff;
     }
-  }
-  .button{
-    padding: 1rem;
-    background-color: #0E57AA;
-    border: 1px #0E57AA solid;
-    color: #fff;
-    border-radius: 0.5rem;
-    width: fit-content;
-    cursor: pointer;
-    display: block;
-    text-decoration: none;
-    margin: auto;
+
+    .content {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+      align-items: center;
+      text-align: center;
+    }
+
+    .github {
+      margin-top: 4rem;
+      margin-left: 4rem;
+    }
+
   }
 }
+
+@media screen and (max-width: 960px) {
+  #app {
+    header {
+      .right {
+        gap: 2rem;
+      }
+    }
+
+    footer {
+      padding: 3rem 3rem 2.5rem 3rem;
+      gap: 2.5rem;
+    }
+  }
+}
+
+@media screen and (max-width: 720px) {
+  #app {
+    header {
+      .right {
+        gap: 1rem;
+      }
+    }
+
+    footer {
+      padding: 2rem;
+      flex-direction: column;
+
+      .branding {
+        text-align: center;
+      }
+
+      .github {
+        margin: 0;
+      }
+    }
+  }
+}
+
 .visually-hidden {
   position: absolute !important;
   width: 1px !important;
@@ -131,7 +275,8 @@ html, body{
   white-space: nowrap !important;
   border: 0 !important;
 }
-.back{
+
+.back {
   position: fixed;
   opacity: .05;
   height: 65rem;
@@ -141,17 +286,19 @@ html, body{
   user-select: none;
   z-index: -1;
 }
-@media screen and (max-width: 50rem) {
-  .onlyDesktop{
-    display: none;
-  }
-  .back{
-    right: -40rem;
-  }
-}
+
 .box {
   border: 1px #aaa solid;
   border-radius: .5rem;
   padding: 1rem;
+}
+
+@media screen and (max-width: 50rem) {
+  .onlyDesktop {
+    display: none;
+  }
+  .back {
+    right: -40rem;
+  }
 }
 </style>

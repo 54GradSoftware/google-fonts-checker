@@ -1,19 +1,19 @@
 <template>
   <div class="TrackerSearch" id="GoogleFontsCheck">
     <div class="loading" v-if="loading">
-      <ThrobberLoading :info="loading"/>
+      <ThrobberLoading/>
     </div>
     <form v-else @submit.prevent="checkForTrackers(url)">
       <label class="visually-hidden" for="urlInput">{{$t('search.label')}}</label>
       <input type="text" v-model="url" :placeholder="$t('search.placeholder')" id="urlInput">
-      <button type="submit">Start</button>
+      <button type="submit">{{$t('search.button')}}</button>
     </form>
   </div>
   <div class="error" v-if="error">{{error}}</div>
 </template>
 
 <script setup>
-import {ref, defineEmits, onMounted} from 'vue';
+import {ref, defineEmits, onMounted, defineExpose} from 'vue';
 import {useRouter, useRoute} from 'vue-router';
 import {API} from '@/lib/API';
 import validUrl from 'valid-url';
@@ -28,9 +28,10 @@ const route = useRoute();
 const url = ref(localStorage.getItem('lastUrl')??'')
 const error = ref(undefined)
 const result = ref(undefined);
-const loading = ref('');
+const loading = ref(false);
 
 const api = new API({});
+
 const checkForTrackers = async url => {
   if (!url.match(/^http:\/\/|^https:\/\//)) url = url.replace(/^[a-zA-Z]+:\/\/|^/, 'https://');
   if (!validUrl.isWebUri(url)) {
@@ -38,7 +39,7 @@ const checkForTrackers = async url => {
     error.value = 'invalid url';
     return;
   }
-  loading.value = 'loading';
+  loading.value = true;
   error.value = '';
   result.value = undefined;
   emit('result', undefined);
@@ -48,52 +49,63 @@ const checkForTrackers = async url => {
     });
     localStorage.setItem('lastUrl', url);
     emit('result', result.value);
-    loading.value = '';
     router.push(`?url=${result.value.url}`);
-  }catch (e) {
-    error.value = 'failed to resolve';
-    loading.value = '';
+
   }
+  catch (e) {
+    error.value = 'failed to resolve';
+  }
+
+  loading.value = false;
 }
 
 onMounted(()=>{
   if (route.query?.url && validUrl.isWebUri(route.query?.url)) url.value = route.query.url;
 });
+
+defineExpose({
+  loading
+});
 </script>
 
 <style scoped lang="scss">
-  .TrackerSearch{
+  .TrackerSearch {
     width: 100%;
     display: flex;
     justify-content: center;
-    form{
+
+    form {
       display: flex;
-      width: 100%;
-      box-shadow: #aaaa 2px 2px 4px;
-      border-radius: .5rem;
       align-items: center;
+      width: 100%;
+      border-radius: .5rem;
       max-width: 40rem;
       margin: 1rem;
-      input{
-        padding: 1rem;
-        border: 2px #aaa solid;
+
+      input {
+        font-size: 16px;
+        padding: .825rem;
+        border: 2px #DADADA solid;
         border-radius: .5rem 0 0 .5rem;
         flex-grow: 1;
       }
-      button{
-        padding: 1rem;
-        background-color: #0E57AA;
-        border: 1px #0E57AA solid;
+
+      button {
+        padding: .75rem;
+        background-color: #377FCC;
+        border: 1px #377FCC solid;
         color: #fff;
         border-radius: 0 .5rem .5rem 0;
         flex-grow: 1;
-        max-width: 8rem;
-        font-size: 16px;
+        width: max-content;
+        font-size: 20px;
+        max-width: 14rem;
         font-weight: bold;
         cursor: pointer;
       }
     }
   }
+
   .error{
     text-align: center;
     color: #be1414;

@@ -2,8 +2,11 @@ export const messages = {
   'en-US': {
     localeName: 'en',
     search: {
-      headline: 'Check your site for Google Fonts',
-      whyNotToUse: 'Why not to use Google Fonts?',
+      headline: 'The Google Fonts Checker',
+      button: 'Start Check',
+      oneOfOurServices: 'One of our <b>10</b> quality checks by <b>webrad.ar</b>',
+      freeAndNoRegistration: 'Free & no registration',
+      getResultInstantly: ' – get result instantly',
       placeholder: 'https://your.domain',
       label: 'URL to the website',
     },
@@ -115,8 +118,11 @@ export const messages = {
   'de-DE': {
     localeName: 'de',
     search: {
-      headline: 'Überprüfe deine Seite nach Google Fonts',
-      whyNotToUse: 'Warum keine Google Fonts verwenden?',
+      button: 'Überprüfung starten',
+      headline: 'Der Google Fonts Checker',
+      oneOfOurServices: 'Eine unserer <b>10</b> Qualitätsprüfungen von <b>webrad.ar</b>',
+      freeAndNoRegistration: 'Kostenlos & ohne Anmeldung',
+      getResultInstantly: ' – Ergebnis sofort erhalten',
       placeholder: 'https://deine.domain',
       label: 'URL der Website',
     },
