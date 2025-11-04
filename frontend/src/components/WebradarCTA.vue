@@ -128,7 +128,7 @@ import { ref } from 'vue';
 <style scoped>
 .landing {
     width: 100%;
-    padding: 80px 20px;
+    padding: 80px 0;
     color: #2b2e30;
 }
 
@@ -151,7 +151,7 @@ import { ref } from 'vue';
 }
 
 .content-wrapper {
-    margin: auto;
+    margin: 0 auto;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
@@ -205,8 +205,12 @@ import { ref } from 'vue';
 
 .cta {
     text-align: center;
-    margin-top: 30px;
+    margin: 30px 0 0 0;
     font-size: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
 }
 
 .cta-button-wrapper {
