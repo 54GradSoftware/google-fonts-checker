@@ -60,16 +60,18 @@
                         <a
                             href="https://webrad.ar"
                             target="_blank"
-                        >
-                            webrad.ar
-                        </a>
+                        >webrad.ar</a>
                         möglich:
                     </b>
                     <br />
                     Unser Tool erfasst automatisch alle Unterseiten einer Domain
                     und prüft sie regelmäßig auf technische, rechtliche und
                     barrierefreie Aspekte. Zu den Qualitätsprüfungen gehört auch
-                    Externer Schriften, zu denen auch die Google Fonts zählen.
+                    <a
+                        href="https://webrad.ar/dokumentation/fonts"
+                        target="_blank"
+                    >
+                      Externer Schriften</a>, zu denen auch die Google Fonts zählen.
                 </p>
 				</div>
 				<div class="image-content">
@@ -82,6 +84,10 @@
 
 <style>
 
+.subheading {
+    margin-top: 60px;
+    margin-bottom: 24px;
+}
 
 .content-container {
     display: flex;
@@ -92,6 +98,10 @@
 
 .text-content {
     flex: 1;
+}
+
+.text-content p:nth-child(1) {
+    margin-top: 0;
 }
 
 .image-content {

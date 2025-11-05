@@ -134,7 +134,7 @@ import { ref } from 'vue';
 
 .landing-header {
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 24px;
 }
 .landing-header h1 {
     font-size: 36px;

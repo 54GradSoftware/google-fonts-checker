@@ -38,14 +38,14 @@
     <p>
         Ein wichtiges Beispiel dafür ist das
         <b>Urteil des Landgerichts München</b>
-        vom 20. Januar 2022 (
+        vom 20. Januar 2022
         <a
             href="https://www.gesetze-bayern.de/Content/Document/Y-300-Z-GRURRS-B-2022-N-612?hl=true"
             target="_blank"
         >
-            Az. 3 O 17493/20
+          <i>(Az. 3 O 17493/20)</i>
         </a>
-        ). Das Gericht entschied, dass die unzulässige Einbindung von Google
+        . Das Gericht entschied, dass die unzulässige Einbindung von Google
         Fonts eine Verletzung des Persönlichkeitsrechts darstellt und damit
         einen
         <b>Datenschutzverstoß</b>
@@ -62,9 +62,7 @@
         <a
             href="https://www.golem.de/news/landgericht-muenchen-abmahnwelle-wegen-google-fonts-ist-rechtsmissbraeuchlich-2305-173866.html"
             target="_blank"
-        >
-            missbräuchliche Nutzung des Rechts
-        </a>
+        >missbräuchliche Nutzung des Rechts</a>
         dar, sodass daraus keine Ansprüche wie Schmerzensgeld geltend gemacht
         werden können.
     </p>
@@ -72,9 +70,6 @@
 </template>
 
 <style>
-.card {
-	margin-bottom: 6rem;
-}
 
 @media (max-width: 768px) {
     .card {

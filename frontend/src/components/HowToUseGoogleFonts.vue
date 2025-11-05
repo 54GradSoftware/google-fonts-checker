@@ -61,6 +61,10 @@
 </template>
 
 <style scoped>
+.subheading {
+    margin-top: 60px;
+    margin-bottom: 24px;
+}
 ul {
     padding-left: 1.2rem;
     margin-top: 1rem;

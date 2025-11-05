@@ -41,8 +41,8 @@ const faqItems = ref([
         question:
             'Wie kann ich feststellen, ob meine Webseite Google Fonts verwendet?',
         answer: `
-          Dafür haben wir den Google Fonts Checker entwickelt. Gib einfach oben die zu prüfende URL ein – unser Tool analysiert die angegebene Webseite und zeigt dir, ob Google Fonts extern eingebunden sind. <br><br>
-          <i>Hinweis: Unser Checker analysiert nur die konkrete Seite und keine weiteren Unterseiten der Domain. Für einen automatisierten Rundum-Check vollständiger Webanwendung bieten wir unser Qualitätsprüftool <a href="https://webrad.ar" target="_blank">webrad.ar</a> an.</i>
+          Dafür haben wir den Google Fonts Checker entwickelt. Gib einfach oben die <a href="#urlInput">zu prüfende URL ein</a> – unser Tool analysiert die angegebene Webseite und zeigt dir, ob Google Fonts extern eingebunden sind. <br><br>
+          <i>Hinweis:</i> Unser Checker analysiert nur die konkrete Seite und keine weiteren Unterseiten der Domain. Für einen automatisierten Rundum-Check vollständiger Webanwendung bieten wir unser Qualitätsprüftool <a href="https://webrad.ar" target="_blank">webrad.ar</a> an.
 
         `,
         open: false
@@ -52,7 +52,7 @@ const faqItems = ref([
         answer: `
           Wir, die 54 Grad Software GmbH, haben in Gesprächen mit vielen Kund*innen festgestellt, dass es rund um die Einbindung externer Inhalte auf Webseiten häufig Unsicherheiten gibt. Als Webentwickler*innen können wir relativ leicht herausfinden, welche externen Verbindungen bestehen – doch für viele Betreiber*innen ist das nicht ohne Weiteres möglich. <br><br>
           Zudem werden Google Fonts in zahlreichen WordPress-Themes und anderer Standardsoftware automatisch integriert. Um hier Transparenz zu schaffen und die Überprüfung zu erleichtern, haben wir dieses kleine Tool entwickelt und kostenlos zur Verfügung gestellt. <br><br>
-          Wir freuen uns sehr, dass das Projekt bereits über 400.000 mal genutzt wurde. Für Feedback, Ideen oder Fragen kannst du uns gerne eine E-Mail schicken.
+          Wir freuen uns sehr, dass das Projekt bereits über 400.000 mal genutzt wurde. Für Feedback, Ideen oder Fragen kannst du uns gerne eine <a href="mailto:kontakt+gfc@54gradsoftware.de">E-Mail</a> schicken.
         `,
         open: false
     },
@@ -78,7 +78,7 @@ const toggle = (index) => {
 </script>
 
 <template>
-    <div class="card faq-card">
+    <div class="card">
         <h2>FAQ</h2>
         <p class="subheading">Häufig gestellte Fragen</p>
 
@@ -116,9 +116,7 @@ const toggle = (index) => {
 </template>
 
 <style scoped>
-.faq-card {
-    padding: 2.5rem 5rem;
-}
+
 .subheading {
     font-size: 24px;
     margin-bottom: 3rem;
@@ -170,10 +168,5 @@ const toggle = (index) => {
 .accordion-enter-to {
     max-height: 500px;
     opacity: 1;
-}
-@media (max-width: 768px) {
-    .faq-card {
-        padding: 1.5rem 1.5rem;
-    }
 }
 </style>

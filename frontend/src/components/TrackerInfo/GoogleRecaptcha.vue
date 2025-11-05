@@ -19,5 +19,11 @@ import ScrollToAnchor from '@/components/ScrollToAnchor.vue';
 .heading {
   font-weight: 400;
   text-align: center;
+  margin-top: 60px;
+  margin-bottom: 24px;
+}
+
+p {
+  margin-bottom: 0;
 }
 </style>

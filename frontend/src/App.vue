@@ -286,11 +286,11 @@ body {
 }
 
 .card {
-  padding: 1.5rem 7rem;
+  padding: 56px 80px;
   border-radius: 23px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   background-color: #fff;
-  margin-bottom: 2rem;
+  margin-bottom: 80px;
   font-size: 20px;
 }
 
@@ -304,7 +304,7 @@ body {
 
 @media (max-width: 768px) {
   .card {
-    padding: 1rem 1.5rem;
+    padding: 32px 24px;
     font-size: 16px;
     margin-left: 0;
     margin-right: 0;

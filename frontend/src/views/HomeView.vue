@@ -5,7 +5,7 @@
         <div class="search">
           <h1>{{ $t('search.headline') }}</h1>
           <h2 v-html="$t('search.oneOfOurServices')"></h2>
-          <TrackerSearch   ref="trackerSearchComponent" @result="res=>result=res"/>
+          <TrackerSearch ref="trackerSearchComponent" @result="res=>result=res"/>
           <p v-if="!loading">
             <span>{{ $t('search.freeAndNoRegistration') }}</span>
             {{ $t('search.getResultInstantly') }}
@@ -70,9 +70,13 @@ const loading = computed(() => trackerSearchComponent.value?.loading ?? false);
             font-weight: normal;
           }
 
-          p span {
-            color: #B72956;
-            font-weight: 700;
+          p {
+            margin-bottom: 0;
+
+            span {
+              color: #B72956;
+              font-weight: 700;
+            }
           }
         }
         .linkToWhyNotToUse {

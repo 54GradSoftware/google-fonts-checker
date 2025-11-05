@@ -32,9 +32,7 @@ import { ref } from 'vue';
                 <a
                     href="https://www.gesetze-im-internet.de/ddg/BJNR0950B0024.html"
                     target="_blank"
-                >
-                    Digitale-Dienste-Gesetz (DDG)
-                </a>
+                >Digitale-Dienste-Gesetz (DDG)</a>
                 müssen Betreiber*innen von Webseiten mit geschäftlichem Zweck -
                 darunter meist auch Vereine oder Initiativen - ein Impressum
                 bereitstellen. Dieses muss leicht erkennbar, unmittelbar
@@ -57,10 +55,7 @@ import { ref } from 'vue';
                 <a
                     href="https://eur-lex.europa.eu/legal-content/DE/TXT/PDF/?uri=CELEX:32016R0679"
                     target="_blank"
-                >
-                    Datenschutz-Grundverordnung (DSGVO)
-                </a>
-                .
+                >Datenschutz-Grundverordnung (DSGVO)</a>.
             </p>
             <p>
                 Sie verpflichtet Betreiber*innen, in einer Datenschutzerklärung
@@ -91,9 +86,7 @@ import { ref } from 'vue';
                 <a
                     href="https://www.gesetze-im-internet.de/bfsg/"
                     target="_blank"
-                >
-                    Barrierefreiheitsstärkungsgesetz (BFSG)
-                </a>
+                >Barrierefreiheitsstärkungsgesetz (BFSG)</a>
                 wurde der European Accessibility Act ins nationale Recht
                 überführt. Seit dem
                 <b>28. Juni 2025</b>
@@ -108,9 +101,7 @@ import { ref } from 'vue';
                 <a
                     href="https://webrad.ar/dokumentation/lighthouse-barrierefreiheit"
                     target="_blank"
-                >
-                    Lighthouse-Barrierefreiheitsprüfung
-                </a>
+                >Lighthouse-Barrierefreiheitsprüfung</a>
                 von webrad.ar orientiert sich an den automatisiert prüfbaren
                 WCAG 2.1-Kriterien. Überprüft wird dabei die gesamte Webseite
                 mit allen Unterseiten. Somit hilft die Prüfung zentrale
@@ -181,6 +172,10 @@ import { ref } from 'vue';
 </template>
 
 <style scoped>
+.subheading {
+    margin-top: 60px;
+    margin-bottom: 24px;
+}
 ul {
     padding-left: 1.2rem;
     margin-top: 1rem;
@@ -247,8 +242,8 @@ li {
 }
 
 .image-content {
-    flex: 0 0 auto;
-    max-width: 200px;
+    flex: 1;
+    max-width: 430px;
 }
 
 .image-content img {

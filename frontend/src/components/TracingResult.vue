@@ -112,7 +112,7 @@ const copy = text => navigator.clipboard.writeText(text);
 onMounted(() => tracingResult.value.scrollIntoView({block: 'center', behavior: 'smooth'}));
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 .TracingResult {
   margin-top: 5rem;
 
@@ -135,6 +135,10 @@ onMounted(() => tracingResult.value.scrollIntoView({block: 'center', behavior: '
       align-items: center;
       gap: .75rem;
 
+      h2 {
+        margin: 0;
+      }
+
       img {
         width: 5rem;
         height: 5rem;
@@ -151,7 +155,6 @@ onMounted(() => tracingResult.value.scrollIntoView({block: 'center', behavior: '
 
     .tracker {
       overflow: hidden;
-      margin-top: .5rem;
 
       .name {
         width: 100%;
@@ -167,8 +170,6 @@ onMounted(() => tracingResult.value.scrollIntoView({block: 'center', behavior: '
       }
 
       .details {
-        padding: 1rem;
-
         .requestList {
           border: 1px #aaa solid;
           border-radius: .5rem;
@@ -200,8 +201,8 @@ onMounted(() => tracingResult.value.scrollIntoView({block: 'center', behavior: '
     h3.headline {
       text-align: center;
       font-weight: 400;
-      margin-top: 3rem;
-      margin-bottom: 1.5rem;
+      margin-top: 60px;
+      margin-bottom: 24px;
     }
 
     .text-share {
