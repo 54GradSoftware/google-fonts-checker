@@ -44,37 +44,12 @@ const checkForTrackers = async url => {
   result.value = undefined;
   emit('result', undefined);
   try {
-    result.value = {
-      "url":"https://fonts.google.com/icons",
-      "trackers": [
-          {
-            "slug": "google-fonts",
-            "url": "https://fonts.google.com/",
-            "showDetails": true,
-            "name": "Google Fonts",
-            "matches": [
-                {
-                  "method": "GET",
-                  "url": "https://fonts.gstatic.com/s/googlesansflex/v5/t5s6IQcYNIWbFgDgAAzZ34auoVyXkJCOvp3SFWJbN5hF8Ju1x5tKByN2l9sI40swNJwakXdYAZzz0jbnJ4qFQO5tGjLvDSkV4DyKMo6qQzwliVdHySgxyRg2.woff2"
-                },
-              {
-                "method": "GET",
-                "url": "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&v=1762272563174"
-              },
-              {
-                "method": "GET",
-                "url": "https://fonts.gstatic.com/s/materialsymbolsoutlined/v292/kJEhBvYX7BgnkSrUwT8OhrdQw4oELdPIeeII9v6oFsI.woff2"
-              }
-            ]
-          }
-      ],
-      "trackersNotLoaded": []
-    }
+    result.value = {"url":"https://accaii.com",
+      "trackers":[
+          {"slug": "google-fonts", "url": "https://fonts.google.com/", "showDetails": true, "name": "Google Fonts", "matches": [{"method": "GET", "url": "https://fonts.gstatic.com/s/googlesansflex/v5/t5s6IQcYNIWbFgDgAAzZ34auoVyXkJCOvp3SFWJbN5hF8Ju1x5tKByN2l9sI40swNJwakXdYAZzz0jbnJ4qFQO5tGjLvDSkV4DyKMo6qQzwliVdHySgxyRg2.woff2"}, {"method": "GET", "url": "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&v=1762272563174"}, {"method": "GET", "url": "https://fonts.gstatic.com/s/materialsymbolsoutlined/v292/kJEhBvYX7BgnkSrUwT8OhrdQw4oELdPIeeII9v6oFsI.woff2"}]},
+          {"slug":"google-recaptcha","url":"https://developers.google.com/recaptcha/","showDetails":true,"name":"Google reCAPTCHA","matches":[{"method":"GET","url":"https://www.google.com/recaptcha/api.js"}, {"method":"GET","url":"https://www.gstatic.com/recaptcha/releases/cLm1zuaUXPLFw7nzKiQTH1dX/recaptcha__en.js"},{"method":"GET","url":"https://www.gstatic.com/recaptcha/releases/cLm1zuaUXPLFw7nzKiQTH1dX/styles__ltr.css"},{"method":"GET","url":"https://www.gstatic.com/recaptcha/releases/cLm1zuaUXPLFw7nzKiQTH1dX/recaptcha__en.js"},{"method":"GET","url":"https://www.gstatic.com/recaptcha/releases/cLm1zuaUXPLFw7nzKiQTH1dX/recaptcha__en.js"},{"method":"GET","url":"https://www.gstatic.com/recaptcha/releases/cLm1zuaUXPLFw7nzKiQTH1dX/styles__ltr.css"},{"method":"GET","url":"https://www.gstatic.com/recaptcha/releases/cLm1zuaUXPLFw7nzKiQTH1dX/recaptcha__en.js"}]}
+      ],"trackersNotLoaded":[]}
 
-
-    /*await api.site(url, ['trackers', 'trackersNotLoaded'], res => {
-      if (res?.status === 102) loading.value = res.message ?? 'loading';
-    });*/
 
     console.log(JSON.stringify(result.value));
     localStorage.setItem('lastUrl', url);

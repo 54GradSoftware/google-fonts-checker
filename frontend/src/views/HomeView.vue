@@ -52,7 +52,8 @@ const loading = computed(() => trackerSearchComponent.value?.loading ?? false);
       .content {
         width: 100%;
         padding: 1.5rem;
-        max-width: 90vw;
+        max-width: 1440px;
+        margin: 0 auto;
         min-height: 100%;
 
         .search {

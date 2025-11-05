@@ -11,20 +11,14 @@
         </div>
 
         <div class="tracker" v-for="tracker in result.trackers" :key="tracker">
-          <!--
-          <div class="name" @click="tracker.showDetails = !tracker.showDetails">{{tracker.name}}</div>
-          <div class="details" v-if="tracker.showDetails">
-          -->
-          <div class="details">
-            <h3 class="headline">{{ $t('result.list.headline') }}</h3>
+          <TrackerInfoWrapper :tracker="tracker" class="details">
             <div class="requestList">
               <div class="request" v-for="request in tracker.matches" :key="request">
                 <div class="method">{{ request.method }}</div>
                 <div class="url">{{ request.url }}</div>
               </div>
             </div>
-            <TrackerInfoWrapper :tracker="tracker"/>
-          </div>
+          </TrackerInfoWrapper>
         </div>
       </template>
 
@@ -38,15 +32,14 @@
         </div>
 
         <div class="tracker" v-for="tracker in result.trackersNotLoaded" :key="tracker">
-          <div class="details">
-            <TrackerInfoWrapper :tracker="tracker"/>
-            <b>{{ $t('result.list.headline') }}</b>
+          <TrackerInfoWrapper :tracker="tracker" class="details">
             <div class="requestList">
               <div class="request" v-for="request in tracker.matches" :key="request">
+                <div class="method">{{ request.method }}</div>
                 <div class="url">{{ request.url }}</div>
               </div>
             </div>
-          </div>
+          </TrackerInfoWrapper>
         </div>
       </template>
 
@@ -73,7 +66,7 @@
       </template>
 
       <h3 class="headline">{{ $t('result.copy.headline') }}</h3>
-      <p>
+      <p class="text-share">
         Der Link enthält die von dir geprüfte URL und öffnet den Google Fonts Checker mit dieser Adresse vorausgefüllt.
         Deine Ergebnisse werden aus Datenschutzgründen nicht von uns gespeichert.
       </p>
@@ -209,6 +202,11 @@ onMounted(() => tracingResult.value.scrollIntoView({block: 'center', behavior: '
       font-weight: 400;
       margin-top: 3rem;
       margin-bottom: 1.5rem;
+    }
+
+    .text-share {
+      margin-bottom: 1.75rem;
+
     }
 
     .share {

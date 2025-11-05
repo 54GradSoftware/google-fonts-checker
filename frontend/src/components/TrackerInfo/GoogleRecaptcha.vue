@@ -1,6 +1,7 @@
 <template>
   <div class="GoogleFonts">
-    <h3 class="headline">{{ $t('result.tracker.GoogleRecaptcha.headline') }}</h3>
+    <h3 class="heading">{{ $t('result.tracker.GoogleRecaptcha.headline') }}</h3>
+    <slot></slot>
     <p>
       {{ $t('result.tracker.GoogleRecaptcha.section1') }}
       <ScrollToAnchor to="WhyNotToUse" class="more">{{ $t('result.tracker.GoogleRecaptcha.learnMore') }}</ScrollToAnchor>
@@ -13,5 +14,10 @@ import ScrollToAnchor from '@/components/ScrollToAnchor.vue';
 <style scoped>
 .more {
   color: #377FCC;
+}
+
+.heading {
+  font-weight: 400;
+  text-align: center;
 }
 </style>

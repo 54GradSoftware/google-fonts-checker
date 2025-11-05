@@ -1,6 +1,6 @@
 <template>
   <div class="ThrobberLoading">
-    <h2 class="title">Wir prüfen deine Seite ...</h2>
+    <h3 class="title">Wir prüfen deine Seite ...</h3>
     <img src="@/assets/throbber.svg" alt="loading" class="throbber">
 
     <h4 class="subtitle">Keine Lust zu warten?</h4>

@@ -91,22 +91,6 @@ html, body {
 body {
   position: relative;
   z-index: 0;
-
-  &::before {
-    content: "";
-    position: fixed;
-    top: -320px;
-    right: -320px;
-    width: 1040px;
-    height: 1040px;
-    background-image: url('./assets/logo512-outline.svg');
-    background-repeat: no-repeat;
-    background-size: contain;
-    opacity: 0.05;
-    transform: scaleX(-1);
-    z-index: -1;
-    pointer-events: none;
-  }
 }
 
 #app {
@@ -116,6 +100,10 @@ body {
   min-height: 100%;
   font-family: system-ui, sans-serif;
   line-height: 1.4;
+
+  a {
+    color: #377FCC;
+  }
 
   header {
     padding: 1.25rem 5rem;

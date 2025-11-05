@@ -1,5 +1,5 @@
 <template>
-    <div class="card">
+    <div class="card" id="WhyNotToUse">
 		<h2>Warum Google Fonts ein Datenschutz-Risiko sind</h2>
     <p>
         Google Fonts lädt standardmäßig die Schriftarten von der Google Content
@@ -33,8 +33,7 @@
         Zustimmung erfolgt, ist sie
         <b>datenschutzrechtlich problematisch</b>
         und verstößt je nach Anwendung gegen die
-        <b>DSGVO</b>
-        .
+        <b>DSGVO</b>.
     </p>
     <p>
         Ein wichtiges Beispiel dafür ist das
