@@ -9,11 +9,19 @@ const routes = [/*
   },
     */
     {
-        path: '/de-DE', name: 'home', component: HomeView
-    }, {
+        path: '/de-DE', name: 'homeDE', component: HomeView
+    },
+    {
+        path: '/en-US', name: 'homeUS', component: HomeView
+    },
+    {
+        path: '/en-UK', name: 'homeUK', component: HomeView
+    },
+    {
+        path: '/', name: 'home', component: HomeView
+    },
+    {
         path: '/success', name: 'successDE', component: SuccessView
-    }, {
-        path: '/', redirect: () => ({ path: '/de-DE' })
     }
 ];
 
