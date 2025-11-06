@@ -20,7 +20,7 @@
           <img src="./assets/icons/double_arrow_right.svg" alt=""/>
         </button>
       </a>
-      <SwitchLanguage/>
+      <!-- <SwitchLanguage/> -->
     </div>
   </header>
   <footer>
@@ -47,7 +47,7 @@
 </template>
 
 <script setup>
-import SwitchLanguage from '@/components/SwitchLanguage.vue';
+//import SwitchLanguage from '@/components/SwitchLanguage.vue';
 import { watch } from 'vue';
 import { useRoute } from 'vue-router';
 import { useI18n } from 'vue-i18n';

@@ -1,4 +1,5 @@
 export const messages = {
+  /*
   'en-US': {
     localeName: 'en',
     search: {
@@ -21,7 +22,7 @@ export const messages = {
       noticeTrueNotLoadedInfo: 'Some fonts were detected but not loaded by the browser. This mostly happens, when a request is considered as "mixed content".',
       noticeFalse: 'No externally loaded Google Fonts found',
       list: {
-        headline: 'Google Fonts wurden in diesen Anfragen gefunden',
+        headline: 'Found in the following requests:',
       },
       copy: {
         headline: 'Check link for this page',
@@ -34,12 +35,12 @@ export const messages = {
         GoogleFonts: {
           headline: 'Google Fonts were found in these requests',
           section1: 'If Google Fonts are externally loaded, they load the fonts from the Google CDN by default. In doing so, data such as the IP address or the visited website is transmitted. Therefore, depending on the use case, the use of Google Fonts mostly conflicts with the DSGVO.',
-          learnMore: 'learn more »',
+          learnMore: 'Learn more »',
         },
         GoogleRecaptcha: {
           headline: 'Google reCAPTCHA was found in these requests',
           section1: 'When Google reCAPTCHA is used, the service analyzes the behavior of visitors to distinguish real users from bots. As with Google Fonts, personal data is transmitted to Google. Here too, depending on the use case, the use may conflict with the DSGVO.',
-          learnMore: 'learn more »',
+          learnMore: 'Learn more »',
         },
         GoogleMaps: {
           headline: 'Why not to use Google Maps?',
@@ -47,7 +48,6 @@ export const messages = {
             'Google Maps tracks the user interaction with the site and also loads fonts from the Google CDN.\n' +
             'Some information - like your IP and the visited website - will be transmitted to Google.\n' +
             'Therefore the use of Google Maps/Google Fonts mostly conflicts with the DSGVO.',
-          learnMore: 'learn more »',
         },
         AdobeFonts: {
           headline: 'Why not to use Adobe Fonts?',
@@ -55,7 +55,6 @@ export const messages = {
             'Adobe Fonts tracks the user interaction with the site and also loads fonts from the Adobe CDN.\n' +
             'Some information - like your IP and the visited website - will be transmitted to Adobe.\n' +
             'Therefore the use of Adobe Fonts mostly conflicts with the DSGVO.',
-          learnMore: 'learn more',
         },
       },
     },
@@ -112,6 +111,7 @@ export const messages = {
       },
     },
   },
+   */
   'de-DE': {
     localeName: 'de',
     search: {
@@ -146,8 +146,7 @@ export const messages = {
       tracker: {
         GoogleFonts: {
           headline: 'Google Fonts wurden in diesen Anfragen gefunden',
-          section1:
-            'Wenn Google Fonts extern eingebunden sind, laden diese standardmäßig von der Google CDN. Dabei werden Daten wie die IP-Adresse oder die aufgerufene Website übermittelt. Dadurch verstößt die Nutzung von Google Fonts je nach Anwendungsfall meist gegen die DSGVO.',
+          section1: 'Wenn Google Fonts extern eingebunden sind, laden diese standardmäßig von der Google CDN. Dabei werden Daten wie die IP-Adresse oder die aufgerufene Website übermittelt. Dadurch verstößt die Nutzung von Google Fonts je nach Anwendungsfall meist gegen die DSGVO.',
           learnMore: 'Mehr erfahren »',
         },
         GoogleRecaptcha: {
