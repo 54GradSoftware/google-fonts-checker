@@ -9,17 +9,21 @@
       benachrichtigt dich.
     </h5>
 
-    <div class="arrow">
-      <span></span>
-      <span></span>
-      <span></span>
-      <div class="down"></div>
-    </div>
+
+    <ScrollToAnchor to="webradar-cta">
+      <div class="arrow">
+        <span></span>
+        <span></span>
+        <span></span>
+        <div class="down"></div>
+      </div>
+    </ScrollToAnchor>
   </div>
 </template>
 
 <script setup>
 import {defineProps} from 'vue';
+import ScrollToAnchor from "@/components/ScrollToAnchor.vue";
 defineProps({
   info: String
 });

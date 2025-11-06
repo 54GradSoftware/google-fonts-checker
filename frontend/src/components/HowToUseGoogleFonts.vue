@@ -22,9 +22,7 @@
                 <a
                     href="https://gwfh.mranftl.com/fonts"
                     target="_blank"
-                >
-                    Google Webfonts Helper
-                </a>
+                >Google Webfonts Helper</a>
                 verwenden und in 4 Schritten die Schriften selbst hosten:
             </p>
 
@@ -68,10 +66,9 @@
 ul {
     padding-left: 1.2rem;
     margin-top: 1rem;
+    list-style-type: decimal;
 }
-li {
-    margin-bottom: 0.8rem;
-}
+
 
 
 </style>

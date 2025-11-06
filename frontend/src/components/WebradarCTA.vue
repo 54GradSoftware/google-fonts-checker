@@ -10,7 +10,7 @@ import { ref } from 'vue';
 </script>
 
 <template>
-    <section class="landing">
+    <section class="landing" id="webradar-cta">
         <div class="landing-header">
             <h1>Google Fonts sind nur der Anfang</h1>
             <p>
@@ -255,6 +255,7 @@ import { ref } from 'vue';
 .subtitle {
     font-size: 20px;
     margin-top: 6px;
+    margin-bottom: 0;
 }
 
 .radar img {

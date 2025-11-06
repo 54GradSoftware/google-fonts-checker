@@ -57,7 +57,9 @@
             Wenn Google Fonts extern eingebunden sind, laden diese standardmäßig von der Google CDN.
             Dabei werden Daten wie die IP-Adresse oder die aufgerufene Website übermittelt.
             Dadurch verstößt die Nutzung von Google Fonts je nach Anwendungsfall meist gegen die DSGVO.
-            <a>Mehr erfahren »</a>
+            <ScrollToAnchor to="WhyNotToUse" class="more">
+              Mehr erfahren »
+            </ScrollToAnchor>
           </p>
           <p>
             <b>Hinweis:</b> Unsere Prüfung analysiert nur die eingegebene URL, nicht die gesamte Domain. Bereits eine einzelne Einbindung auf einer Unterseite kann datenschutzrechtlich relevant sein. Prüfe daher möglichst alle Unterseiten deiner Domain.
@@ -85,13 +87,14 @@
         schau doch mal bei webrad.ar vorbei.
       </p>
 
-      <div class="arrow">
-        <span></span>
-        <span></span>
-        <span></span>
-        <div class="down"></div>
-      </div>
-
+      <ScrollToAnchor to="webradar-cta">
+        <div class="arrow">
+          <span></span>
+          <span></span>
+          <span></span>
+          <div class="down"></div>
+        </div>
+      </ScrollToAnchor>
     </div>
   </div>
 </template>
@@ -99,6 +102,7 @@
 <script setup>
 import {defineProps, onMounted, ref} from 'vue';
 import TrackerInfoWrapper from '@/components/TrackerInfoWrapper.vue'
+import ScrollToAnchor from "@/components/ScrollToAnchor.vue";
 
 const props = defineProps({
   result: Object
