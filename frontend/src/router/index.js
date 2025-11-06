@@ -9,12 +9,13 @@ const routes = [/*
   },
     */
     {
-        path: '/', name: 'home', component: HomeView
+        path: '/de-DE', name: 'home', component: HomeView
     }, {
         path: '/success', name: 'successDE', component: SuccessView
     }, {
-        path: '/:pathMatch(.*)*', name: 'notfound', redirect: '/'
-    }];
+        path: '/', redirect: () => ({ path: '/de-DE' })
+    }
+];
 
 const router = createRouter({
     history: createWebHistory(process.env.BASE_URL),

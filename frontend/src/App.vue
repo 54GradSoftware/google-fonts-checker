@@ -9,7 +9,7 @@
         <div>Google Fonts Checker <span class="branding onlyDesktop">von 54 Grad Software</span></div>
       </div>
       <div class="right">
-        <SwitchLanguage/>
+        <!-- <SwitchLanguage/> -->
         <a href="https://github.com/54GradSoftware/google-fonts-checker/" target="_blank" rel="noreferrer" class="github" :aria-label="$t('header.linkToGithubAlt')">
           <img src="./assets/GitHub-Mark-Light-64px.png" alt="Logo GitHub">
         </a>
@@ -25,7 +25,7 @@
 </template>
 
 <script setup>
-import SwitchLanguage from '@/components/SwitchLanguage.vue';
+//import SwitchLanguage from '@/components/SwitchLanguage.vue';
 import { watch } from 'vue';
 import { useRoute } from 'vue-router';
 import { useI18n } from 'vue-i18n';
