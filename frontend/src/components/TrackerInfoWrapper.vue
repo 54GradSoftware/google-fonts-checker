@@ -1,6 +1,12 @@
 <template>
   <div class="TrackerInfoWrapper">
-    <component v-if="comp" :is="comp" />
+    <component
+        v-if="comp"
+        :is="comp"
+        v-bind="$attrs"
+    >
+      <slot></slot>
+    </component>
   </div>
 </template>
 

@@ -1,9 +1,13 @@
 export const messages = {
+  /*
   'en-US': {
     localeName: 'en',
     search: {
-      headline: 'Check your site for Google Fonts',
-      whyNotToUse: 'Why not to use Google Fonts?',
+      headline: 'The Google Fonts Checker',
+      button: 'Start Check',
+      oneOfOurServices: 'One of our <b>10</b> quality checks by <b>webrad.ar</b>',
+      freeAndNoRegistration: 'Free & no registration',
+      getResultInstantly: ' – get result instantly',
       placeholder: 'https://your.domain',
       label: 'URL to the website',
     },
@@ -12,34 +16,31 @@ export const messages = {
     text: 'Mit dem Google Fonts Checker wird die URL der eingebende Domain nach einer Einbindung von Google Fonts kontrolliert. Wir kontrollieren dabei nur die URL, keine Unterseiten. Für diese Kontrolle benutzen wir einen Google-Chrome Browser. In anderen Browsern kann es basierend auf der Konfiguration möglicherweise zu anderen Ergebnissen kommen. Wir übernehmen keine Haftung für das Ergebnis und sind keine Juristen. Der komplette Quellcode und Funktionsweise kann im Git Repository nachvollzogen werden.'
   },
     result: {
-      headline: 'Result:',
-      noticeTrue: 'Google Fonts detected!',
+      headline: 'Your result for:',
+      noticeTrue: 'Attention! Google Fonts detected',
       noticeTrueNotLoaded: 'Google Fonts detected, which were not loaded:',
       noticeTrueNotLoadedInfo: 'Some fonts were detected but not loaded by the browser. This mostly happens, when a request is considered as "mixed content".',
-      noticeFalse: 'We have not detected any external use of Google Fonts :D',
+      noticeFalse: 'No externally loaded Google Fonts found',
       list: {
-        headline: 'Found in the following Requests:',
+        headline: 'Found in the following requests:',
       },
       copy: {
-        headline: 'Share result:',
+        headline: 'Check link for this page',
         button: 'Copy URL',
+      },
+      more: {
+        headline: 'Check more with less effort',
       },
       tracker: {
         GoogleFonts: {
-          headline: 'Why not to use Google Fonts?',
-          section1:
-            'Google Fonts loads the fonts from the Google CDN by default.' +
-            'Some information - like your IP and the visited website - will be transmitted to Google.\n' +
-            'Therefore the use of Google Fonts mostly conflicts with the DSGVO.\n',
-          learnMore: 'learn more',
+          headline: 'Google Fonts were found in these requests',
+          section1: 'If Google Fonts are externally loaded, they load the fonts from the Google CDN by default. In doing so, data such as the IP address or the visited website is transmitted. Therefore, depending on the use case, the use of Google Fonts mostly conflicts with the DSGVO.',
+          learnMore: 'Learn more »',
         },
         GoogleRecaptcha: {
-          headline: 'Why not to use Google reCAPTCHA?',
-          section1:
-            'Google reCAPTCHA tracks the user interaction with the site and also loads fonts from the Google CDN.\n' +
-            'Some information - like your IP and the visited website - will be transmitted to Google.\n' +
-            'Therefore the use of Google reCAPTCHA/Google Fonts mostly conflicts with the DSGVO.',
-          learnMore: 'learn more',
+          headline: 'Google reCAPTCHA was found in these requests',
+          section1: 'When Google reCAPTCHA is used, the service analyzes the behavior of visitors to distinguish real users from bots. As with Google Fonts, personal data is transmitted to Google. Here too, depending on the use case, the use may conflict with the DSGVO.',
+          learnMore: 'Learn more »',
         },
         GoogleMaps: {
           headline: 'Why not to use Google Maps?',
@@ -47,7 +48,6 @@ export const messages = {
             'Google Maps tracks the user interaction with the site and also loads fonts from the Google CDN.\n' +
             'Some information - like your IP and the visited website - will be transmitted to Google.\n' +
             'Therefore the use of Google Maps/Google Fonts mostly conflicts with the DSGVO.',
-          learnMore: 'learn more',
         },
         AdobeFonts: {
           headline: 'Why not to use Adobe Fonts?',
@@ -55,7 +55,6 @@ export const messages = {
             'Adobe Fonts tracks the user interaction with the site and also loads fonts from the Adobe CDN.\n' +
             'Some information - like your IP and the visited website - will be transmitted to Adobe.\n' +
             'Therefore the use of Adobe Fonts mostly conflicts with the DSGVO.',
-          learnMore: 'learn more',
         },
       },
     },
@@ -112,11 +111,15 @@ export const messages = {
       },
     },
   },
+   */
   'de-DE': {
     localeName: 'de',
     search: {
-      headline: 'Überprüfe deine Seite nach Google Fonts',
-      whyNotToUse: 'Warum keine Google Fonts verwenden?',
+      button: 'Überprüfung starten',
+      headline: 'Der Google Fonts Checker',
+      oneOfOurServices: 'Eine unserer <b>10</b> Qualitätsprüfungen von <b>webrad.ar</b>',
+      freeAndNoRegistration: 'Kostenlos & ohne Anmeldung',
+      getResultInstantly: ' – Ergebnis sofort erhalten',
       placeholder: 'https://deine.domain',
       label: 'URL der Website',
     },
@@ -125,34 +128,31 @@ export const messages = {
       text: 'Mit dem Google Fonts Checker wird die URL der eingebende Domain nach einer Einbindung von Google Fonts kontrolliert. Wir kontrollieren dabei nur die URL, keine Unterseiten. Für diese Kontrolle benutzen wir einen Google-Chrome Browser. In anderen Browsern kann es basierend auf der Konfiguration möglicherweise zu anderen Ergebnissen kommen. Wir übernehmen keine Haftung für das Ergebnis und sind keine Juristen. Der komplette Quellcode und Funktionsweise kann im Git Repository nachvollzogen werden.'
     },
     result: {
-      headline: 'Ergebnis:',
-      noticeTrue: 'Google Fonts wurden erkannt!',
+      headline: 'Dein Ergebnis für:',
+      noticeTrue: 'Achtung! Google Fonts wurden erkannt',
       noticeTrueNotLoaded: 'Google Fonts erkannt, welche nicht geladen worden:',
       noticeTrueNotLoadedInfo: 'Es wurden Google Fonts erkannt, welche jedoch nicht geladen worden. Das passiert meistens, wenn Anfragen vom Browser als "mixed content" eingestuft werden',
-      noticeFalse: 'Wir haben keine externe Nutzung von Google Fonts erkannt :D',
+      noticeFalse: 'Keine extern eingebundenen Google Fonts gefunden',
       list: {
         headline: 'Gefunden in den folgenden Anfragen:',
       },
       copy: {
-        headline: 'Ergebnis teilen:',
+        headline: 'Prüflink für diese Seite',
         button: 'URL kopieren',
+      },
+      more: {
+        headline: 'Mehr prüfen. Weniger Aufwand',
       },
       tracker: {
         GoogleFonts: {
-          headline: 'Warum keine Google Fonts verwenden?',
-          section1:
-            'Google Fonts lädt standardmäßig die Schriftarten von der Google CDN.' +
-            'Einige Daten - wie z.B. deine IP-Adresse und die aufgerufene Website - werden dabei an Google übermittelt.\n' +
-            'Dadurch verstößt die Nutzung von Google Fonts je nach Anwendungsfall meist gegen die DSGVO.\n',
-          learnMore: 'mehr erfahren',
+          headline: 'Google Fonts wurden in diesen Anfragen gefunden',
+          section1: 'Wenn Google Fonts extern eingebunden sind, laden diese standardmäßig von der Google CDN. Dabei werden Daten wie die IP-Adresse oder die aufgerufene Website übermittelt. Dadurch verstößt die Nutzung von Google Fonts je nach Anwendungsfall meist gegen die DSGVO.',
+          learnMore: 'Mehr erfahren »',
         },
         GoogleRecaptcha: {
-          headline: 'Warum kein Google reCAPTCHA verwenden?',
-          section1:
-            'Google reCAPTCHA trackt das Nutzungsverhalten des Users auf der Webseite und lädt standardmäßig die Schriftarten von der Google CDN.' +
-            'Einige Daten - wie z.B. deine IP-Adresse und die aufgerufene Website - werden dabei an Google übermittelt.' +
-            'Dadurch verstößt die Nutzung von Google reCAPTCHA/Google Fonts je nach Anwendungsfall meist gegen die DSGVO.',
-          learnMore: 'mehr erfahren',
+          headline: 'Google reCAPTCHA wurde in diesen Anfragen gefunden',
+          section1: 'Wenn Google reCAPTCHA verwendet wird, analysiert der Dienst das Verhalten der Besucher*innen, um echte Nutzer*innen von Bots zu unterscheiden. Dabei werden wie bei den Google Fonts personenbezogene Daten an Google übermittelt. Auch hier kann die Nutzung je nach Anwendungsfall gegen die DSGVO verstoßen.',
+          learnMore: 'Mehr erfahren »',
         },
         GoogleMaps: {
           headline: 'Warum kein Google Maps verwenden?',
