@@ -1,0 +1,70 @@
+networks:
+  web:
+    external: true
+  default:
+    external: false
+
+services:
+  redis:
+    image: redis:alpine
+    expose:
+      - 6379
+    restart: always
+    environment:
+      - REDIS_REPLICATION_MODE=master
+    networks:
+      - default
+
+  backend:
+    build:
+      context: backend
+      dockerfile: docker/Dockerfile
+    restart: always
+    links:
+      - redis
+    depends_on:
+      - redis
+    networks:
+      - default
+
+  worker:
+    build:
+      context: .
+      dockerfile: worker/docker/Dockerfile
+    restart: always
+    links:
+      - redis
+    depends_on:
+      - redis
+    networks:
+      - default
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/docker/Dockerfile
+    ports:
+      - 127.0.0.1:8080:8080
+    links:
+      - backend
+    depends_on:
+      - backend
+    networks:
+      - web
+      - default
+    labels:
+      - "traefik.enable=true"
+
+      - "traefik.http.routers.gfcHttp.rule=Host(`google-fonts-checker.54gradsoftware.de`)"
+      - "traefik.http.routers.gfcHttp.entrypoints=http"
+      - "traefik.http.routers.gfcHttp.middlewares=redirecttls"
+      - "traefik.http.middlewares.redirecttls.redirectscheme.scheme=https"
+
+      - "traefik.http.routers.gfc.rule=Host(`google-fonts-checker.54gradsoftware.de`)"
+      - "traefik.http.routers.gfc.entrypoints=https"
+      - "traefik.http.services.gfc.loadbalancer.server.port=8080"
+      - "traefik.http.routers.gfc.tls.certresolver=mytlschallenge"
+      - "traefik.docker.network=web"
+
+
+

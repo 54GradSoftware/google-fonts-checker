@@ -14,8 +14,10 @@ RUN apk add --no-cache \
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
     PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser
 
-COPY ./worker /home/node/app/worker
-COPY ./helpers /home/node/app/helpers
+WORKDIR /home/node/app
+
+COPY ../worker ./worker
+COPY ../helpers ./helpers
 
 WORKDIR /home/node/app/worker
 
