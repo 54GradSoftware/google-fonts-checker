@@ -17,8 +17,8 @@ services:
 
   backend:
     build:
-      context: backend
-      dockerfile: docker/Dockerfile
+      context: .
+      dockerfile: backend/docker/Dockerfile
     restart: always
     links:
       - redis
