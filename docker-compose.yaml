@@ -1,8 +1,5 @@
 networks:
-  web:
-    external: true
-  default:
-    external: false
+  stack:
 
 services:
   redis:
@@ -13,7 +10,7 @@ services:
     environment:
       - REDIS_REPLICATION_MODE=master
     networks:
-      - default
+      - stack
 
   backend:
     build:
@@ -25,7 +22,7 @@ services:
     depends_on:
       - redis
     networks:
-      - default
+      - stack
 
   worker:
     build:
@@ -37,7 +34,7 @@ services:
     depends_on:
       - redis
     networks:
-      - default
+      - stack
 
   frontend:
     build:
@@ -50,5 +47,4 @@ services:
     depends_on:
       - backend
     networks:
-      - web
-      - default
+      - stack
