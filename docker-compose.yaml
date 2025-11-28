@@ -6,8 +6,6 @@ services:
     restart: always
     environment:
       - REDIS_REPLICATION_MODE=maste
-    networks:
-      - stack
 
   backend:
     build:
