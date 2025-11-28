@@ -32,7 +32,7 @@ services:
       context: .
       dockerfile: frontend/docker/Dockerfile
     ports:
-      - 127.0.0.1:8080:8083
+      - 127.0.0.1:8083:8083
     links:
       - backend
     depends_on:
