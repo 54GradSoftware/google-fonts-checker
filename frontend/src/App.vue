@@ -14,11 +14,11 @@
         <p>Entdecke alle unsere</p>
         <p><b>Webseiten-Prüfungen</b></p>
       </div>
-      <a href="https://webrad.ar"">
+      <a href="https://webrad.ar">
         <button>
           Zu webrad.ar
           <img src=" ./assets/icons/double_arrow_right.svg" alt="" />
-      </button>
+        </button>
       </a>
       <!-- <SwitchLanguage/> -->
     </div>
@@ -38,7 +38,7 @@
       <div class="links">
         <a href="https://54gradsoftware.de/impressum" target="_blank" rel="noreferrer">{{ $t('footer.imprint') }}</a> -
         <a href="https://54gradsoftware.de/datenschutz" target="_blank" rel="noreferrer">{{ $t('footer.privacyNotice')
-          }}</a>
+        }}</a>
       </div>
     </div>
     <a class="github" href="https://github.com/54GradSoftware/google-fonts-checker" target="_blank" rel="noreferrer">
