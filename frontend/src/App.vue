@@ -1,5 +1,5 @@
 <template>
-  <router-view/>
+  <router-view />
   <header role="navigation">
     <div class="left">
       <img src="./assets/logo-figma.png" alt="logo" class="logo onlyDesktop" height="81">
@@ -14,11 +14,11 @@
         <p>Entdecke alle unsere</p>
         <p><b>Webseiten-Prüfungen</b></p>
       </div>
-      <a>
+      <a href="https://webrad.ar"">
         <button>
           Zu webrad.ar
-          <img src="./assets/icons/double_arrow_right.svg" alt=""/>
-        </button>
+          <img src=" ./assets/icons/double_arrow_right.svg" alt="" />
+      </button>
       </a>
       <!-- <SwitchLanguage/> -->
     </div>
@@ -37,7 +37,8 @@
 
       <div class="links">
         <a href="https://54gradsoftware.de/impressum" target="_blank" rel="noreferrer">{{ $t('footer.imprint') }}</a> -
-        <a href="https://54gradsoftware.de/datenschutz" target="_blank" rel="noreferrer">{{ $t('footer.privacyNotice') }}</a>
+        <a href="https://54gradsoftware.de/datenschutz" target="_blank" rel="noreferrer">{{ $t('footer.privacyNotice')
+          }}</a>
       </div>
     </div>
     <a class="github" href="https://github.com/54GradSoftware/google-fonts-checker" target="_blank" rel="noreferrer">
@@ -62,7 +63,6 @@ watch(() => route.params.locale, locale => {
 </script>
 
 <style lang="scss">
-
 h1 {
   font-size: 72px;
 }
@@ -75,14 +75,17 @@ h2 {
 h3 {
   font-size: 32px;
 }
+
 h4 {
   font-size: 24px;
 }
+
 h5 {
   font-size: 20px;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   color: #393A4A;
@@ -119,7 +122,11 @@ body {
     justify-content: space-between;
     min-height: 4rem;
 
-    p, h1, h2, h3, h4 {
+    p,
+    h1,
+    h2,
+    h3,
+    h4 {
       margin: 0;
     }
 
@@ -179,7 +186,11 @@ body {
     background-color: #377FCC;
     color: #fff;
 
-    p, h1, h2, h3, h4 {
+    p,
+    h1,
+    h2,
+    h3,
+    h4 {
       margin: 0;
     }
 
@@ -275,10 +286,12 @@ body {
   .onlyDesktop {
     display: none;
   }
+
   .back {
     right: -40rem;
   }
 }
+
 .box {
   border: 1px #aaa solid;
   border-radius: .5rem;

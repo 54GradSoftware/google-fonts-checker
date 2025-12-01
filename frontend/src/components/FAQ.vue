@@ -66,7 +66,7 @@ const faqItems = ref([
         question: 'Was ist die 54 Grad Software GmbH?',
         answer: `
           Seit 2020 entwickeln wir mit Sitz in Flensburg individuelle Softwarelösungen für Unternehmen aus verschiedensten Branchen. Was all unsere Kund*innen verbindet, ist der Wunsch nach qualitativ hochwertigen und passgenauen Webanwendungen. <br><br>
-          Unsere Mission bei <a href="https://54grad-software.de" target="_blank">54 Grad Software</a> ist es, Branchen nachhaltig weiterzuentwickeln – mit norddeutscher Leichtigkeit, jahrelanger Expertise und einem klaren Fokus auf Innovation und Transparenz. Wir entwickeln maßgeschneiderte Softwarelösungen, die Unternehmen dabei unterstützen, agiler und zukunftsfähiger zu werden.
+          Unsere Mission bei <a href="https://54gradsoftware.de" target="_blank">54 Grad Software</a> ist es, Branchen nachhaltig weiterzuentwickeln – mit norddeutscher Leichtigkeit, jahrelanger Expertise und einem klaren Fokus auf Innovation und Transparenz. Wir entwickeln maßgeschneiderte Softwarelösungen, die Unternehmen dabei unterstützen, agiler und zukunftsfähiger zu werden.
         `,
         open: false
     }
@@ -83,30 +83,15 @@ const toggle = (index) => {
         <p class="subheading">Häufig gestellte Fragen</p>
 
         <div class="faq-list">
-            <div
-                v-for="(item, index) in faqItems"
-                :key="index"
-                class="faq-item"
-            >
-                <button
-                    class="faq-header"
-                    @click="toggle(index)"
-                    :aria-expanded="item.open"
-                >
-                    <img
-                        :src="item.open ? plusFilled : plusOutline"
-                        class="icon"
-                        :alt="item.open ? 'Schließen' : 'Öffnen'"
-                    />
+            <div v-for="(item, index) in faqItems" :key="index" class="faq-item">
+                <button class="faq-header" @click="toggle(index)" :aria-expanded="item.open">
+                    <img :src="item.open ? plusFilled : plusOutline" class="icon"
+                        :alt="item.open ? 'Schließen' : 'Öffnen'" />
                     <span>{{ item.question }}</span>
                 </button>
 
                 <transition name="accordion">
-                    <div
-                        v-if="item.open"
-                        class="faq-content"
-                        v-html="item.answer"
-                    />
+                    <div v-if="item.open" class="faq-content" v-html="item.answer" />
                 </transition>
 
                 <hr class="divider" />
@@ -116,16 +101,17 @@ const toggle = (index) => {
 </template>
 
 <style scoped>
-
 .subheading {
     font-size: 24px;
     margin-bottom: 3rem;
     text-align: center;
     color: #444;
 }
+
 .faq-item {
     width: 100%;
 }
+
 .faq-header {
     width: 100%;
     display: flex;
@@ -139,32 +125,39 @@ const toggle = (index) => {
     padding: 1rem 0;
     cursor: pointer;
 }
+
 .faq-header span {
     flex: 1;
 }
+
 .icon {
     width: 26px;
     height: 26px;
     flex-shrink: 0;
 }
+
 .faq-content {
     font-size: 18px;
     color: #333;
     padding: 0.5rem 2rem 1.5rem 3.1rem;
 }
+
 .divider {
     opacity: 0.3;
     margin: 0.5rem 0 1rem;
 }
+
 .accordion-enter-active,
 .accordion-leave-active {
     transition: max-height 0.25s ease, opacity 0.25s ease;
 }
+
 .accordion-enter-from,
 .accordion-leave-to {
     max-height: 0;
     opacity: 0;
 }
+
 .accordion-enter-to {
     max-height: 500px;
     opacity: 1;

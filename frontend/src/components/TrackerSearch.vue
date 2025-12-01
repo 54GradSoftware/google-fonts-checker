@@ -1,21 +1,21 @@
 <template>
   <div class="TrackerSearch" id="GoogleFontsCheck">
     <div class="loading" v-if="loading">
-      <ThrobberLoading/>
+      <ThrobberLoading />
     </div>
     <form v-else @submit.prevent="checkForTrackers(url)">
-      <label class="visually-hidden" for="urlInput">{{$t('search.label')}}</label>
+      <label class="visually-hidden" for="urlInput">{{ $t('search.label') }}</label>
       <input type="text" v-model="url" :placeholder="$t('search.placeholder')" id="urlInput">
-      <button type="submit">{{$t('search.button')}}</button>
+      <button type="submit">{{ $t('search.button') }}</button>
     </form>
   </div>
-  <div class="error" v-if="error">{{error}}</div>
+  <div class="error" v-if="error">{{ error }}</div>
 </template>
 
 <script setup>
-import {ref, defineEmits, onMounted, defineExpose} from 'vue';
-import {useRouter, useRoute} from 'vue-router';
-import {API} from '@/lib/API';
+import { ref, defineEmits, onMounted, defineExpose } from 'vue';
+import { useRouter, useRoute } from 'vue-router';
+import { API } from '@/lib/API';
 import validUrl from 'valid-url';
 import ThrobberLoading from '@/components/ThrobberLoading.vue';
 
@@ -25,7 +25,7 @@ const emit = defineEmits({
 const router = useRouter();
 const route = useRoute();
 
-const url = ref(localStorage.getItem('lastUrl')??'')
+const url = ref(localStorage.getItem('lastUrl') ?? '')
 const error = ref(undefined)
 const result = ref(undefined);
 const loading = ref(false);
@@ -54,13 +54,14 @@ const checkForTrackers = async url => {
 
   }
   catch (e) {
+    console.error(e)
     error.value = 'failed to resolve';
   }
 
   loading.value = false;
 }
 
-onMounted(()=>{
+onMounted(() => {
   if (route.query?.url && validUrl.isWebUri(route.query?.url)) url.value = route.query.url;
 });
 
@@ -70,46 +71,46 @@ defineExpose({
 </script>
 
 <style scoped lang="scss">
-  .TrackerSearch {
-    width: 100%;
+.TrackerSearch {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  form {
     display: flex;
-    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border-radius: 5px;
+    max-width: 40rem;
+    margin: 1rem;
 
-    form {
-      display: flex;
-      align-items: center;
-      width: 100%;
-      border-radius: 5px;
-      max-width: 40rem;
-      margin: 1rem;
+    input {
+      font-size: 16px;
+      padding: .825rem;
+      border: 2px #DADADA solid;
+      border-radius: 5px 0 0 5px;
+      flex-grow: 1;
+    }
 
-      input {
-        font-size: 16px;
-        padding: .825rem;
-        border: 2px #DADADA solid;
-        border-radius: 5px 0 0 5px;
-        flex-grow: 1;
-      }
-
-      button {
-        padding: .75rem;
-        background-color: #377FCC;
-        border: 1px #377FCC solid;
-        color: #fff;
-        border-radius: 0 5px 5px 0;
-        flex-grow: 1;
-        width: max-content;
-        font-size: 20px;
-        min-width: max-content;
-        max-width: max-content;
-        font-weight: bold;
-        cursor: pointer;
-      }
+    button {
+      padding: .75rem;
+      background-color: #377FCC;
+      border: 1px #377FCC solid;
+      color: #fff;
+      border-radius: 0 5px 5px 0;
+      flex-grow: 1;
+      width: max-content;
+      font-size: 20px;
+      min-width: max-content;
+      max-width: max-content;
+      font-weight: bold;
+      cursor: pointer;
     }
   }
+}
 
-  .error {
-    text-align: center;
-    color: #be1414;
-  }
+.error {
+  text-align: center;
+  color: #be1414;
+}
 </style>
