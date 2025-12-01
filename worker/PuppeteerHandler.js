@@ -1,7 +1,7 @@
 import puppeteer from 'puppeteer';
 
-export class PuppeteerHandler{
-  constructor({ timeout = 10_000 } = {}) {
+export class PuppeteerHandler {
+  constructor({ timeout = 15_000 } = {}) {
     this.timout = timeout;
   }
 
@@ -13,28 +13,29 @@ export class PuppeteerHandler{
         "--disable-dev-shm-usage",
         "--disable-setuid-sandbox",
         "--no-sandbox",
+        "--incognito",
       ]
     });
     this.page = await this.browser.newPage();
   }
 
-  async close(){
+  async close() {
     await this.browser.close();
   }
 
-  async isReady(){
-    return new Promise(resolve=>{
-      setTimeout(()=>{
+  async isReady() {
+    return new Promise(resolve => {
+      setTimeout(() => {
         resolve(!this.page.tracing._recording);
-      },32);
+      }, 32);
     });
   }
 
-  async traceUrl(url, retry = 1){
+  async traceUrl(url, retry = 1) {
     return new Promise(async (resolve, reject) => {
-      try{
+      try {
         await this.page.goto('about:blank');
-        await this.page.tracing.start({path: './tracing.json'});
+        await this.page.tracing.start({ path: './tracing.json' });
         await this.page.goto(url, { waitUntil: 'networkidle0', timeout: this.timout });
         //let screenshot = await page.screenshot();
         const tracing = JSON.parse(await this.page.tracing.stop() || '{}');
@@ -52,11 +53,11 @@ export class PuppeteerHandler{
           })),
           //screenshot: screenshot.toString('base64url')
         });
-      }catch (e) {
+      } catch (e) {
         console.log(`failed, restart puppeteer`);
         await this.close();
         await this.init();
-        if (retry-- < 1){
+        if (retry-- < 1) {
           reject(e);
           return;
         }

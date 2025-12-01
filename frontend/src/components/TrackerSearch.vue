@@ -55,7 +55,7 @@ const checkForTrackers = async url => {
   }
   catch (e) {
     console.error(e)
-    error.value = 'failed to resolve';
+    error.value = 'Prüfung fehlgeschlagen. Bitte versuchen Sie es später erneut.';
   }
 
   loading.value = false;
