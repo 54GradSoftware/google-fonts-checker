@@ -17,7 +17,7 @@
       <a href="https://webrad.ar">
         <button>
           Zu webrad.ar
-          <img src=" ./assets/icons/double_arrow_right.svg" alt="" />
+          <img src="./assets/icons/double_arrow_right.svg" alt="" />
         </button>
       </a>
       <!-- <SwitchLanguage/> -->
